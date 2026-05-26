@@ -1,0 +1,67 @@
+import Link from 'next/link';
+
+const pillars = [
+  {
+    number: '01',
+    eyebrow: 'Increase Revenue',
+    heading: 'Accelerate Revenue Growth Through Faster, High-Quality Releases',
+    body: 'Mobot empowers mobile enterprises to release high-quality, user-centered products faster—capturing new users, driving engagement, and fueling revenue growth.',
+  },
+  {
+    number: '02',
+    eyebrow: 'Reduce Costs',
+    heading: 'Reduce Operational Costs Across All Mobile Processes',
+    body: 'Mobot eliminates manual tasks, enabling enterprises to scale efficiently without increasing operational costs—allowing teams to focus on higher-value activities.',
+  },
+  {
+    number: '03',
+    eyebrow: 'Mitigate Risk',
+    heading: 'Mitigate Risk with Early Issue Detection and Data-Driven Insights',
+    body: 'Mobot helps enterprises detect critical issues early to maintain reliability and user trust, leveraging data-driven insights for better decisions and reduced uncertainty.',
+  },
+];
+
+export default function EnterprisePillars() {
+  return (
+    <section className="py-28 px-6">
+      <div className="mx-auto max-w-[77rem]">
+        <h2 className="text-5xl font-bold text-center leading-tight mb-20 max-w-[48rem] mx-auto">
+          The Only Mobile Automation Platform Designed for{' '}
+          <span className="gradient-text">Modern Enterprises</span>
+        </h2>
+
+        <div className="flex flex-col gap-5">
+          {pillars.map((pillar) => (
+            <div
+              key={pillar.number}
+              className="grid md:grid-cols-[auto_1fr_auto] gap-8 items-start
+                         rounded-2xl border border-white/10 bg-white/5 p-10
+                         shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]
+                         hover:border-white/20 transition-colors"
+            >
+              <div className="text-5xl font-bold gradient-text opacity-60 leading-none">
+                {pillar.number}
+              </div>
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-[0.15em] mb-3">
+                  {pillar.eyebrow}
+                </p>
+                <h3 className="text-2xl font-bold leading-snug mb-4">{pillar.heading}</h3>
+                <p className="text-white/50 text-sm leading-relaxed max-w-[42rem]">{pillar.body}</p>
+              </div>
+              <div className="md:pt-6">
+                <Link
+                  href="/schedule-demo"
+                  className="whitespace-nowrap inline-flex px-5 py-2.5 rounded-full border border-white/20
+                             text-white hover:bg-white/10 transition-colors text-sm"
+                >
+                  Schedule a Demo →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

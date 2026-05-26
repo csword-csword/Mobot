@@ -85,3 +85,24 @@ body {
   line-height: 150%;
   -webkit-font-smoothing: antialiased;
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, #d1aad7, #c88bc4, #7b8fdd, #86bff2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

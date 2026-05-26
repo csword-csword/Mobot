@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Twitter, Linkedin } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const columns = [
   {
@@ -59,10 +59,10 @@ export default function Footer() {
                 href="https://twitter.com/teammobot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-white transition-colors"
-                aria-label="Twitter"
+                className="text-white/40 hover:text-white transition-colors text-xs"
+                aria-label="Twitter / X"
               >
-                <Twitter className="w-4 h-4" />
+                𝕏
               </a>
               <a
                 href="https://www.linkedin.com/company/team-mobot"
@@ -71,7 +71,7 @@ export default function Footer() {
                 className="text-white/40 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-4 h-4" />
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>
