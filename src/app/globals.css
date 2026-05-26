@@ -1,16 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Relative";
+  src: url("/fonts/relative-book.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Relative";
+  src: url("/fonts/relative-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Colors */
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+
+  --color-blue-primary: #3da6fc;
+  --color-blue-cta: #2f87c8;
+  --color-blue-light: #86bff2;
+  --color-blue-lightest: #b3dbff;
+  --color-cornflower: #7b8fdd;
+  --color-plum: #d1aad7;
+  --color-plum-dark: #c88bc4;
+  --color-green: #23ce2e;
+
+  /* Glass surfaces */
+  --color-glass-sm: rgba(255, 255, 255, 0.05);
+  --color-glass-md: rgba(255, 255, 255, 0.10);
+  --color-glass-lg: rgba(255, 255, 255, 0.15);
+
+  /* Typography */
+  --font-sans: "Relative", sans-serif;
+
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+
+  /* Spacing / layout */
+  --max-w-container: 77rem;
+  --max-w-wide: 80rem;
+  --max-w-content: 50rem;
+
+  /* Shadows */
+  --shadow-glow-blue: 0 15px 35px rgba(61, 166, 252, 0.26);
+  --shadow-glow-blue-strong: 0 15px 35px rgba(61, 166, 252, 0.72);
+  --shadow-glow-plum: 0 2px 35px rgba(200, 139, 196, 0.25);
+  --shadow-glass: inset -1px 1px 1px rgba(255, 255, 255, 0.18);
+  --shadow-card: 0 32px 48px rgba(0, 0, 0, 0.25), inset -1px 0 1px rgba(255, 255, 255, 0.18);
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 200000px;
+
+  /* Breakpoints (Webflow-converted to min-width) */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 150%;
+  -webkit-font-smoothing: antialiased;
 }
