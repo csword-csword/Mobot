@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 
 const columns = [
@@ -48,8 +49,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <Link href="/" className="text-white font-bold text-xl">
-              Mobot
+            <Link href="/">
+              <Image src="/images/Mobot-Logo.svg" alt="Mobot" width={100} height={28} />
             </Link>
             <p className="mt-4 text-white/40 text-sm leading-relaxed max-w-[200px]">
               AI-powered mechanical robots for mobile testing.

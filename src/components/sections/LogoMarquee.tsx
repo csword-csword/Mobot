@@ -1,14 +1,18 @@
 import Image from 'next/image';
 
 const logos = [
-  { src: '/images/logos/jolt-logo.avif', alt: 'Jolt' },
-  { src: '/images/logos/koho-logo.avif', alt: 'KOHO' },
-  { src: '/images/logos/batch-logo.svg', alt: 'Batch' },
-  { src: '/images/logos/step-logo.avif', alt: 'Step' },
-  { src: '/images/logos/persona-logo.avif', alt: 'Persona' },
-  { src: '/images/logos/onx-logo.avif', alt: 'OnX' },
-  { src: '/images/logos/citizen-logo.avif', alt: 'Citizen' },
-  { src: '/images/logos/vivint-logo.png', alt: 'Vivint' },
+  { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
+  { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
+  { src: '/images/batch-logo.svg', alt: 'Batch' },
+  { src: '/images/step-logo_1.avif', alt: 'Step' },
+  { src: '/images/persona-logo_1.avif', alt: 'Persona' },
+  { src: '/images/on-x-logo_1.avif', alt: 'OnX' },
+  { src: '/images/citizen-logo_1.avif', alt: 'Citizen' },
+  { src: '/images/Vivint.png', alt: 'Vivint' },
+  { src: '/images/Group-234.svg', alt: '' },
+  { src: '/images/why-logo.avif', alt: '' },
+  { src: '/images/Logo-02.svg', alt: '' },
+  { src: '/images/Logo-03.svg', alt: '' },
 ];
 
 export default function LogoMarquee() {
@@ -18,10 +22,8 @@ export default function LogoMarquee() {
         Trusted by
       </p>
       <div className="relative overflow-hidden">
-        {/* Fade edges */}
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
-
         <div className="flex animate-marquee gap-16 items-center">
           {[...logos, ...logos].map((logo, i) => (
             <div key={i} className="shrink-0 relative h-7 w-[100px]">

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X, Zap } from 'lucide-react';
 
@@ -74,8 +75,8 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-[75rem] px-6 h-[72px] flex items-center justify-between gap-8">
         {/* Logo */}
-        <Link href="/" className="shrink-0 text-white font-bold text-xl tracking-tight">
-          Mobot
+        <Link href="/" className="shrink-0">
+          <Image src="/images/Mobot-Logo.svg" alt="Mobot" width={100} height={28} priority />
         </Link>
 
         {/* Desktop nav */}

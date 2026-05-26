@@ -10,10 +10,8 @@ export default function Hero() {
         muted
         loop
         playsInline
-        poster="/videos/hero-poster.jpg"
       >
-        <source src="/videos/hero.webm" type="video/webm" />
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/mobot-optimized-transcode.mp4" type="video/mp4" />
       </video>
 
       {/* Gradient overlay */}
