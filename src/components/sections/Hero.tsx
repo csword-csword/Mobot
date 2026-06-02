@@ -19,11 +19,10 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-[64rem] mx-auto px-6 text-center pt-36 pb-24">
-        <h1 className="text-7xl sm:text-8xl lg:text-9xl font-bold leading-[0.95] tracking-tight mb-10">
-          <span className="block">REAL ROBOTS</span>
-          <span className="block">REAL DEVICES</span>
-          <span className="block gradient-text">MISSION CRITICAL</span>
-          <span className="block gradient-text">USE CASES</span>
+        <h1 className="font-bold tracking-tight mb-10 flex flex-col gap-4">
+          <span className="block text-7xl sm:text-8xl lg:text-9xl leading-none">REAL ROBOTS</span>
+          <span className="block text-7xl sm:text-8xl lg:text-9xl leading-none">REAL DEVICES</span>
+          <span className="block text-4xl sm:text-5xl lg:text-6xl leading-none gradient-text">MISSION CRITICAL USE CASES</span>
         </h1>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
