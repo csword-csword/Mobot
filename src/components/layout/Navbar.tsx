@@ -78,7 +78,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-7 text-sm">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-7 text-sm">
           <Dropdown label="Products" items={products} />
           <Link href="/pricing" className="text-white/70 hover:text-white transition-colors">
             Pricing
