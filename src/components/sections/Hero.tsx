@@ -18,15 +18,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/50 via-[#050505]/30 to-[#050505]" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[52rem] mx-auto px-6 text-center pt-36 pb-24">
-        <h1 className="text-6xl font-bold leading-[1.05] mb-6 tracking-tight">
-          <span className="gradient-text">Hire a Robot Fleet</span>
-          {' '}for Manual Testing
+      <div className="relative z-10 max-w-[64rem] mx-auto px-6 text-center pt-36 pb-24">
+        <h1 className="text-7xl sm:text-8xl lg:text-9xl font-bold leading-[0.95] tracking-tight mb-10">
+          <span className="block">REAL ROBOTS</span>
+          <span className="block">REAL DEVICES</span>
+          <span className="block gradient-text">MISSION CRITICAL</span>
+          <span className="block gradient-text">USE CASES</span>
         </h1>
-        <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-[36rem] mx-auto">
-          Scale your mobile coverage with a new type of AI-enabled service that combines real
-          mechanical robots, physical devices, and quality experts.
-        </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/schedule-demo"
