@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -24,20 +22,6 @@ export default function Hero() {
           <span className="block text-7xl sm:text-8xl lg:text-9xl leading-none">REAL DEVICES</span>
           <span className="block text-4xl sm:text-5xl lg:text-6xl leading-none gradient-text">MISSION CRITICAL USE CASES</span>
         </h1>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/schedule-demo"
-            className="px-6 py-3 rounded-full bg-[#2f87c8] text-white hover:bg-[#3da6fc] transition-colors text-sm"
-          >
-            Schedule a Demo →
-          </Link>
-          <Link
-            href="/#use-cases"
-            className="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors text-sm"
-          >
-            Explore Use Cases →
-          </Link>
-        </div>
       </div>
     </section>
   );

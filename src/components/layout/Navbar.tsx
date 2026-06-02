@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { ChevronDown, Menu, X, Zap } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 const products = [
   { label: 'Mobot Managed', href: '/products/managed', description: 'Fully-managed mobile testing' },
@@ -90,30 +90,6 @@ export default function Navbar() {
           <Dropdown label="Company" items={company} />
         </div>
 
-        {/* Desktop CTAs */}
-        <div className="hidden lg:flex items-center gap-3 text-sm shrink-0">
-          <a
-            href="https://app.teammobot.com/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/60 hover:text-white transition-colors px-2"
-          >
-            Login
-          </a>
-          <Link
-            href="/playground"
-            className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
-          >
-            <Zap className="w-3.5 h-3.5" />
-            Try Mobot
-          </Link>
-          <Link
-            href="/schedule-demo"
-            className="px-4 py-2 rounded-full bg-[#2f87c8] text-white hover:bg-[#3da6fc] transition-colors"
-          >
-            Schedule a Demo
-          </Link>
-        </div>
 
         {/* Mobile toggle */}
         <button
@@ -146,22 +122,6 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <div className="pt-4 flex flex-col gap-3">
-            <Link
-              href="/playground"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-2 px-4 py-3 rounded-full border border-white/20 text-white text-sm"
-            >
-              <Zap className="w-4 h-4" /> Try Mobot
-            </Link>
-            <Link
-              href="/schedule-demo"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center px-4 py-3 rounded-full bg-[#2f87c8] text-white text-sm"
-            >
-              Schedule a Demo
-            </Link>
-          </div>
         </div>
       )}
     </nav>
