@@ -7,8 +7,7 @@ const columns = [
     heading: 'Product',
     links: [
       { label: 'Mobot Managed', href: '/products/managed' },
-      { label: 'Mobot Live', href: '/products/live' },
-      { label: 'Mobot Insights', href: '/products/insights' },
+      { label: 'Fleet Leasing', href: '/products/fleet-leasing' },
       { label: 'For Engineers', href: '/for-engineers' },
       { label: 'For Marketers', href: '/for-marketers' },
     ],

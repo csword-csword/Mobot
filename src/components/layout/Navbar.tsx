@@ -7,9 +7,7 @@ import { ChevronDown, Menu, X, Zap } from 'lucide-react';
 
 const products = [
   { label: 'Mobot Managed', href: '/products/managed', description: 'Fully-managed mobile testing' },
-  { label: 'Mobot Live', href: '/products/live', description: 'Self-service mobile testing' },
-  { label: 'Mobot Insights', href: '/products/insights', description: 'Mobile campaign monitoring' },
-  { label: 'Integrations', href: '/integrations', description: 'Integrate with your favorite apps' },
+  { label: 'Fleet Leasing', href: '/products/fleet-leasing', description: 'Lease a robot fleet for your team' },
 ];
 
 const learn = [
@@ -82,9 +80,6 @@ export default function Navbar() {
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-7 text-sm">
           <Dropdown label="Products" items={products} />
-          <Link href="/why-mobot" className="text-white/70 hover:text-white transition-colors">
-            Why Mobot
-          </Link>
           <Link href="/pricing" className="text-white/70 hover:text-white transition-colors">
             Pricing
           </Link>
@@ -134,11 +129,10 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden border-t border-white/10 bg-[#050505] px-6 py-6 space-y-1">
           {[
-            { label: 'Why Mobot', href: '/why-mobot' },
+            { label: 'Mobot Managed', href: '/products/managed' },
+            { label: 'Fleet Leasing', href: '/products/fleet-leasing' },
             { label: 'Pricing', href: '/pricing' },
             { label: 'Customers', href: '/customers' },
-            { label: 'Products', href: '/products/managed' },
-            { label: 'Integrations', href: '/integrations' },
             { label: 'Blog', href: '/blog' },
             { label: 'Resources', href: '/resources' },
             { label: 'About', href: '/about' },
