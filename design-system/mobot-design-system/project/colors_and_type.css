@@ -1,0 +1,148 @@
+/* ============================================================
+   MOBOT DESIGN SYSTEM — Colors & Type
+   Robot-powered QA testing for real mobile devices.
+   ------------------------------------------------------------
+   Fonts: loaded from Google Fonts CDN. The Mobot site's exact
+   webfont files could not be extracted; "Rubik" is used as a
+   close match to the rounded-geometric MOBOT wordmark.
+   FLAG: swap in real brand font files under fonts/ when available.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---------- Brand core ---------- */
+  --mobot-ink:        #101820; /* signature deep navy — primary dark surface */
+  --mobot-ink-2:      #1A2530; /* raised dark surface / cards on dark */
+  --mobot-ink-3:      #243140; /* hover / borders on dark */
+  --mobot-white:      #FFFFFF;
+
+  /* ---------- Brand gradient (isometric illustration palette) ---------- */
+  --brand-violet:     #8B7BE8; /* lavender-violet */
+  --brand-indigo:     #6C5CE7; /* primary solid accent (periwinkle/indigo) */
+  --brand-blue:       #5B9DF0; /* sky blue */
+  --brand-blue-bright:#86BFF2; /* light cyan-blue highlight */
+  --brand-pink:       #E79BD4; /* soft magenta-pink */
+  --brand-gradient:        linear-gradient(120deg, #8B7BE8 0%, #6C5CE7 38%, #5B9DF0 100%);
+  --brand-gradient-3:      linear-gradient(120deg, #E79BD4 0%, #8B7BE8 45%, #5B9DF0 100%);
+  --brand-gradient-soft:   linear-gradient(120deg, #EDE9FB 0%, #E6F0FD 100%);
+
+  /* ---------- Neutrals (light UI) ---------- */
+  --gray-0:   #FFFFFF;
+  --gray-25:  #FAFBFC;
+  --gray-50:  #F4F6F8; /* page background (light) */
+  --gray-100: #EAEEF2;
+  --gray-200: #DCE2E8; /* hairline borders */
+  --gray-300: #C2CCD6;
+  --gray-400: #97A4B2;
+  --gray-500: #6B7888; /* secondary text */
+  --gray-600: #4B5868;
+  --gray-700: #334050;
+  --gray-800: #1F2A38;
+  --gray-900: #101820; /* = ink */
+
+  /* ---------- Semantic (QA pass/fail vocabulary) ---------- */
+  --pass:        #1FA971; /* test passed */
+  --pass-bg:     #E6F6EF;
+  --fail:        #E5484D; /* test failed / bug */
+  --fail-bg:     #FCEBEC;
+  --warn:        #E8941E; /* needs attention / flaky */
+  --warn-bg:     #FCF1E0;
+  --info:        #5B9DF0; /* informational */
+  --info-bg:     #E8F1FD;
+  --star:        #F5B915; /* review stars / gold */
+
+  /* ---------- Semantic foreground / background roles ---------- */
+  --fg-1: var(--gray-900); /* primary text */
+  --fg-2: var(--gray-500); /* secondary text */
+  --fg-3: var(--gray-400); /* tertiary / captions */
+  --fg-inv: var(--mobot-white);
+  --bg-1: var(--gray-0);
+  --bg-2: var(--gray-50);
+  --border: var(--gray-200);
+  --accent: var(--brand-indigo);
+
+  /* ---------- Type families ---------- */
+  --font-display: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:    'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- Type scale (1.25 major-third-ish, tuned) ---------- */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  30px;
+  --text-3xl:  38px;
+  --text-4xl:  48px;
+  --text-5xl:  60px;
+  --text-6xl:  76px;
+
+  --leading-tight: 1.08;
+  --leading-snug:  1.25;
+  --leading-normal:1.55;
+
+  --tracking-tight: -0.02em;
+  --tracking-snug:  -0.01em;
+  --tracking-wide:  0.04em;
+  --tracking-caps:  0.12em; /* eyebrow/label uppercase */
+
+  /* ---------- Radii ---------- */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+  /* ---------- Shadows (soft, cool-tinted) ---------- */
+  --shadow-xs: 0 1px 2px rgba(16,24,32,0.06);
+  --shadow-sm: 0 2px 8px rgba(16,24,32,0.06);
+  --shadow-md: 0 8px 24px rgba(16,24,32,0.08);
+  --shadow-lg: 0 18px 48px rgba(16,24,32,0.12);
+  --shadow-brand: 0 14px 32px rgba(108,92,231,0.28);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply .mb-* utilities or scope under .mobot
+   ============================================================ */
+
+.mobot, .mb-type { font-family: var(--font-body); color: var(--fg-1); -webkit-font-smoothing: antialiased; }
+
+.mb-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-6xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+.mb-h1 { font-family: var(--font-display); font-weight: 700; font-size: var(--text-5xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.mb-h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--text-4xl); line-height: 1.12; letter-spacing: var(--tracking-tight); }
+.mb-h3 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-2xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-snug); }
+.mb-h4 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-snug); }
+.mb-lead { font-size: var(--text-lg); line-height: var(--leading-normal); color: var(--fg-2); font-weight: 400; }
+.mb-body { font-size: var(--text-base); line-height: var(--leading-normal); color: var(--fg-1); font-weight: 400; }
+.mb-small { font-size: var(--text-sm); line-height: var(--leading-normal); color: var(--fg-2); }
+.mb-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-indigo);
+}
+.mb-mono { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: 0; }
+
+.mb-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

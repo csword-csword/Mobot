@@ -1,0 +1,19 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html><html><head><meta charset="utf8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:var(--font-body);background:#fff;color:var(--fg-1);padding:22px}
+.row{display:flex;gap:0;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border)}
+.sw{flex:1;text-align:center}
+.chip{height:60px}
+.lbl{font-size:10px;padding:6px 2px}
+.n{font-weight:600}.h{font-family:var(--font-mono);color:var(--fg-2);font-size:9px}
+</style></head>
+<body>
+<div class="row" id="r"></div>
+<script>
+const grays=[['0','#FFFFFF'],['25','#FAFBFC'],['50','#F4F6F8'],['100','#EAEEF2'],['200','#DCE2E8'],['300','#C2CCD6'],['400','#97A4B2'],['500','#6B7888'],['600','#4B5868'],['700','#334050'],['800','#1F2A38'],['900','#101820']];
+document.getElementById('r').innerHTML=grays.map(([k,v])=>{const dark=parseInt(k)>=400;return `<div class="sw"><div class="chip" style="background:${v}"></div><div class="lbl"><div class="n">${k}</div><div class="h">${v}</div></div></div>`}).join('');
+</script>
+</body></html>

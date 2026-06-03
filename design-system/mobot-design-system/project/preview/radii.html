@@ -1,0 +1,19 @@
+<!-- @dsCard group="Spacing" -->
+<!DOCTYPE html><html><head><meta charset="utf8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:var(--font-body);background:#fff;color:var(--fg-1);padding:24px}
+.row{display:flex;gap:16px}
+.cell{flex:1;text-align:center}
+.box{height:70px;background:var(--gray-50);border:1.5px solid var(--brand-indigo);border-radius:0}
+.n{font-weight:600;font-size:12px;margin-top:8px}
+.v{font-family:var(--font-mono);font-size:10px;color:var(--fg-2)}
+</style></head>
+<body>
+<div class="row" id="r"></div>
+<script>
+const s=[['xs',6],['sm',10],['md',14],['lg',20],['xl',28],['pill',35]];
+document.getElementById('r').innerHTML=s.map(([k,v])=>`<div class="cell"><div class="box" style="border-radius:${v}px"></div><div class="n">${k}</div><div class="v">${k==='pill'?'999px':v+'px'}</div></div>`).join('');
+</script>
+</body></html>

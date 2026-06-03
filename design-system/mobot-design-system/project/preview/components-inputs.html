@@ -1,0 +1,24 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html><html><head><meta charset="utf8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:var(--font-body);background:#fff;color:var(--fg-1);padding:24px;display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-size:12px;font-weight:600;color:var(--fg-2)}
+.inp{display:flex;align-items:center;gap:10px;border:1.5px solid var(--gray-200);border-radius:var(--r-md);padding:11px 14px;font-size:15px;color:var(--fg-1)}
+.inp.focus{border-color:var(--brand-indigo);box-shadow:0 0 0 3px rgba(108,92,231,.15)}
+.inp input{border:0;outline:0;font-family:var(--font-body);font-size:15px;flex:1;background:transparent}
+.lucide{width:17px;height:17px;color:var(--fg-3)}
+.row{display:flex;gap:14px}.row>*{flex:1}
+.ph{color:var(--fg-3)}
+</style></head>
+<body>
+<div class="row">
+  <div class="field"><label>Work email</label><div class="inp focus"><i data-lucide="mail" class="lucide"></i><input value="you@company.com"></div></div>
+  <div class="field"><label>Search test runs</label><div class="inp"><i data-lucide="search" class="lucide"></i><input placeholder="iPhone 15 · checkout flow"></div></div>
+</div>
+<div class="field"><label>Device filter</label><div class="inp"><i data-lucide="smartphone" class="lucide"></i><span class="ph" style="flex:1">All 300+ devices</span><i data-lucide="chevron-down" class="lucide"></i></div></div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>

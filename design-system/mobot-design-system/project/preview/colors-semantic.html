@@ -1,0 +1,21 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html><html><head><meta charset="utf8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:var(--font-body);background:#fff;color:var(--fg-1);padding:22px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.sw{border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border)}
+.chip{height:54px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.meta{padding:8px 10px}
+.n{font-weight:600;font-size:12px}.h{font-family:var(--font-mono);font-size:10px;color:var(--fg-2)}
+</style></head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#E6F6EF;color:#1FA971">PASS</div><div class="meta"><div class="n">Pass</div><div class="h">#1FA971</div></div></div>
+  <div class="sw"><div class="chip" style="background:#FCEBEC;color:#E5484D">FAIL</div><div class="meta"><div class="n">Fail</div><div class="h">#E5484D</div></div></div>
+  <div class="sw"><div class="chip" style="background:#FCF1E0;color:#E8941E">FLAKY</div><div class="meta"><div class="n">Warn</div><div class="h">#E8941E</div></div></div>
+  <div class="sw"><div class="chip" style="background:#E8F1FD;color:#5B9DF0">INFO</div><div class="meta"><div class="n">Info</div><div class="h">#5B9DF0</div></div></div>
+  <div class="sw"><div class="chip" style="background:#FFF6DD;color:#C9930A">★★★★★</div><div class="meta"><div class="n">Star</div><div class="h">#F5B915</div></div></div>
+</div>
+</body></html>

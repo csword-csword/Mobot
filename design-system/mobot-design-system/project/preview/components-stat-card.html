@@ -1,0 +1,27 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html><html><head><meta charset="utf8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:var(--font-body);background:var(--gray-50);color:var(--fg-1);padding:24px;display:flex;gap:18px}
+.card{flex:1;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm)}
+.stat{font-family:var(--font-display);font-weight:700;font-size:42px;letter-spacing:-.02em;line-height:1;background:var(--brand-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cap{color:var(--fg-2);font-size:14px;margin-top:8px}
+.foot{display:flex;align-items:center;gap:8px;margin-top:18px;color:var(--brand-indigo);font-weight:600;font-size:13px}
+.lucide{width:15px;height:15px}
+.stat.navy{background:none;-webkit-text-fill-color:var(--mobot-ink);color:var(--mobot-ink)}
+</style></head>
+<body>
+<div class="card">
+  <div class="stat">30%+</div>
+  <div class="cap">Increase in QA efficiency at Citizen — 10M+ active users, 600 test cases automated weekly.</div>
+  <div class="foot">Read case study <i data-lucide="arrow-right" class="lucide"></i></div>
+</div>
+<div class="card">
+  <div class="stat navy">4.2&nbsp;→&nbsp;4.8</div>
+  <div class="cap">App Store rating increase at Sandboxx, with a 99.9% crash-free rate.</div>
+  <div class="foot">Read case study <i data-lucide="arrow-right" class="lucide"></i></div>
+</div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>

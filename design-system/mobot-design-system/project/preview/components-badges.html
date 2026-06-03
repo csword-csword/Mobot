@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html><html><head><meta charset="utf8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:var(--font-body);background:#fff;color:var(--fg-1);padding:24px;display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:5px 12px;border-radius:var(--r-pill)}
+.pass{background:var(--pass-bg);color:#13935f}
+.fail{background:var(--fail-bg);color:#cf2d33}
+.warn{background:var(--warn-bg);color:#b8740f}
+.info{background:var(--info-bg);color:#2f72c9}
+.neutral{background:var(--gray-100);color:var(--fg-2)}
+.lucide{width:14px;height:14px}
+.lbl{font-family:var(--font-mono);font-size:10px;color:var(--fg-3)}
+</style></head>
+<body>
+<span class="lbl">TEST STATUS</span>
+<div class="row">
+  <span class="badge pass"><i data-lucide="check" class="lucide"></i>Passed</span>
+  <span class="badge fail"><i data-lucide="x" class="lucide"></i>Failed</span>
+  <span class="badge warn"><i data-lucide="alert-triangle" class="lucide"></i>Flaky</span>
+  <span class="badge info"><i data-lucide="loader" class="lucide"></i>Running</span>
+  <span class="badge neutral">Queued</span>
+</div>
+<span class="lbl">TAGS</span>
+<div class="row">
+  <span class="badge neutral">iOS 17.4</span>
+  <span class="badge neutral">Deep link</span>
+  <span class="badge neutral">Regression</span>
+  <span class="badge" style="background:#EDE9FB;color:#6C5CE7">Robot-run</span>
+</div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>
