@@ -39,25 +39,24 @@ export default function EnterprisePillars() {
             <div
               key={pillar.number}
               className="grid md:grid-cols-[auto_1fr_auto_200px] gap-8 items-center
-                         rounded-2xl border border-white/10 bg-white/5 p-10
-                         shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]
-                         hover:border-white/20 transition-colors"
+                         rounded-2xl border border-black/10 bg-black/[0.02] p-10
+                         hover:border-black/20 transition-colors"
             >
               <div className="text-5xl font-bold gradient-text opacity-60 leading-none">
                 {pillar.number}
               </div>
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-[0.15em] mb-3">
+                <p className="eyebrow text-black/40 text-xs uppercase mb-3">
                   {pillar.eyebrow}
                 </p>
                 <h3 className="text-2xl font-bold leading-snug mb-4">{pillar.heading}</h3>
-                <p className="text-white/50 text-sm leading-relaxed max-w-[42rem]">{pillar.body}</p>
+                <p className="text-black/50 text-sm leading-relaxed max-w-[42rem]">{pillar.body}</p>
               </div>
               <div>
                 <Link
                   href="/schedule-demo"
-                  className="whitespace-nowrap inline-flex px-5 py-2.5 rounded-full border border-white/20
-                             text-white hover:bg-white/10 transition-colors text-sm"
+                  className="whitespace-nowrap inline-flex px-5 py-2.5 rounded-full border border-black/15
+                             text-black hover:bg-black/5 transition-colors text-sm"
                 >
                   Schedule a Demo →
                 </Link>

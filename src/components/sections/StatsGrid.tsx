@@ -52,7 +52,7 @@ export default function StatsGrid() {
             <span className="gradient-text">The Numbers Don&apos;t Lie:</span>{' '}
             See the Impact of Mobot
           </h2>
-          <p className="text-white/50 text-lg max-w-[40rem] mx-auto leading-relaxed">
+          <p className="text-black/50 text-lg max-w-[40rem] mx-auto leading-relaxed">
             Whether you&apos;re in engineering, QA, product, or marketing, Mobot drives the outcomes
             that matter most—faster releases, fewer bugs, reduced costs, and more.
           </p>
@@ -65,21 +65,20 @@ export default function StatsGrid() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-white/10 bg-white/5 p-8
-                         hover:border-white/20 hover:bg-white/[0.07] transition-all
-                         shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)] flex flex-col gap-3"
+              className="group rounded-2xl border border-black/10 bg-black/[0.02] p-8
+                         hover:border-black/20 hover:bg-black/[0.04] transition-all flex flex-col gap-3"
             >
               {item.logo ? (
                 <div className="relative h-6 w-24 mb-1">
-                  <Image src={item.logo} alt={item.company} fill className="object-contain object-left opacity-60" />
+                  <Image src={item.logo} alt={item.company} fill className="object-contain object-left brightness-0 opacity-60" />
                 </div>
               ) : (
-                <div className="text-white/40 text-xs uppercase tracking-wide mb-1">{item.company}</div>
+                <div className="eyebrow text-black/40 text-xs uppercase mb-1">{item.company}</div>
               )}
               <div className="text-5xl font-bold gradient-text">{item.stat}</div>
-              <div className="text-white font-bold text-lg leading-snug">{item.label}</div>
-              <p className="text-white/40 text-sm mt-1 leading-relaxed">{item.detail}</p>
-              <div className="mt-auto pt-4 text-[#3da6fc] text-sm group-hover:translate-x-1 transition-transform">
+              <div className="text-black font-bold text-lg leading-snug">{item.label}</div>
+              <p className="text-black/40 text-sm mt-1 leading-relaxed">{item.detail}</p>
+              <div className="mt-auto pt-4 text-blue-ink text-sm group-hover:translate-x-1 transition-transform">
                 Read Case Study →
               </div>
             </a>

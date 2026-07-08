@@ -5,7 +5,7 @@ export default function VideoSection() {
     <section className="py-28 px-6">
       <div className="mx-auto max-w-[77rem]">
         <div className="text-center mb-12">
-          <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-5">How Mobot Works</p>
+          <p className="eyebrow text-black/40 text-xs uppercase mb-5">How Mobot Works</p>
           <h2 className="text-5xl font-bold leading-tight max-w-[46rem] mx-auto">
             See How Our{' '}
             <span className="gradient-text">AI-Powered Mechanical Robots</span>
@@ -13,7 +13,7 @@ export default function VideoSection() {
           </h2>
         </div>
 
-        <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-[0_32px_48px_rgba(0,0,0,0.4)]">
+        <div className="rounded-2xl overflow-hidden border border-black/10 bg-black/[0.03] shadow-[0_20px_40px_rgba(10,10,10,0.12)]">
           <video
             className="w-full aspect-video"
             controls
@@ -21,7 +21,7 @@ export default function VideoSection() {
             loop
             playsInline
           >
-            <source src="/videos/explainer.mp4" type="video/mp4" />
+            <source src="/videos/mobot-optimized-transcode.mp4" type="video/mp4" />
           </video>
         </div>
 

@@ -28,25 +28,29 @@ interface DropdownItem {
   external?: boolean;
 }
 
-function Dropdown({ label, items }: { label: string; items: DropdownItem[] }) {
+function Dropdown({ label, items, scrolled }: { label: string; items: DropdownItem[]; scrolled: boolean }) {
   return (
     <div className="relative group">
-      <button className="flex items-center gap-1 text-white/70 hover:text-white transition-colors py-1">
+      <button
+        className={`flex items-center gap-1 transition-colors py-1 ${
+          scrolled ? 'text-black/70 hover:text-black' : 'text-white/80 hover:text-white'
+        }`}
+      >
         {label}
         <ChevronDown className="w-3.5 h-3.5 opacity-60" />
       </button>
       <div className="absolute top-full left-0 pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-        <div className="bg-[#141414] border border-white/10 rounded-2xl p-2 min-w-[220px] shadow-xl">
+        <div className="bg-white border border-black/10 rounded-2xl p-2 min-w-[220px] shadow-xl">
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               target={item.external ? '_blank' : undefined}
               rel={item.external ? 'noopener noreferrer' : undefined}
-              className="block px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors"
+              className="block px-3 py-2.5 rounded-xl hover:bg-black/5 transition-colors"
             >
-              <div className="text-white text-sm font-light">{item.label}</div>
-              <div className="text-white/40 text-xs mt-0.5">{item.description}</div>
+              <div className="text-black text-sm font-light">{item.label}</div>
+              <div className="text-black/40 text-xs mt-0.5">{item.description}</div>
             </Link>
           ))}
         </div>
@@ -65,36 +69,50 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const solid = scrolled || mobileOpen;
+
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#050505]/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+        solid ? 'bg-white/90 backdrop-blur-md border-b border-black/10' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto max-w-[75rem] px-6 h-[72px] flex items-center justify-between gap-8">
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <Image src="/images/Mobot-Logo.svg" alt="Mobot" width={100} height={28} priority />
+          <Image
+            src={solid ? '/images/Mobot-Logo-Dark.svg' : '/images/Mobot-Logo.svg'}
+            alt="Mobot"
+            width={100}
+            height={28}
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex flex-1 items-center justify-center gap-7 text-sm">
-          <Dropdown label="Products" items={products} />
-          <Link href="/pricing" className="text-white/70 hover:text-white transition-colors">
+          <Dropdown label="Products" items={products} scrolled={solid} />
+          <Link
+            href="/pricing"
+            className={`transition-colors ${solid ? 'text-black/70 hover:text-black' : 'text-white/80 hover:text-white'}`}
+          >
             Pricing
           </Link>
-          <Link href="/customers" className="text-white/70 hover:text-white transition-colors">
+          <Link
+            href="/customers"
+            className={`transition-colors ${solid ? 'text-black/70 hover:text-black' : 'text-white/80 hover:text-white'}`}
+          >
             Customers
           </Link>
-          <Dropdown label="Learn" items={learn} />
-          <Dropdown label="Company" items={company} />
+          <Dropdown label="Learn" items={learn} scrolled={solid} />
+          <Dropdown label="Company" items={company} scrolled={solid} />
         </div>
 
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((o) => !o)}
-          className="lg:hidden text-white p-1"
+          className={`lg:hidden p-1 ${solid ? 'text-black' : 'text-white'}`}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -103,7 +121,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-white/10 bg-[#050505] px-6 py-6 space-y-1">
+        <div className="lg:hidden border-t border-black/10 bg-white px-6 py-6 space-y-1">
           {[
             { label: 'Mobot Managed', href: '/products/managed' },
             { label: 'Fleet Leasing', href: '/products/fleet-leasing' },
@@ -117,7 +135,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-white/70 hover:text-white border-b border-white/5 transition-colors"
+              className="block py-3 text-black/70 hover:text-black border-b border-black/5 transition-colors"
             >
               {item.label}
             </Link>

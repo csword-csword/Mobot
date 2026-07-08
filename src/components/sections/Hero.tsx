@@ -14,11 +14,11 @@ export default function Hero() {
         <source src="/videos/mobot-optimized-transcode.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/50 via-[#050505]/30 to-[#050505]" />
+      {/* Gradient overlay: dark enough near the top for text contrast, resolves to the page's white below */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-white" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[64rem] mx-auto px-6 text-center pt-36 pb-24">
+      <div className="relative z-10 max-w-[64rem] mx-auto px-6 text-center pt-36 pb-24 text-white">
         <h1 className="font-bold tracking-tight mb-10 flex flex-col gap-4">
           <span className="block text-7xl sm:text-8xl lg:text-9xl leading-none">REAL ROBOTS</span>
           <span className="block text-7xl sm:text-8xl lg:text-9xl leading-none">REAL DEVICES</span>

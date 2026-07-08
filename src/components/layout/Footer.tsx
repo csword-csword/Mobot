@@ -43,15 +43,15 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#050505]">
+    <footer className="border-t border-black/10 bg-white">
       <div className="mx-auto max-w-[77rem] px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/">
-              <Image src="/images/Mobot-Logo.svg" alt="Mobot" width={100} height={28} />
+              <Image src="/images/Mobot-Logo-Dark.svg" alt="Mobot" width={100} height={28} />
             </Link>
-            <p className="mt-4 text-white/40 text-sm leading-relaxed max-w-[200px]">
+            <p className="mt-4 text-black/40 text-sm leading-relaxed max-w-[200px]">
               AI-powered mechanical robots for mobile testing.
             </p>
             <div className="mt-6 flex items-center gap-4">
@@ -59,7 +59,7 @@ export default function Footer() {
                 href="https://twitter.com/teammobot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-white transition-colors text-xs"
+                className="text-black/40 hover:text-black transition-colors text-xs"
                 aria-label="Twitter / X"
               >
                 𝕏
@@ -68,7 +68,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/team-mobot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-white transition-colors"
+                className="text-black/40 hover:text-black transition-colors"
                 aria-label="LinkedIn"
               >
                 <ExternalLink className="w-4 h-4" />
@@ -79,7 +79,7 @@ export default function Footer() {
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.heading}>
-              <h3 className="text-white text-sm font-bold mb-4">{col.heading}</h3>
+              <h3 className="text-black text-sm font-bold mb-4">{col.heading}</h3>
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.href}>
@@ -87,7 +87,7 @@ export default function Footer() {
                       href={link.href}
                       target={'external' in link && link.external ? '_blank' : undefined}
                       rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
-                      className="text-white/40 hover:text-white text-sm transition-colors"
+                      className="text-black/40 hover:text-black text-sm transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
 
         {/* Contact + bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="mt-16 pt-8 border-t border-black/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link
               href="/schedule-demo"
@@ -109,16 +109,16 @@ export default function Footer() {
             </Link>
             <a
               href="mailto:sales@teammobot.com"
-              className="text-white/40 hover:text-white text-sm transition-colors"
+              className="text-black/40 hover:text-black text-sm transition-colors"
             >
               sales@teammobot.com
             </a>
           </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-white/30">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-black/30">
             <span>New York, NY · © Mobot. All rights reserved.</span>
             <div className="flex gap-4">
-              <Link href="/cookie-policy" className="hover:text-white/60 transition-colors">Cookie Policy</Link>
-              <Link href="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
+              <Link href="/cookie-policy" className="hover:text-black/60 transition-colors">Cookie Policy</Link>
+              <Link href="/privacy-policy" className="hover:text-black/60 transition-colors">Privacy Policy</Link>
             </div>
           </div>
         </div>

@@ -120,7 +120,7 @@ export default function RolesTabs() {
       <div className="mx-auto max-w-[77rem]">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-5">
+          <p className="eyebrow text-black/40 text-xs uppercase mb-5">
             Unified Automation for Every Team
           </p>
           <h2 className="text-5xl font-bold leading-tight max-w-[50rem] mx-auto mb-6">
@@ -128,7 +128,7 @@ export default function RolesTabs() {
             <span className="gradient-text">AI-Powered Mechanical Robots</span>
             {' '}Connect Mobile Teams and Elevate Quality
           </h2>
-          <p className="text-white/50 text-lg max-w-[42rem] mx-auto leading-relaxed">
+          <p className="text-black/50 text-lg max-w-[42rem] mx-auto leading-relaxed">
             Mobot integrates your mobile teams on a single platform, automating essential workflows
             and breaking down barriers to speed up deployments and improve quality. Choose your role
             to discover how Mobot supports your entire organization.
@@ -143,8 +143,8 @@ export default function RolesTabs() {
               onClick={() => setActive(i)}
               className={`px-5 py-2.5 rounded-full text-sm transition-all ${
                 active === i
-                  ? 'bg-[#2f87c8] text-white shadow-[0_0_20px_rgba(61,166,252,0.3)]'
-                  : 'border border-white/15 text-white/60 hover:text-white hover:border-white/30'
+                  ? 'bg-[#2f87c8] text-white'
+                  : 'border border-black/15 text-black/60 hover:text-black hover:border-black/30'
               }`}
             >
               {t.label}
@@ -153,13 +153,12 @@ export default function RolesTabs() {
         </div>
 
         {/* Tab content */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-12
-                        shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]">
-          <p className="text-white/40 text-xs uppercase tracking-[0.15em] mb-4">{tab.eyebrow}</p>
+        <div className="rounded-2xl border border-black/10 bg-black/[0.02] p-8 md:p-12">
+          <p className="eyebrow text-black/40 text-xs uppercase mb-4">{tab.eyebrow}</p>
           <div className="grid md:grid-cols-2 gap-8 mb-10">
             <div>
               <h3 className="text-3xl font-bold leading-snug mb-4">{tab.heading}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{tab.body}</p>
+              <p className="text-black/50 text-sm leading-relaxed">{tab.body}</p>
               <Link
                 href="/schedule-demo"
                 className="inline-flex mt-6 px-5 py-2.5 rounded-full bg-[#2f87c8] text-white hover:bg-[#3da6fc] transition-colors text-sm"
@@ -173,11 +172,11 @@ export default function RolesTabs() {
               {tab.cards.map((card) => (
                 <div
                   key={card.title}
-                  className="rounded-xl border border-white/10 bg-white/5 p-5
-                             hover:bg-white/[0.08] transition-colors"
+                  className="rounded-xl border border-black/10 bg-white p-5
+                             hover:bg-black/[0.03] transition-colors"
                 >
-                  <h4 className="text-white font-bold text-sm mb-1.5">{card.title}</h4>
-                  <p className="text-white/40 text-sm leading-relaxed">{card.body}</p>
+                  <h4 className="text-black font-bold text-sm mb-1.5">{card.title}</h4>
+                  <p className="text-black/40 text-sm leading-relaxed">{card.body}</p>
                 </div>
               ))}
             </div>

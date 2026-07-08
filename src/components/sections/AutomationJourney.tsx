@@ -38,7 +38,7 @@ export default function AutomationJourney() {
             <span className="gradient-text">100% Automation Coverage</span>
             {' '}in Less Time
           </h2>
-          <p className="text-white/50 text-lg max-w-[44rem] mx-auto leading-relaxed">
+          <p className="text-black/50 text-lg max-w-[44rem] mx-auto leading-relaxed">
             No matter where you are in your automation journey, Mobot takes you further. Whether
             you&apos;re stuck with manual tasks or striving for full automation, our AI-powered
             mechanical robots help you accelerate, optimize, and perfect your workflows.
@@ -47,18 +47,18 @@ export default function AutomationJourney() {
 
         {/* Stage selector */}
         <div className="mb-3">
-          <p className="text-white/30 text-xs uppercase tracking-[0.15em] mb-4 text-center">
+          <p className="eyebrow text-black/30 text-xs uppercase mb-4 text-center">
             Our Team Uses
           </p>
-          <div className="flex flex-col sm:flex-row rounded-2xl border border-white/10 overflow-hidden">
+          <div className="flex flex-col sm:flex-row rounded-2xl border border-black/10 overflow-hidden">
             {stages.map((stage, i) => (
               <button
                 key={stage.slug}
                 onClick={() => setActive(i)}
                 className={`flex-1 py-4 px-5 text-sm font-light transition-all ${
                   active === i
-                    ? 'bg-[#2f87c8]/20 text-white border-b-2 sm:border-b-0 sm:border-r-2 border-[#3da6fc]'
-                    : 'text-white/40 hover:text-white/70 hover:bg-white/5'
+                    ? 'bg-[#2f87c8]/10 text-black border-b-2 sm:border-b-0 sm:border-r-2 border-[#3da6fc]'
+                    : 'text-black/40 hover:text-black/70 hover:bg-black/5'
                 }`}
               >
                 {stage.label}
@@ -68,9 +68,8 @@ export default function AutomationJourney() {
         </div>
 
         {/* Content panel */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-10
-                        shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]">
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-[52rem]">
+        <div className="rounded-2xl border border-black/10 bg-black/[0.02] p-10">
+          <p className="text-black/70 text-lg leading-relaxed mb-8 max-w-[52rem]">
             {stages[active].body}
           </p>
           <Link
