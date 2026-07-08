@@ -27,11 +27,10 @@ const pillars = [
 
 export default function EnterprisePillars() {
   return (
-    <section className="py-28 px-6">
-      <div className="mx-auto max-w-[77rem]">
-        <h2 className="text-5xl font-bold text-center leading-tight mb-20 max-w-[48rem] mx-auto">
-          The Only Mobile Automation Platform Designed for{' '}
-          <span className="gradient-text">Modern Enterprises</span>
+    <section className="py-28 px-6 section-alt border-y border-slate-200">
+      <div className="mx-auto max-w-[80rem]">
+        <h2 className="text-4xl sm:text-5xl font-bold text-center leading-tight mb-20 max-w-[48rem] mx-auto text-[#0a2540]">
+          The Only Mobile Automation Platform Designed for Modern Enterprises
         </h2>
 
         <div className="flex flex-col gap-5">
@@ -39,31 +38,30 @@ export default function EnterprisePillars() {
             <div
               key={pillar.number}
               className="grid md:grid-cols-[auto_1fr_auto_200px] gap-8 items-center
-                         rounded-2xl border border-white/10 bg-white/5 p-10
-                         shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]
-                         hover:border-white/20 transition-colors"
+                         rounded-lg border border-slate-200 bg-white p-10
+                         hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all"
             >
-              <div className="text-5xl font-bold gradient-text opacity-60 leading-none">
+              <div className="text-5xl font-bold text-[#1d4ed8]/40 leading-none">
                 {pillar.number}
               </div>
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-[0.15em] mb-3">
+                <p className="eyebrow text-xs mb-3">
                   {pillar.eyebrow}
                 </p>
-                <h3 className="text-2xl font-bold leading-snug mb-4">{pillar.heading}</h3>
-                <p className="text-white/50 text-sm leading-relaxed max-w-[42rem]">{pillar.body}</p>
+                <h3 className="text-2xl font-bold leading-snug mb-4 text-[#0a2540]">{pillar.heading}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed max-w-[42rem]">{pillar.body}</p>
               </div>
               <div>
                 <Link
                   href="/schedule-demo"
-                  className="whitespace-nowrap inline-flex px-5 py-2.5 rounded-full border border-white/20
-                             text-white hover:bg-white/10 transition-colors text-sm"
+                  className="whitespace-nowrap inline-flex px-5 py-2.5 rounded-md border border-slate-300
+                             text-[#0a2540] font-semibold hover:border-slate-400 hover:bg-slate-50 transition-colors text-sm"
                 >
-                  Schedule a Demo →
+                  Request a Demo
                 </Link>
               </div>
               <div className="hidden md:flex justify-end">
-                <Image src={pillar.image} alt={pillar.eyebrow} width={160} height={120} className="opacity-80" />
+                <Image src={pillar.image} alt={pillar.eyebrow} width={160} height={120} />
               </div>
             </div>
           ))}

@@ -48,11 +48,10 @@ export default function StatsGrid() {
     <section className="py-28 px-6">
       <div className="mx-auto max-w-[77rem]">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold leading-tight mb-5 max-w-[44rem] mx-auto">
-            <span className="gradient-text">The Numbers Don&apos;t Lie:</span>{' '}
-            See the Impact of Mobot
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-5 max-w-[44rem] mx-auto text-[#0a2540]">
+            The Numbers Don&apos;t Lie: See the Impact of Mobot
           </h2>
-          <p className="text-white/50 text-lg max-w-[40rem] mx-auto leading-relaxed">
+          <p className="text-slate-600 text-lg max-w-[40rem] mx-auto leading-relaxed">
             Whether you&apos;re in engineering, QA, product, or marketing, Mobot drives the outcomes
             that matter most—faster releases, fewer bugs, reduced costs, and more.
           </p>
@@ -65,21 +64,20 @@ export default function StatsGrid() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-white/10 bg-white/5 p-8
-                         hover:border-white/20 hover:bg-white/[0.07] transition-all
-                         shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)] flex flex-col gap-3"
+              className="group rounded-lg border border-slate-200 bg-white p-8
+                         hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all flex flex-col gap-3"
             >
               {item.logo ? (
                 <div className="relative h-6 w-24 mb-1">
-                  <Image src={item.logo} alt={item.company} fill className="object-contain object-left opacity-60" />
+                  <Image src={item.logo} alt={item.company} fill className="object-contain object-left brightness-0 opacity-60" />
                 </div>
               ) : (
-                <div className="text-white/40 text-xs uppercase tracking-wide mb-1">{item.company}</div>
+                <div className="eyebrow text-xs mb-1">{item.company}</div>
               )}
-              <div className="text-5xl font-bold gradient-text">{item.stat}</div>
-              <div className="text-white font-bold text-lg leading-snug">{item.label}</div>
-              <p className="text-white/40 text-sm mt-1 leading-relaxed">{item.detail}</p>
-              <div className="mt-auto pt-4 text-[#3da6fc] text-sm group-hover:translate-x-1 transition-transform">
+              <div className="text-5xl font-bold text-[#1d4ed8]">{item.stat}</div>
+              <div className="text-[#0a2540] font-bold text-lg leading-snug">{item.label}</div>
+              <p className="text-slate-500 text-sm mt-1 leading-relaxed">{item.detail}</p>
+              <div className="mt-auto pt-4 text-[#1d4ed8] text-sm font-semibold group-hover:translate-x-1 transition-transform">
                 Read Case Study →
               </div>
             </a>

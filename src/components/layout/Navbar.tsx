@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const products = [
@@ -31,22 +31,22 @@ interface DropdownItem {
 function Dropdown({ label, items }: { label: string; items: DropdownItem[] }) {
   return (
     <div className="relative group">
-      <button className="flex items-center gap-1 text-white/70 hover:text-white transition-colors py-1">
+      <button className="flex items-center gap-1 text-slate-600 hover:text-[#0a2540] transition-colors py-1 font-medium">
         {label}
         <ChevronDown className="w-3.5 h-3.5 opacity-60" />
       </button>
       <div className="absolute top-full left-0 pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-        <div className="bg-[#141414] border border-white/10 rounded-2xl p-2 min-w-[220px] shadow-xl">
+        <div className="bg-white border border-slate-200 rounded-md p-2 min-w-[240px] shadow-lg">
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               target={item.external ? '_blank' : undefined}
               rel={item.external ? 'noopener noreferrer' : undefined}
-              className="block px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors"
+              className="block px-3 py-2.5 rounded-sm hover:bg-slate-50 transition-colors"
             >
-              <div className="text-white text-sm font-light">{item.label}</div>
-              <div className="text-white/40 text-xs mt-0.5">{item.description}</div>
+              <div className="text-[#0a2540] text-sm font-semibold">{item.label}</div>
+              <div className="text-slate-500 text-xs mt-0.5">{item.description}</div>
             </Link>
           ))}
         </div>
@@ -57,44 +57,45 @@ function Dropdown({ label, items }: { label: string; items: DropdownItem[] }) {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
-    <nav
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#050505]/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
-      }`}
-    >
-      <div className="mx-auto max-w-[75rem] px-6 h-[72px] flex items-center justify-between gap-8">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+      <div className="mx-auto max-w-[80rem] px-6 h-[72px] flex items-center justify-between gap-8">
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <Image src="/images/Mobot-Logo.svg" alt="Mobot" width={100} height={28} priority />
+          <Image src="/images/Mobot-Logo-Navy.svg" alt="Mobot" width={100} height={28} priority />
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex flex-1 items-center justify-center gap-7 text-sm">
           <Dropdown label="Products" items={products} />
-          <Link href="/pricing" className="text-white/70 hover:text-white transition-colors">
+          <Link href="/pricing" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium">
             Pricing
           </Link>
-          <Link href="/customers" className="text-white/70 hover:text-white transition-colors">
+          <Link href="/customers" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium">
             Customers
           </Link>
           <Dropdown label="Learn" items={learn} />
           <Dropdown label="Company" items={company} />
         </div>
 
+        {/* Desktop CTA */}
+        <div className="hidden lg:flex items-center gap-6 shrink-0">
+          <Link href="/schedule-demo" className="text-sm font-semibold text-slate-600 hover:text-[#0a2540] transition-colors">
+            Log In
+          </Link>
+          <Link
+            href="/schedule-demo"
+            className="inline-flex text-sm font-semibold px-5 py-2.5 rounded-md bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-colors"
+          >
+            Request a Demo
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((o) => !o)}
-          className="lg:hidden text-white p-1"
+          className="lg:hidden text-[#0a2540] p-1"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -103,7 +104,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-white/10 bg-[#050505] px-6 py-6 space-y-1">
+        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 space-y-1">
           {[
             { label: 'Mobot Managed', href: '/products/managed' },
             { label: 'Fleet Leasing', href: '/products/fleet-leasing' },
@@ -117,11 +118,18 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-white/70 hover:text-white border-b border-white/5 transition-colors"
+              className="block py-3 text-slate-600 hover:text-[#0a2540] border-b border-slate-100 font-medium transition-colors"
             >
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/schedule-demo"
+            onClick={() => setMobileOpen(false)}
+            className="mt-4 inline-flex w-full justify-center text-sm font-semibold px-5 py-3 rounded-md bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-colors"
+          >
+            Request a Demo
+          </Link>
         </div>
       )}
     </nav>

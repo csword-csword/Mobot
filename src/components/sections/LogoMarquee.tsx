@@ -17,13 +17,13 @@ const logos = [
 
 export default function LogoMarquee() {
   return (
-    <div className="py-12 border-t border-white/10">
-      <p className="text-center text-white/30 text-xs uppercase tracking-[0.2em] mb-8">
-        Trusted by
+    <div className="py-12 bg-[#0a2540]">
+      <p className="text-center text-white/50 text-xs font-bold uppercase tracking-[0.15em] mb-8">
+        Trusted by Leading Mobile Teams
       </p>
       <div className="relative overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0a2540] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0a2540] to-transparent z-10 pointer-events-none" />
         <div className="flex animate-marquee gap-16 items-center">
           {[...logos, ...logos].map((logo, i) => (
             <div key={i} className="shrink-0 relative h-7 w-[100px]">

@@ -31,14 +31,12 @@ export default function AutomationJourney() {
 
   return (
     <section className="py-28 px-6">
-      <div className="mx-auto max-w-[77rem]">
+      <div className="mx-auto max-w-[80rem]">
         <div className="text-center mb-14">
-          <h2 className="text-5xl font-bold leading-tight max-w-[52rem] mx-auto mb-6">
-            No Matter How Complex Your Use Case, Accelerate to{' '}
-            <span className="gradient-text">100% Automation Coverage</span>
-            {' '}in Less Time
+          <h2 className="text-4xl sm:text-5xl font-bold leading-tight max-w-[52rem] mx-auto mb-6 text-[#0a2540]">
+            No Matter How Complex Your Use Case, Accelerate to 100% Automation Coverage in Less Time
           </h2>
-          <p className="text-white/50 text-lg max-w-[44rem] mx-auto leading-relaxed">
+          <p className="text-slate-600 text-lg max-w-[44rem] mx-auto leading-relaxed">
             No matter where you are in your automation journey, Mobot takes you further. Whether
             you&apos;re stuck with manual tasks or striving for full automation, our AI-powered
             mechanical robots help you accelerate, optimize, and perfect your workflows.
@@ -47,18 +45,18 @@ export default function AutomationJourney() {
 
         {/* Stage selector */}
         <div className="mb-3">
-          <p className="text-white/30 text-xs uppercase tracking-[0.15em] mb-4 text-center">
+          <p className="eyebrow text-xs mb-4 text-center">
             Our Team Uses
           </p>
-          <div className="flex flex-col sm:flex-row rounded-2xl border border-white/10 overflow-hidden">
+          <div className="flex flex-col sm:flex-row rounded-lg border border-slate-200 overflow-hidden">
             {stages.map((stage, i) => (
               <button
                 key={stage.slug}
                 onClick={() => setActive(i)}
-                className={`flex-1 py-4 px-5 text-sm font-light transition-all ${
+                className={`flex-1 py-4 px-5 text-sm font-semibold transition-all ${
                   active === i
-                    ? 'bg-[#2f87c8]/20 text-white border-b-2 sm:border-b-0 sm:border-r-2 border-[#3da6fc]'
-                    : 'text-white/40 hover:text-white/70 hover:bg-white/5'
+                    ? 'bg-[#e8f0fe] text-[#0a2540] border-b-2 sm:border-b-0 sm:border-r-2 border-[#1d4ed8]'
+                    : 'text-slate-500 hover:text-[#0a2540] hover:bg-slate-50'
                 }`}
               >
                 {stage.label}
@@ -68,16 +66,15 @@ export default function AutomationJourney() {
         </div>
 
         {/* Content panel */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-10
-                        shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]">
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-[52rem]">
+        <div className="rounded-lg border border-slate-200 bg-white p-10 shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
+          <p className="text-slate-600 text-lg leading-relaxed mb-8 max-w-[52rem]">
             {stages[active].body}
           </p>
           <Link
             href="/schedule-demo"
-            className="inline-flex px-6 py-3 rounded-full bg-[#2f87c8] text-white hover:bg-[#3da6fc] transition-colors text-sm"
+            className="inline-flex px-6 py-3 rounded-md bg-[#1d4ed8] text-white font-semibold hover:bg-[#1e40af] transition-colors text-sm"
           >
-            Schedule a Demo →
+            Request a Demo
           </Link>
         </div>
       </div>
