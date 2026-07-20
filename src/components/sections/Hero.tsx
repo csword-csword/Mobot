@@ -6,26 +6,27 @@ export default function Hero() {
       <div className="mx-auto max-w-[80rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
         {/* Content */}
         <div>
-          <p className="eyebrow text-sm mb-5">Enterprise Mobile QA</p>
+          <p className="eyebrow text-sm mb-5">Physical Mobile Testing</p>
           <h1 className="font-bold tracking-tight text-[#0a2540] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mb-6">
-            Real Robots. Real Devices. Mission-Critical Coverage.
+            Real Robots. Real Devices. Real Defects.
           </h1>
           <p className="text-slate-600 text-lg leading-relaxed max-w-[36rem] mb-9">
-            Mobot combines mechanical robots, physical devices, and human QA experts to give
-            enterprise mobile teams reliable, 100% device coverage&mdash;without the manual overhead.
+            Mobot catches the bugs emulators can&apos;t see&mdash;and filters out the noise scripted
+            automation creates. Every defect we report is real, verified by a QA analyst, on real
+            hardware.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/schedule-demo"
+              href="/resources/defect-reports"
               className="inline-flex items-center px-6 py-3 rounded-md bg-[#1d4ed8] text-white font-semibold hover:bg-[#1e40af] transition-colors text-sm"
             >
-              Request a Demo
+              Get a Sample Report
             </Link>
             <Link
-              href="/#video"
+              href="/schedule-demo"
               className="inline-flex items-center px-6 py-3 rounded-md border border-slate-300 text-[#0a2540] font-semibold hover:border-slate-400 hover:bg-slate-50 transition-colors text-sm"
             >
-              Watch How It Works
+              Request a Demo
             </Link>
           </div>
         </div>

@@ -5,9 +5,9 @@ export default function VideoSection() {
     <section id="video" className="py-28 px-6 section-alt border-y border-slate-200">
       <div className="mx-auto max-w-[80rem]">
         <div className="text-center mb-12">
-          <p className="eyebrow text-xs mb-5">How Mobot Works</p>
+          <p className="eyebrow text-xs mb-5">Real Robots. Real Devices.</p>
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight max-w-[46rem] mx-auto text-[#0a2540]">
-            See How Our AI-Powered Mechanical Robots Eliminate Bugs and Speed Up Releases
+            Watch a Robot Physically Test a Real Device
           </h2>
         </div>
 
