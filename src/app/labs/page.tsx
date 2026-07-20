@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LabsBridgeTimeline from '@/components/LabsBridgeTimeline';
 
 export const metadata = { title: 'Mobot Labs — Early Access' };
 
@@ -45,12 +46,13 @@ export default function Page() {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#0a2540] mb-4">
             Start Today on Managed Service. Migrate When Labs Ships.
           </h2>
-          <p className="text-slate-600 leading-relaxed max-w-[42rem]">
+          <p className="text-slate-600 leading-relaxed max-w-[42rem] mb-12">
             Early Access customers onboard now on Mobot Managed &mdash; our team builds your test
             cases and runs your testing today. When Labs ships, you migrate to your own robotic lab
             with Mobot training and certification, carrying your existing test suite with you.
             There&apos;s no gap in coverage between now and then.
           </p>
+          <LabsBridgeTimeline />
         </div>
       </section>
 
