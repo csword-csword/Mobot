@@ -1,27 +1,24 @@
 import Link from 'next/link';
+import HowItWorksStack from '@/components/HowItWorksStack';
+import ProcessStrip from '@/components/sections/ProcessStrip';
 
 export const metadata = { title: 'How It Works' };
 
 const process = [
   {
-    step: '01',
+    time: 'Submit',
     title: 'Submit a build',
     body: 'Point us at your app. Our team scopes the test cases that matter most — starting with the hardware-dependent flows emulators can\'t reach.',
   },
   {
-    step: '02',
+    time: 'Test',
     title: 'Robots run the tests',
     body: 'Real robots execute real taps, swipes, and gestures on real devices — pairing real peripherals, scanning real barcodes, receiving real push notifications.',
   },
   {
-    step: '03',
+    time: 'Verify & Deliver',
     title: 'Analysts verify every result',
-    body: 'Every failure is triaged by a Mobot QA analyst before it reaches you. What lands in your backlog is a real, reproducible defect — never noise.',
-  },
-  {
-    step: '04',
-    title: 'You get verified defects, with evidence',
-    body: 'Video, logs, and reproduction steps ship with every defect report, ready to hand straight to an engineer.',
+    body: 'Every failure is triaged by a Mobot QA analyst before it reaches you. What you get is a real, reproducible defect — with video, logs, and reproduction steps, ready to hand straight to an engineer.',
   },
 ];
 
@@ -41,6 +38,8 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      <HowItWorksStack />
 
       <section id="robots" className="py-24 px-6">
         <div className="mx-auto max-w-[64rem] grid md:grid-cols-2 gap-12 items-center">
@@ -89,19 +88,10 @@ export default function Page() {
         <div className="mx-auto max-w-[64rem]">
           <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-4 text-center">The Process</p>
           <h2 className="text-3xl font-bold mb-12 text-center">From Build to Verified Defect</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {process.map((p) => (
-              <div
-                key={p.step}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6
-                           shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]"
-              >
-                <div className="text-3xl font-bold gradient-text opacity-60 mb-3">{p.step}</div>
-                <h3 className="font-bold mb-2">{p.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
+          <ProcessStrip
+            stops={process}
+            timelineLabels={['End of Day — Build Submitted', 'Morning — Defects Delivered']}
+          />
         </div>
       </section>
 

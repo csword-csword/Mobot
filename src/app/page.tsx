@@ -5,7 +5,7 @@ import VideoSection from '@/components/sections/VideoSection';
 import Pillars from '@/components/sections/Pillars';
 import StatCounters from '@/components/sections/StatCounters';
 import StatsGrid from '@/components/sections/StatsGrid';
-import ProcessSteps from '@/components/sections/ProcessSteps';
+import HomeProcessStrip from '@/components/sections/HomeProcessStrip';
 import PricingPreview from '@/components/sections/PricingPreview';
 import LabsBand from '@/components/sections/LabsBand';
 import FooterCTA from '@/components/sections/FooterCTA';
@@ -26,7 +26,7 @@ export default function Home() {
       <Pillars />
       <StatCounters />
       <StatsGrid />
-      <ProcessSteps />
+      <HomeProcessStrip />
       <PricingPreview />
       <LabsBand />
       <FooterCTA />
