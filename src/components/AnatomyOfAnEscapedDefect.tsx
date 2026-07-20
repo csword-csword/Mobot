@@ -52,73 +52,54 @@ function Callout({ data, align }: { data: CalloutData; align: 'left' | 'right' }
   );
 }
 
-function CameraIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 28 28" fill="none" className="text-[#3da6fc]">
-      <circle cx="14" cy="14" r="9" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="14" cy="14" r="3" fill="currentColor" />
-    </svg>
-  );
-}
-
-function RadioIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 28 28" fill="none" className="text-[#3da6fc]">
-      <circle cx="9" cy="15" r="2" fill="currentColor" />
-      <path d="M14 10a6.5 6.5 0 0 1 0 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M18 6a12 12 0 0 1 0 17.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-    </svg>
-  );
-}
-
-function SecureIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 30 30" fill="none" className="text-[#3da6fc]">
-      <rect x="4" y="4" width="22" height="22" rx="6" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="11" y="11" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-function NetworkBarsIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 28 28" fill="none" className="text-[#3da6fc]">
-      <rect x="5" y="16" width="3" height="7" rx="1" fill="currentColor" opacity="0.5" />
-      <rect x="12" y="11" width="3" height="12" rx="1" fill="currentColor" opacity="0.75" />
-      <rect x="19" y="6" width="3" height="17" rx="1" fill="currentColor" />
-    </svg>
-  );
-}
-
-function FingerprintIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 28 28" fill="none" className="text-[#3da6fc]">
-      <circle cx="14" cy="14" r="9" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M14 9.5v9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M10.5 12v4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-      <path d="M17.5 12v4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-    </svg>
-  );
-}
-
 function PhoneIllustration() {
   return (
-    <div
-      className="hidden md:flex flex-col justify-between row-span-3 self-stretch w-32 mx-auto
-                 rounded-[2rem] border-2 border-[#3da6fc]/25 bg-white/[0.03] py-8 px-5"
+    <svg
+      viewBox="0 0 200 400"
+      className="hidden md:block row-span-3 self-stretch w-32 mx-auto h-full text-[#3da6fc]"
+      aria-hidden="true"
     >
-      <div className="flex items-center justify-between">
-        <CameraIcon />
-        <RadioIcon />
-      </div>
-      <div className="flex items-center justify-center">
-        <SecureIcon />
-      </div>
-      <div className="flex items-center justify-between">
-        <NetworkBarsIcon />
-        <FingerprintIcon />
-      </div>
-    </div>
+      {/* frame */}
+      <rect x="4" y="4" width="192" height="392" rx="34" fill="rgba(255,255,255,0.02)" stroke="currentColor" strokeOpacity="0.3" strokeWidth="3" />
+      {/* screen inset */}
+      <rect x="13" y="13" width="174" height="374" rx="26" fill="none" stroke="currentColor" strokeOpacity="0.12" strokeWidth="1.5" />
+      {/* side buttons */}
+      <rect x="-1" y="108" width="5" height="26" rx="2" fill="currentColor" opacity="0.3" />
+      <rect x="-1" y="146" width="5" height="26" rx="2" fill="currentColor" opacity="0.3" />
+      <rect x="196" y="150" width="5" height="40" rx="2" fill="currentColor" opacity="0.3" />
+
+      {/* punch-hole camera */}
+      <circle cx="100" cy="34" r="6" fill="none" stroke="currentColor" strokeWidth="2" />
+      <circle cx="100" cy="34" r="2" fill="currentColor" />
+
+      {/* radios - top right */}
+      <g transform="translate(140,22)">
+        <circle cx="0" cy="8" r="2" fill="currentColor" />
+        <path d="M6 3a7 7 0 0 1 0 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+        <path d="M11 -2a13.5 13.5 0 0 1 0 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5" />
+      </g>
+
+      {/* secure enclave - center */}
+      <g transform="translate(84,184)">
+        <rect x="0" y="0" width="32" height="32" rx="8" stroke="currentColor" strokeWidth="2" fill="none" />
+        <rect x="10" y="10" width="12" height="12" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+      </g>
+
+      {/* network bars - bottom left */}
+      <g transform="translate(44,326)">
+        <rect x="0" y="14" width="6" height="14" rx="1.5" fill="currentColor" opacity="0.5" />
+        <rect x="10" y="7" width="6" height="21" rx="1.5" fill="currentColor" opacity="0.75" />
+        <rect x="20" y="0" width="6" height="28" rx="1.5" fill="currentColor" />
+      </g>
+
+      {/* touch gesture - bottom right */}
+      <g transform="translate(126,326)">
+        <circle cx="14" cy="14" r="14" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M14 7v14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M9 10v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        <path d="M19 10v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+      </g>
+    </svg>
   );
 }
 
