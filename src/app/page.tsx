@@ -1,17 +1,18 @@
 import Hero from '@/components/sections/Hero';
 import LogoMarquee from '@/components/sections/LogoMarquee';
+import ProblemSection from '@/components/sections/ProblemSection';
 import VideoSection from '@/components/sections/VideoSection';
-import RolesTabs from '@/components/sections/RolesTabs';
-import FeatureCards from '@/components/sections/FeatureCards';
+import Pillars from '@/components/sections/Pillars';
 import StatsGrid from '@/components/sections/StatsGrid';
-import AutomationJourney from '@/components/sections/AutomationJourney';
-import EnterprisePillars from '@/components/sections/EnterprisePillars';
+import ProcessSteps from '@/components/sections/ProcessSteps';
+import PricingPreview from '@/components/sections/PricingPreview';
+import LabsBand from '@/components/sections/LabsBand';
 import FooterCTA from '@/components/sections/FooterCTA';
 
 export const metadata = {
-  title: 'Hire a Robot Fleet for Manual Testing',
+  title: 'Real Robots. Real Devices. Real Defects.',
   description:
-    'Scale your mobile coverage with a new type of AI-enabled service that combines real mechanical robots, physical devices, and quality experts.',
+    'Mobot combines robots testing on real devices with expert QA analysts, so teams ship with confidence in the scenarios emulators can\'t reach.',
 };
 
 export default function Home() {
@@ -19,12 +20,13 @@ export default function Home() {
     <>
       <Hero />
       <LogoMarquee />
+      <ProblemSection />
       <VideoSection />
-      <RolesTabs />
-      <FeatureCards />
+      <Pillars />
       <StatsGrid />
-      <AutomationJourney />
-      <EnterprisePillars />
+      <ProcessSteps />
+      <PricingPreview />
+      <LabsBand />
       <FooterCTA />
     </>
   );
