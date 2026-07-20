@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ComparisonTable from '@/components/ComparisonTable';
 
 export const metadata = { title: 'Why Real Devices' };
 
@@ -89,6 +90,8 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      <ComparisonTable />
 
       <section className="py-20 px-6">
         <div className="mx-auto max-w-[56rem]">
