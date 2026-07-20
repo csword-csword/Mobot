@@ -3,6 +3,7 @@ import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProblemSection from '@/components/sections/ProblemSection';
 import VideoSection from '@/components/sections/VideoSection';
 import Pillars from '@/components/sections/Pillars';
+import StatCounters from '@/components/sections/StatCounters';
 import StatsGrid from '@/components/sections/StatsGrid';
 import ProcessSteps from '@/components/sections/ProcessSteps';
 import PricingPreview from '@/components/sections/PricingPreview';
@@ -23,6 +24,7 @@ export default function Home() {
       <ProblemSection />
       <VideoSection />
       <Pillars />
+      <StatCounters />
       <StatsGrid />
       <ProcessSteps />
       <PricingPreview />
