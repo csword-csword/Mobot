@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import ComparisonTable from '@/components/ComparisonTable';
+import AnatomyOfAnEscapedDefect from '@/components/AnatomyOfAnEscapedDefect';
+import FlakinessAtScaleChart from '@/components/FlakinessAtScaleChart';
 
 export const metadata = { title: 'Why Real Devices' };
 
@@ -71,6 +73,8 @@ export default function Page() {
         </div>
       </section>
 
+      <AnatomyOfAnEscapedDefect />
+
       <section className="py-20 px-6 border-y border-black/10 bg-black/[0.015]">
         <div className="mx-auto max-w-[56rem]">
           <p className="eyebrow text-black/40 text-xs uppercase mb-4">The Sharpened Claim</p>
@@ -90,6 +94,8 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      <FlakinessAtScaleChart />
 
       <ComparisonTable />
 

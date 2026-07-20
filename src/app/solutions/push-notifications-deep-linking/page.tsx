@@ -1,4 +1,5 @@
 import SimplePage from '@/components/SimplePage';
+import PushDeepLinkPath from '@/components/PushDeepLinkPath';
 
 export const metadata = { title: 'Push Notifications & Deep Linking' };
 
@@ -17,6 +18,7 @@ export default function Page() {
       ctaHref="/resources/defect-reports"
       secondaryLabel="Request a Demo"
       secondaryHref="/schedule-demo"
+      graphic={<PushDeepLinkPath />}
     />
   );
 }

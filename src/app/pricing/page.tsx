@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PricingCreditsUnlimited from '@/components/PricingCreditsUnlimited';
 
 export const metadata = { title: 'Pricing' };
 
@@ -17,6 +18,8 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      <PricingCreditsUnlimited />
 
       <section className="py-20 px-6">
         <div className="mx-auto max-w-[64rem] grid md:grid-cols-2 gap-6">

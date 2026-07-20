@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LabsBridgeTimeline from '@/components/LabsBridgeTimeline';
 
 export const metadata = { title: 'Mobot Labs — Early Access' };
 
@@ -51,6 +52,7 @@ export default function Page() {
             with Mobot training and certification, carrying your existing test suite with you.
             There&apos;s no gap in coverage between now and then.
           </p>
+          <LabsBridgeTimeline />
         </div>
       </section>
 
