@@ -4,20 +4,22 @@ import { ExternalLink } from 'lucide-react';
 
 const columns = [
   {
-    heading: 'Product',
+    heading: 'Solutions',
     links: [
-      { label: 'Mobot Managed', href: '/products/managed' },
-      { label: 'Fleet Leasing', href: '/products/fleet-leasing' },
-      { label: 'For Engineers', href: '/for-engineers' },
-      { label: 'For Marketers', href: '/for-marketers' },
+      { label: 'Push Notifications & Deep Linking', href: '/solutions/push-notifications-deep-linking' },
+      { label: 'Bluetooth & Connected Devices', href: '/solutions/bluetooth-connected-devices' },
+      { label: 'Biometrics & Payments', href: '/solutions/biometrics-payments' },
+      { label: 'Camera, Sensors & Location', href: '/solutions/camera-sensors-location' },
+      { label: 'Release Regression Testing', href: '/solutions/release-regression-testing' },
     ],
   },
   {
-    heading: 'Learn',
+    heading: 'Resources',
     links: [
-      { label: 'Resources', href: '/resources' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'FAQ', href: '/faq' },
+      { label: 'Defect Reports', href: '/resources/defect-reports' },
+      { label: 'Blog & Q&A with QA', href: '/resources/blog' },
+      { label: 'Webinars & Events', href: '/resources/webinars-events' },
+      { label: 'Case Studies', href: '/resources/case-studies' },
     ],
   },
   {
@@ -25,18 +27,16 @@ const columns = [
     links: [
       { label: 'About', href: '/about' },
       { label: 'Careers', href: 'https://boards.greenhouse.io/teammobot', external: true },
-      { label: 'Press', href: '/press' },
-      { label: 'YC Startup Support', href: '/yc-startup-support' },
+      { label: 'Security & Compliance', href: '/security' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
-    heading: 'Compare',
+    heading: 'Legal',
     links: [
-      { label: 'Mobot vs. Kobiton', href: '/compare/mobot-vs-kobiton' },
-      { label: 'Mobot vs. Waldo', href: '/compare/mobot-vs-waldo' },
-      { label: 'Mobot vs. Rainforest QA', href: '/compare/mobot-vs-rainforest-qa' },
-      { label: 'Mobot vs. Sauce Labs', href: '/compare/mobot-vs-sauce-labs' },
-      { label: 'Mobot vs. Testlio', href: '/compare/mobot-vs-testlio' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Cookie Policy', href: '/cookie-policy' },
     ],
   },
 ];
@@ -52,7 +52,7 @@ export default function Footer() {
               <Image src="/images/Mobot-Logo.svg" alt="Mobot" width={100} height={28} />
             </Link>
             <p className="mt-4 text-white/40 text-sm leading-relaxed max-w-[200px]">
-              AI-powered mechanical robots for mobile testing.
+              The physical testing platform for mobile teams shipping real-world hardware features.
             </p>
             <div className="mt-6 flex items-center gap-4">
               <a

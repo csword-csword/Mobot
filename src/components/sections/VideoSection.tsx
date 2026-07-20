@@ -5,11 +5,9 @@ export default function VideoSection() {
     <section className="py-28 px-6">
       <div className="mx-auto max-w-[77rem]">
         <div className="text-center mb-12">
-          <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-5">How Mobot Works</p>
+          <p className="text-white/40 text-xs uppercase tracking-[0.2em] mb-5">Real Robots. Real Devices.</p>
           <h2 className="text-5xl font-bold leading-tight max-w-[46rem] mx-auto">
-            See How Our{' '}
-            <span className="gradient-text">AI-Powered Mechanical Robots</span>
-            {' '}Eliminate Bugs and Speed Up Releases
+            Watch a Robot Physically Test a Real Device
           </h2>
         </div>
 
@@ -21,7 +19,7 @@ export default function VideoSection() {
             loop
             playsInline
           >
-            <source src="/videos/explainer.mp4" type="video/mp4" />
+            <source src="/videos/mobot-optimized-transcode.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -30,7 +28,7 @@ export default function VideoSection() {
             href="/schedule-demo"
             className="inline-flex px-6 py-3 rounded-full bg-[#2f87c8] text-white hover:bg-[#3da6fc] transition-colors text-sm"
           >
-            Schedule a Demo →
+            Request a Demo
           </Link>
         </div>
       </div>

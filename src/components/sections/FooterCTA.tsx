@@ -39,18 +39,17 @@ export default function FooterCTA() {
           <div className="lg:col-span-1 rounded-2xl border border-white/10 bg-white/5 p-10 flex flex-col gap-6
                           shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]">
             <h3 className="text-2xl font-bold leading-snug">
-              Ready to Transform Your Workflow with{' '}
-              <span className="gradient-text">AI-Powered Robotics?</span>
+              See What Your <span className="gradient-text">Emulators Are Missing</span>
             </h3>
             <p className="text-white/50 text-sm leading-relaxed">
-              Mobot automates the unautomatable, connecting digital tools with real-world tasks to
-              deliver unmatched precision and efficiency.
+              Get a real, verified defect report from Mobot&apos;s robots and QA analysts&mdash;on
+              your app, on real devices.
             </p>
             <Link
-              href="/schedule-demo"
+              href="/resources/defect-reports"
               className="mt-auto inline-flex w-fit px-6 py-3 rounded-full bg-[#2f87c8] text-white hover:bg-[#3da6fc] transition-colors text-sm"
             >
-              Schedule a Demo →
+              Get a Sample Report →
             </Link>
           </div>
 
@@ -58,16 +57,17 @@ export default function FooterCTA() {
           <div className="lg:col-span-2 grid sm:grid-cols-2 gap-5">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-8 flex flex-col gap-4
                             shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]">
-              <h3 className="text-xl font-bold">Explore Use Cases</h3>
+              <h3 className="text-xl font-bold">Explore Solutions</h3>
               <p className="text-white/50 text-sm leading-relaxed">
-                Discover how Mobot&apos;s AI-powered robots automate the unautomatable for every
-                team—Engineering, Marketing, QA, Product, and beyond.
+                See where Mobot catches the defects that emulators and scripted automation
+                structurally can&apos;t&mdash;push, Bluetooth, biometrics, camera, and release
+                regression.
               </p>
               <Link
-                href="/#use-cases"
+                href="/solutions"
                 className="mt-auto text-[#3da6fc] text-sm hover:text-[#86bff2] transition-colors"
               >
-                Explore Use Cases →
+                Explore Solutions →
               </Link>
             </div>
 
@@ -75,11 +75,11 @@ export default function FooterCTA() {
                             shadow-[inset_-1px_1px_1px_rgba(255,255,255,0.08)]">
               <h3 className="text-xl font-bold">Explore Case Studies</h3>
               <p className="text-white/50 text-sm leading-relaxed">
-                Learn how teams have revolutionized their workflows with Mobot, reducing bugs,
-                accelerating releases, and saving costs.
+                Learn how teams have reduced escaped defects, sped up releases, and gotten
+                engineering hours back with Mobot.
               </p>
               <Link
-                href="/customers"
+                href="/resources/case-studies"
                 className="mt-auto text-[#3da6fc] text-sm hover:text-[#86bff2] transition-colors"
               >
                 Explore Case Studies →

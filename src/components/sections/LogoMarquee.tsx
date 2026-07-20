@@ -19,7 +19,7 @@ export default function LogoMarquee() {
   return (
     <div className="py-12 border-t border-white/10">
       <p className="text-center text-white/30 text-xs uppercase tracking-[0.2em] mb-8">
-        Trusted by
+        Trusted by Leading Mobile Teams
       </p>
       <div className="relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
