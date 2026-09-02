@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      { source: "/resources/case-studies", destination: "/customers", permanent: true },
+      { source: "/why-mobot", destination: "/why-real-devices", permanent: true },
+      { source: "/compare/mobot-vs-scripted-automation", destination: "/compare", permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;

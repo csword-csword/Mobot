@@ -5,37 +5,56 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
-const solutions = [
+interface DropdownItem {
+  label: string;
+  href: string;
+  description: string;
+  badge?: string;
+  external?: boolean;
+}
+
+const platform: DropdownItem[] = [
+  { label: 'The Platform', href: '/platform', description: 'Four layers from generated script to validated release' },
+  { label: 'How It Works', href: '/how-it-works', description: 'Robots, real devices, expert analysts — end to end' },
+  { label: 'Why Real Devices', href: '/why-real-devices', description: 'Scripted automation is noisy. Simulators are blind.' },
+  { label: 'Device Fleet', href: '/devices', description: '300+ real iOS and Android devices' },
+  { label: 'Integrations', href: '/integrations', description: 'Slack, Jira, TestRail, and your release process' },
+  { label: 'Mobot Unlimited', href: '/unlimited', description: 'Unlimited testing. One flat rate.', badge: 'Flagship' },
+];
+
+const solutions: DropdownItem[] = [
   { label: 'Push Notifications & Deep Linking', href: '/solutions/push-notifications-deep-linking', description: 'A push that never arrives, a link that opens the wrong screen' },
   { label: 'Bluetooth & Connected Devices (IoT)', href: '/solutions/bluetooth-connected-devices', description: 'No emulator exists for this scenario at all' },
   { label: 'Biometrics & Payments', href: '/solutions/biometrics-payments', description: 'Face ID, Touch ID, and payment flows end to end' },
   { label: 'Camera, Sensors & Location', href: '/solutions/camera-sensors-location', description: 'Barcode scans, AR, GPS, network transitions' },
   { label: 'Release Regression Testing', href: '/solutions/release-regression-testing', description: 'Full regression on real devices, overnight' },
+  { label: 'All Solutions', href: '/solutions', description: 'Every defect class emulators can’t see' },
 ];
 
-const resources = [
-  { label: 'Defect Reports', href: '/resources/defect-reports', description: 'See a sample verified defect report' },
-  { label: 'Blog & Q&A with QA', href: '/resources/blog', description: 'Notes from Mobot’s QA analysts' },
+const compare: DropdownItem[] = [
+  { label: 'Mobot vs. Appium', href: '/compare/mobot-vs-appium', description: 'Real devices vs. injected events in code' },
+  { label: 'Mobot vs. Maestro', href: '/compare/mobot-vs-maestro', description: 'Robots vs. YAML flows on simulators' },
+  { label: 'Mobot vs. QA Wolf', href: '/compare/mobot-vs-qa-wolf', description: 'Managed robots vs. managed scripts' },
+  { label: 'All Comparisons', href: '/compare', description: 'How Mobot stacks up, feature by feature' },
+];
+
+const resources: DropdownItem[] = [
+  { label: 'Sample Defect Report', href: '/resources/defect-reports', description: 'See a verified, forensic defect report' },
+  { label: 'Customers & Case Studies', href: '/customers', description: 'Outcomes from real Mobot customers' },
+  { label: 'Blog & Reports', href: '/resources/blog', description: 'Test debt, deep linking, and the state of mobile QA' },
   { label: 'Webinars & Events', href: '/resources/webinars-events', description: 'Live sessions on mobile QA' },
-  { label: 'Case Studies', href: '/resources/case-studies', description: 'Outcomes from real Mobot customers' },
+  { label: 'FAQ', href: '/faq', description: 'Everything teams ask before they start' },
 ];
 
-interface DropdownItem {
-  label: string;
-  href: string;
-  description: string;
-  external?: boolean;
-}
-
-function Dropdown({ label, items }: { label: string; items: DropdownItem[] }) {
+function Dropdown({ label, items, wide }: { label: string; items: DropdownItem[]; wide?: boolean }) {
   return (
     <div className="relative group">
-      <button className="flex items-center gap-1 text-slate-600 hover:text-[#0a2540] transition-colors py-1 font-medium">
+      <button className="flex items-center gap-1 text-slate-600 hover:text-[#0a2540] transition-colors py-1 font-medium whitespace-nowrap">
         {label}
-        <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+        <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform group-hover:rotate-180" />
       </button>
-      <div className="absolute top-full left-0 pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-        <div className="bg-white border border-slate-200 rounded-md p-2 min-w-[280px] shadow-lg">
+      <div className="absolute top-full left-0 pt-3 opacity-0 translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-150 z-50">
+        <div className={`bg-white border border-slate-200 rounded-md p-2 shadow-lg ${wide ? 'min-w-[560px] grid grid-cols-2 gap-1' : 'min-w-[300px]'}`}>
           {items.map((item) => (
             <Link
               key={item.href}
@@ -44,7 +63,14 @@ function Dropdown({ label, items }: { label: string; items: DropdownItem[] }) {
               rel={item.external ? 'noopener noreferrer' : undefined}
               className="block px-3 py-2.5 rounded-sm hover:bg-slate-50 transition-colors"
             >
-              <div className="text-[#0a2540] text-sm font-semibold">{item.label}</div>
+              <div className="flex items-center gap-2 text-[#0a2540] text-sm font-semibold">
+                {item.label}
+                {item.badge && (
+                  <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-[#e8f0fe] text-[#1d4ed8]">
+                    {item.badge}
+                  </span>
+                )}
+              </div>
               <div className="text-slate-500 text-xs mt-0.5">{item.description}</div>
             </Link>
           ))}
@@ -54,13 +80,21 @@ function Dropdown({ label, items }: { label: string; items: DropdownItem[] }) {
   );
 }
 
-const mobileLinks = [
-  { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Why Real Devices', href: '/why-real-devices' },
-  ...solutions.map((s) => ({ label: s.label, href: s.href })),
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Mobot Labs', href: '/labs' },
-  ...resources.map((r) => ({ label: r.label, href: r.href })),
+const mobileGroups: { heading: string; items: { label: string; href: string }[] }[] = [
+  { heading: 'Platform', items: platform.map((i) => ({ label: i.label, href: i.href })) },
+  { heading: 'Solutions', items: solutions.map((i) => ({ label: i.label, href: i.href })) },
+  { heading: 'Compare', items: compare.map((i) => ({ label: i.label, href: i.href })) },
+  {
+    heading: 'Company',
+    items: [
+      { label: 'Customers', href: '/customers' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Mobot Labs', href: '/labs' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  { heading: 'Resources', items: resources.map((i) => ({ label: i.label, href: i.href })) },
 ];
 
 export default function Navbar() {
@@ -68,21 +102,18 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
-      <div className="mx-auto max-w-[84rem] px-6 h-[72px] flex items-center justify-between gap-6">
-        {/* Logo */}
+      <div className="mx-auto max-w-[86rem] px-6 h-[72px] flex items-center justify-between gap-6">
         <Link href="/" className="shrink-0">
           <Image src="/images/Mobot-Logo-Navy.svg" alt="Mobot" width={100} height={28} priority />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-6 text-sm">
-          <Link href="/how-it-works" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium whitespace-nowrap">
-            How It Works
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-5 xl:gap-6 text-sm">
+          <Dropdown label="Platform" items={platform} wide />
+          <Dropdown label="Solutions" items={solutions} wide />
+          <Dropdown label="Compare" items={compare} />
+          <Link href="/customers" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium">
+            Customers
           </Link>
-          <Link href="/why-real-devices" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium whitespace-nowrap">
-            Why Real Devices
-          </Link>
-          <Dropdown label="Solutions" items={solutions} />
           <Link href="/pricing" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium">
             Pricing
           </Link>
@@ -95,20 +126,23 @@ export default function Navbar() {
           <Dropdown label="Resources" items={resources} />
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-5 shrink-0">
-          <Link href="/schedule-demo" className="text-sm font-semibold text-slate-600 hover:text-[#0a2540] transition-colors whitespace-nowrap">
+          <a
+            href="https://app.teammobot.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-slate-600 hover:text-[#0a2540] transition-colors whitespace-nowrap"
+          >
             Log In
-          </Link>
+          </a>
           <Link
-            href="/resources/defect-reports"
+            href="/schedule-demo"
             className="inline-flex text-sm font-semibold px-5 py-2.5 rounded-md bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-colors whitespace-nowrap"
           >
-            Get a Sample Report
+            Request a Demo
           </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((o) => !o)}
           className="lg:hidden text-[#0a2540] p-1"
@@ -118,25 +152,29 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 space-y-1 max-h-[calc(100vh-72px)] overflow-y-auto">
-          {mobileLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="block py-3 text-slate-600 hover:text-[#0a2540] border-b border-slate-100 font-medium transition-colors"
-            >
-              {item.label}
-            </Link>
+        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 max-h-[calc(100vh-72px)] overflow-y-auto">
+          {mobileGroups.map((group) => (
+            <div key={group.heading} className="mb-5">
+              <div className="eyebrow text-xs mb-2">{group.heading}</div>
+              {group.items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-2.5 text-slate-700 hover:text-[#0a2540] border-b border-slate-100 font-medium transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           ))}
           <Link
-            href="/resources/defect-reports"
+            href="/schedule-demo"
             onClick={() => setMobileOpen(false)}
-            className="mt-4 inline-flex w-full justify-center text-sm font-semibold px-5 py-3 rounded-md bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-colors"
+            className="mt-2 inline-flex w-full justify-center text-sm font-semibold px-5 py-3 rounded-md bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-colors"
           >
-            Get a Sample Report
+            Request a Demo
           </Link>
         </div>
       )}

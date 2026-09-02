@@ -1,10 +1,13 @@
 import Hero from '@/components/sections/Hero';
 import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProblemSection from '@/components/sections/ProblemSection';
-import VideoSection from '@/components/sections/VideoSection';
+import PlatformTeaser from '@/components/sections/PlatformTeaser';
 import Pillars from '@/components/sections/Pillars';
 import StatCounters from '@/components/sections/StatCounters';
+import CompareTeaser from '@/components/sections/CompareTeaser';
+import RoleSection from '@/components/sections/RoleSection';
 import StatsGrid from '@/components/sections/StatsGrid';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import HomeProcessStrip from '@/components/sections/HomeProcessStrip';
 import PricingPreview from '@/components/sections/PricingPreview';
 import LabsBand from '@/components/sections/LabsBand';
@@ -22,10 +25,13 @@ export default function Home() {
       <Hero />
       <LogoMarquee />
       <ProblemSection />
-      <VideoSection />
+      <PlatformTeaser />
       <Pillars />
       <StatCounters />
+      <CompareTeaser />
+      <RoleSection />
       <StatsGrid />
+      <TestimonialsSection />
       <HomeProcessStrip />
       <PricingPreview />
       <LabsBand />
