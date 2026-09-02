@@ -24,12 +24,12 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <StatCounters />
       <LogoMarquee />
       <ProblemSection />
       <PlatformTeaser />
       <Pillars />
       <LabShowcase />
-      <StatCounters />
       <CompareTeaser />
       <RoleSection />
       <StatsGrid />
