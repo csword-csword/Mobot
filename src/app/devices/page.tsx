@@ -5,6 +5,7 @@ import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
 import DeviceGrid from '@/components/DeviceGrid';
 import CapabilityGrid from '@/components/ui/CapabilityGrid';
+import LabPhoto from '@/components/ui/LabPhoto';
 import { deviceBrands } from '@/data/content';
 
 export const metadata = {
@@ -28,6 +29,12 @@ export default function Page() {
         intro="Every test runs on a physical iOS or Android device, driven by a robot, in Mobot's New York lab. Choose the devices and OS versions that match your users — and change them as your user base shifts."
         primary={{ label: 'Request a Device List', href: '/contact' }}
         secondary={{ label: 'Request a Demo', href: '/schedule-demo' }}
+        aside={
+          <div className="grid grid-cols-2 gap-4 items-start">
+            <LabPhoto name="DSC_3443" alt="A two-tier robot rack, each tier holding phones on illuminated stages" aspect="aspect-[3/4]" priority sizes="25vw" />
+            <LabPhoto name="DSC_3399" alt="A robot stylus tapping the lit screen of a phone" aspect="aspect-[3/4]" priority sizes="25vw" className="mt-10" />
+          </div>
+        }
       />
 
       <section className="py-16 px-6">

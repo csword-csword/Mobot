@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 interface Cta {
@@ -20,6 +21,8 @@ interface PageHeroProps {
   center?: boolean;
   /** Use the navy hero treatment. */
   dark?: boolean;
+  /** Full-bleed photo behind a dark hero (darkened with a gradient overlay). */
+  bgImage?: string;
   maxWidth?: string;
 }
 
@@ -33,6 +36,7 @@ export default function PageHero({
   aside,
   center,
   dark,
+  bgImage,
   maxWidth = 'max-w-[86rem]',
 }: PageHeroProps) {
   const shell = dark
@@ -43,9 +47,15 @@ export default function PageHero({
   const eyebrowClass = dark ? 'eyebrow text-sm !text-[#86b6ef]' : 'eyebrow text-sm';
 
   return (
-    <section className={shell}>
+    <section className={`relative overflow-hidden ${shell}`}>
+      {bgImage && (
+        <div className="absolute inset-0" aria-hidden="true">
+          <Image src={bgImage} alt="" fill priority sizes="100vw" className="object-cover object-center opacity-45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540] via-[#0a2540]/85 to-[#0a2540]/40" />
+        </div>
+      )}
       <div
-        className={`mx-auto ${maxWidth} px-6 py-20 lg:py-28 ${
+        className={`relative mx-auto ${maxWidth} px-6 py-20 lg:py-28 ${
           aside ? 'grid lg:grid-cols-2 gap-14 items-center' : ''
         } ${center ? 'text-center' : ''}`}
       >

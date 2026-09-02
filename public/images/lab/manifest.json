@@ -1,0 +1,90 @@
+[
+  {
+    "name": "DSC_3353",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Wide, shallow-focus shot inside a purple-lit robot test bay with a gantry-mounted stylus arm and cable bundles, device stages blurred in the foreground.",
+    "bestFor": "background"
+  },
+  {
+    "name": "DSC_3354",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Interior view of the testing rig showing several phones on lit stages with robot stylus heads and green indicator lights above them.",
+    "bestFor": "platform"
+  },
+  {
+    "name": "DSC_3356",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Robot stylus arm poised directly over a phone on its stage, with a second rig receding in soft focus behind it.",
+    "bestFor": "hero"
+  },
+  {
+    "name": "DSC_3372",
+    "width": 1200,
+    "height": 1800,
+    "orientation": "portrait",
+    "description": "Tight vertical close-up of the robot stylus tip and its wiring, with a green status LED and the rig blurred into purple behind.",
+    "bestFor": "background"
+  },
+  {
+    "name": "DSC_3399",
+    "width": 1200,
+    "height": 1800,
+    "orientation": "portrait",
+    "description": "Close-up of a robot stylus tapping the brightly lit screen of a phone mounted on the test stage.",
+    "bestFor": "devices"
+  },
+  {
+    "name": "DSC_3408",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Head-on view of a robot arm suspended between two landscape-oriented phones, with looping cable bundles overhead.",
+    "bestFor": "platform"
+  },
+  {
+    "name": "DSC_3412",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Close-up of the stylus head assembly mounted on its rail, green LED lit, with the rest of the rig blurred in purple light.",
+    "bestFor": "about"
+  },
+  {
+    "name": "DSC_3416",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Stylus arm in the left foreground with several more robot rigs fading into a soft-focus purple background.",
+    "bestFor": "background"
+  },
+  {
+    "name": "DSC_3422",
+    "width": 1800,
+    "height": 1200,
+    "orientation": "landscape",
+    "description": "Side-lit robot stylus hovering over a phone on its stage, with a cable loop arching above the arm.",
+    "bestFor": "hero"
+  },
+  {
+    "name": "DSC_3443",
+    "width": 1200,
+    "height": 1800,
+    "orientation": "portrait",
+    "description": "Vertical view of a two-tier robot rack, each tier with its own stylus gantry and phones on illuminated stages.",
+    "bestFor": "devices"
+  },
+  {
+    "name": "IMG_0017",
+    "width": 1800,
+    "height": 1012,
+    "orientation": "landscape",
+    "description": "Wide shot of the lab with an open robot bay on the left and a tall rack of stacked robot cells, each holding a phone, on the right.",
+    "bestFor": "about"
+  }
+]

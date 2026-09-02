@@ -5,7 +5,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
 import LogoCloud from '@/components/ui/LogoCloud';
-import RobotTapGraphic from '@/components/RobotTapGraphic';
+import LabPhoto from '@/components/ui/LabPhoto';
 
 export const metadata = {
   title: 'About Mobot',
@@ -35,7 +35,7 @@ export default function Page() {
         intro="Mobot is on a mission to revolutionize the way engineering teams test and ship mobile products. We combine the best of humans with automation using real, mechanical robots — because the last mile of mobile QA lives in hardware that no simulator can reach."
         primary={{ label: 'View Open Roles', href: 'https://boards.greenhouse.io/teammobot', external: true }}
         secondary={{ label: 'Request a Demo', href: '/schedule-demo' }}
-        aside={<RobotTapGraphic />}
+        aside={<LabPhoto name="IMG_0017" alt="The Mobot lab: an open robot bay and a tall rack of robot cells, each holding a phone" aspect="aspect-[16/9]" priority caption="The Mobot lab, New York." />}
       />
 
       <section className="py-20 px-6">
@@ -99,6 +99,18 @@ export default function Page() {
 
       <section className="py-16 px-6 section-alt border-y border-slate-200">
         <div className="mx-auto max-w-[80rem]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            {[
+              { name: 'DSC_3354', alt: 'Phones on lit stages beneath robot stylus heads' },
+              { name: 'DSC_3412', alt: 'Close-up of a stylus head assembly on its rail' },
+              { name: 'DSC_3422', alt: 'Side-lit robot stylus hovering over a phone' },
+              { name: 'DSC_3372', alt: 'Close-up of the robot stylus tip and its status LED' },
+            ].map((p, i) => (
+              <Reveal key={p.name} delay={i * 80}>
+                <LabPhoto name={p.name} alt={p.alt} aspect="aspect-[4/3]" sizes="(max-width: 768px) 50vw, 25vw" />
+              </Reveal>
+            ))}
+          </div>
           <LogoCloud />
         </div>
       </section>

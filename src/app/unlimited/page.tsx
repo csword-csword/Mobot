@@ -66,6 +66,7 @@ export default function Page() {
     <>
       <PageHero
         dark
+        bgImage="/images/lab/DSC_3416.webp"
         eyebrow="Introducing Mobot Unlimited"
         badge="Flagship plan"
         title={

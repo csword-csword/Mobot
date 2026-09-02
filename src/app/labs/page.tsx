@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LabsBridgeTimeline from '@/components/LabsBridgeTimeline';
+import LabPhoto from '@/components/ui/LabPhoto';
 
 export const metadata = { title: 'Mobot Labs — Early Access' };
 
@@ -22,7 +23,8 @@ export default function Page() {
   return (
     <>
       <section className="bg-gradient-to-b from-[#f3f7fe] to-white border-b border-slate-200">
-        <div className="mx-auto max-w-[56rem] px-6 py-20 lg:py-28">
+        <div className="mx-auto max-w-[86rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
+          <div>
           <div className="flex items-center gap-3 mb-5">
             <p className="eyebrow text-sm">Mobot Labs</p>
             <span className="text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-md bg-[#e8f0fe] text-[#1d4ed8]">
@@ -37,6 +39,14 @@ export default function Page() {
             Labs is the next step for teams who want physical, expert-grade testing under their own
             roof &mdash; without building the operation from scratch.
           </p>
+          </div>
+          <LabPhoto
+            name="IMG_0017"
+            alt="A Mobot lab: an open robot bay and a rack of robot cells, each holding a phone"
+            aspect="aspect-[16/9]"
+            priority
+            caption="Mobot's New York lab — the blueprint for yours."
+          />
         </div>
       </section>
 

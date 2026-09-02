@@ -3,6 +3,7 @@ import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProblemSection from '@/components/sections/ProblemSection';
 import PlatformTeaser from '@/components/sections/PlatformTeaser';
 import Pillars from '@/components/sections/Pillars';
+import LabShowcase from '@/components/sections/LabShowcase';
 import StatCounters from '@/components/sections/StatCounters';
 import CompareTeaser from '@/components/sections/CompareTeaser';
 import RoleSection from '@/components/sections/RoleSection';
@@ -27,6 +28,7 @@ export default function Home() {
       <ProblemSection />
       <PlatformTeaser />
       <Pillars />
+      <LabShowcase />
       <StatCounters />
       <CompareTeaser />
       <RoleSection />

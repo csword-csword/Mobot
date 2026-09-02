@@ -10,6 +10,7 @@ import RobotTapGraphic from '@/components/RobotTapGraphic';
 import DeviceGrid from '@/components/DeviceGrid';
 import SampleDefectReport from '@/components/SampleDefectReport';
 import CvAuthoringVisual from '@/components/compare/CvAuthoringVisual';
+import LabPhoto from '@/components/ui/LabPhoto';
 
 export const metadata = {
   title: 'The Mobot Platform',
@@ -77,6 +78,14 @@ function Visual({ kind }: { kind: string }) {
   if (kind === 'cv') return <CvAuthoringVisual />;
   if (kind === 'report') return <SampleDefectReport />;
   if (kind === 'robot') return <RobotTapGraphic />;
+  if (kind === 'devices') {
+    return (
+      <div className="space-y-4">
+        <LabPhoto name="DSC_3408" alt="A robot arm suspended between two phones on the test rig" caption="A Mobot cell in the New York lab — one robot, multiple real devices." />
+        <DeviceGrid />
+      </div>
+    );
+  }
   return <DeviceGrid />;
 }
 
@@ -94,7 +103,7 @@ export default function Page() {
         intro="Four layers that take a mobile app from generated test script to validated release — executed by robots on real iOS and Android devices, not emulators, and verified by QA analysts before anything reaches your team."
         primary={{ label: 'Request a Demo', href: '/schedule-demo' }}
         secondary={{ label: 'See How It Works', href: '/how-it-works' }}
-        aside={<RobotTapGraphic />}
+        aside={<LabPhoto name="DSC_3356" alt="Robot stylus arm poised over a phone on its stage in the Mobot lab" priority caption="Robot cell, Mobot lab, New York." />}
       />
 
       <section className="py-20 px-6">
