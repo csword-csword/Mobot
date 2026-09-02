@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-// Sourced from the current mobot.io site and published case studies.
-// Swap in fleet-wide totals (verified defects, actions executed, robots) when available.
+// PLACEHOLDER FIGURES — the first three are illustrative fleet-wide totals and must be
+// replaced with actual data before launch. "300+ devices" is sourced from the current site.
 const stats = [
-  { target: 300, suffix: 'M+', label: 'Monthly active users on apps Mobot tests', sub: 'Top-10 social network, #1 US neobank, Rappi, Citizen' },
-  { target: 300, suffix: '+', label: 'Real iOS & Android devices in the fleet', sub: 'Physically driven by robots, New York' },
-  { target: 10000, suffix: '+', label: 'Deep links verified for a single customer', sub: '50+ channels tested every week' },
-  { target: 5, suffix: '×', label: 'Faster than manual testing', sub: 'One robot day replaces five human days' },
+  { target: 250000, suffix: '+', label: 'Verified defects reported', sub: 'Every one reviewed by a QA analyst' },
+  { target: 12, suffix: 'M+', label: 'Physical test actions executed', sub: 'Real taps, swipes, and gestures on real glass' },
+  { target: 120, suffix: '+', label: 'Robots in the fleet', sub: 'Running 5×24 across onshore and offshore ops' },
+  { target: 300, suffix: '+', label: 'Real iOS & Android devices', sub: 'Current and legacy OS versions, New York lab' },
 ];
 
 function formatNumber(n: number) {
