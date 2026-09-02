@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { Calendar, MapPin, Mic, Video } from 'lucide-react';
+import { Calendar, CalendarDays, MapPin, Mic, Video, ArrowUpRight } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
+import { upcomingEvents } from '@/data/events';
 
 export const metadata = {
   title: 'Webinars & Events',
@@ -38,6 +39,7 @@ const events = [
 ];
 
 export default function Page() {
+  const upcoming = upcomingEvents();
   return (
     <>
       <PageHero
@@ -46,6 +48,41 @@ export default function Page() {
         intro="Live sessions and conferences on mobile QA, hardware-dependent testing, and what it takes to ship with confidence on real devices."
         primary={{ label: 'Notify Me', href: '/contact' }}
       />
+
+      {upcoming.length > 0 && (
+        <section className="py-16 px-6 border-b border-slate-200">
+          <div className="mx-auto max-w-[80rem]">
+            <SectionHeading eyebrow="Up next" title="Meet Mobot in person" className="mb-8" />
+            <div className="grid gap-5">
+              {upcoming.map((e, i) => (
+                <Reveal key={e.slug} delay={i * 80}>
+                  <div className="relative overflow-hidden rounded-lg border border-[#6d3fe0]/30 bg-white p-8 shadow-[0_1px_3px_rgba(15,23,42,0.08)] grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+                    <div className="absolute inset-y-0 left-0 w-1.5 brand-gradient" aria-hidden="true" />
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#6d3fe0] mb-2">{e.role} &middot; {e.organizer}</p>
+                      <h2 className="text-2xl font-bold text-[#0a2540] mb-3">{e.name}</h2>
+                      <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm font-semibold text-[#0a2540] mb-3">
+                        <span className="inline-flex items-center gap-1.5"><CalendarDays className="w-4 h-4 text-[#1d4ed8]" /> {e.dateLabel}</span>
+                        <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4 text-[#1d4ed8]" /> {e.venue ? `${e.venue}, ` : ''}{e.city}</span>
+                        {e.booth && <span>Booth {e.booth}</span>}
+                      </div>
+                      <p className="text-slate-600 text-sm leading-relaxed max-w-[44rem]">{e.blurb}</p>
+                    </div>
+                    <div className="flex flex-wrap lg:flex-col gap-3 lg:min-w-[13rem]">
+                      <Link href="/schedule-demo" className="inline-flex justify-center px-5 py-2.5 rounded-md bg-[#1d4ed8] text-white font-semibold hover:bg-[#1e40af] transition-colors text-sm">
+                        Book time with us there
+                      </Link>
+                      <a href={e.url} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center gap-1.5 px-5 py-2.5 rounded-md border border-slate-300 text-[#0a2540] font-semibold hover:bg-slate-50 transition-colors text-sm">
+                        Event details <ArrowUpRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-20 px-6">
         <div className="mx-auto max-w-[80rem] grid lg:grid-cols-3 gap-5">

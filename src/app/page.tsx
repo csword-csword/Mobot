@@ -4,6 +4,7 @@ import ProblemSection from '@/components/sections/ProblemSection';
 import PlatformTeaser from '@/components/sections/PlatformTeaser';
 import Pillars from '@/components/sections/Pillars';
 import LabShowcase from '@/components/sections/LabShowcase';
+import EventBand from '@/components/sections/EventBand';
 import StatCounters from '@/components/sections/StatCounters';
 import CompareTeaser from '@/components/sections/CompareTeaser';
 import RoleSection from '@/components/sections/RoleSection';
@@ -25,6 +26,7 @@ export default function Home() {
     <>
       <Hero />
       <StatCounters />
+      <EventBand />
       <LogoMarquee />
       <ProblemSection />
       <PlatformTeaser />
