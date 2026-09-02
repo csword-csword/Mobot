@@ -48,7 +48,7 @@ export default function Page() {
             {proof.map((p, i) => (
               <Reveal key={p.label} delay={i * 90}>
                 <div className="h-full rounded-lg border border-slate-200 bg-white p-8 text-center">
-                  <div className="text-5xl font-bold text-[#1d4ed8]">{p.value}</div>
+                  <div className="text-5xl font-bold gradient-text">{p.value}</div>
                   <div className="font-bold text-[#0a2540] text-lg mt-2">{p.label}</div>
                   <p className="text-slate-500 text-sm mt-2 leading-relaxed">{p.sub}</p>
                 </div>
@@ -66,7 +66,7 @@ export default function Page() {
               <Reveal key={c.slug} delay={(i % 2) * 90}>
                 <Link
                   href={`/customers/${c.slug}`}
-                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-8 hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all"
+                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-8 card-lift"
                 >
                   <div className="flex items-center justify-between mb-4">
                     {c.logo ? (
@@ -78,7 +78,7 @@ export default function Page() {
                     )}
                     <span className="text-[11px] text-slate-400">{c.industry}</span>
                   </div>
-                  <div className="text-5xl font-bold text-[#1d4ed8]">{c.stat}</div>
+                  <div className="text-5xl font-bold gradient-text">{c.stat}</div>
                   <div className="text-[#0a2540] font-bold text-lg leading-snug mt-1">{c.label}</div>
                   <p className="text-slate-600 text-sm mt-3 leading-relaxed">{c.detail}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">

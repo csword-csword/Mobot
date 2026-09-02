@@ -8,7 +8,7 @@ function Cell({ level, highlight }: { level: Level; highlight?: boolean }) {
     return (
       <span
         className={`inline-flex w-7 h-7 items-center justify-center rounded-full ${
-          highlight ? 'bg-[#1d4ed8] text-white' : 'bg-[#e8f0fe] text-[#1d4ed8]'
+          highlight ? "brand-gradient text-white" : "bg-[#e8f0fe] text-[#1d4ed8]"
         }`}
         aria-label="Yes"
       >
@@ -69,8 +69,8 @@ export default function FeatureMatrix({
             <thead>
               <tr>
                 <th />
-                <th className="px-2 pb-4 text-center align-bottom rounded-t-md border border-b-0 border-[#1d4ed8]/40 bg-[#e8f0fe]">
-                  <div className="text-sm font-bold text-[#1d4ed8]">Mobot</div>
+                <th className="px-2 pb-4 text-center align-bottom rounded-t-md border border-b-0 border-[#6d3fe0]/40 bg-[#efeafd]">
+                  <div className="text-sm font-bold text-[#4f2bc2]">Mobot</div>
                   <div className="text-[11px] text-slate-500 mt-1 leading-snug">{competitorMeta.mobot.sub}</div>
                 </th>
                 {others.map((c) => (
@@ -95,7 +95,7 @@ export default function FeatureMatrix({
                         <div className="text-sm text-slate-700">{row.label}</div>
                         {row.note && <div className="text-xs text-slate-400 mt-0.5">{row.note}</div>}
                       </td>
-                      <td className="py-3 px-2 text-center border-x border-[#1d4ed8]/40 bg-[#e8f0fe]/50">
+                      <td className="py-3 px-2 text-center border-x border-[#6d3fe0]/40 bg-[#efeafd]/50">
                         <Cell level={row.values.mobot} highlight />
                       </td>
                       {others.map((c) => (
@@ -109,7 +109,7 @@ export default function FeatureMatrix({
               ))}
               <tr>
                 <td />
-                <td className="rounded-b-md border border-t-0 border-[#1d4ed8]/40 bg-[#e8f0fe] h-2" />
+                <td className="rounded-b-md border border-t-0 border-[#6d3fe0]/40 bg-[#efeafd] h-2" />
                 <td colSpan={others.length} />
               </tr>
             </tbody>

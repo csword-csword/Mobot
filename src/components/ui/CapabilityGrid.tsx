@@ -40,7 +40,7 @@ export default function CapabilityGrid({ limit, compact }: CapabilityGridProps) 
         const Icon = icons[c.icon];
         const inner = (
           <>
-            <div className="w-10 h-10 rounded-md bg-[#e8f0fe] text-[#1d4ed8] flex items-center justify-center shrink-0 group-hover:bg-[#1d4ed8] group-hover:text-white transition-colors">
+            <div className="w-10 h-10 rounded-md bg-[#e8f0fe] text-[#1d4ed8] flex items-center justify-center shrink-0 group-hover:brand-gradient group-hover:text-white transition-colors">
               <Icon className="w-5 h-5" />
             </div>
             <div>
@@ -49,7 +49,7 @@ export default function CapabilityGrid({ limit, compact }: CapabilityGridProps) 
             </div>
           </>
         );
-        const cls = `group h-full flex ${compact ? 'items-center' : 'items-start'} gap-4 rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all`;
+        const cls = `group h-full flex ${compact ? 'items-center' : 'items-start'} gap-4 rounded-lg border border-slate-200 bg-white p-5 card-lift`;
         return (
           <Reveal key={c.name} delay={(i % 6) * 60}>
             {c.solutionHref ? (

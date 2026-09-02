@@ -112,7 +112,7 @@ export default function ApproachMatrix() {
                     <div className="text-[11px] text-white/50 font-normal mt-0.5">{c.sub}</div>
                   </th>
                 ))}
-                <th className="px-4 py-4 text-center align-bottom bg-[#1d4ed8]">
+                <th className="px-4 py-4 text-center align-bottom brand-gradient">
                   <div className="font-bold">Mobot</div>
                   <div className="text-[11px] text-white/70 font-normal mt-0.5">robotic · real devices · verified</div>
                 </th>
@@ -133,9 +133,9 @@ export default function ApproachMatrix() {
                       </span>
                     </td>
                   ))}
-                  <td className="px-4 py-4 text-center align-top bg-[#e8f0fe]/70 border-x border-[#1d4ed8]/25">
-                    <span className="inline-flex items-start gap-1.5 text-[13px] font-bold text-[#1d4ed8] leading-snug">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1d4ed8] shrink-0" />
+                  <td className="px-4 py-4 text-center align-top bg-[#efeafd]/80 border-x border-[#6d3fe0]/30">
+                    <span className="inline-flex items-start gap-1.5 text-[13px] font-bold text-[#4f2bc2] leading-snug">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6d3fe0] shrink-0" />
                       {r.mobot.text}
                     </span>
                   </td>

@@ -73,7 +73,7 @@ export default function Page() {
           <>
             Unlimited Mobile Testing.
             <br />
-            One flat rate.
+            <span className="gradient-text-dark">One flat rate.</span>
           </>
         }
         intro="Mobot Unlimited gives your team an always-on robot fleet — run as many tests as you need across 300+ real devices, with no per-test fees and no test-suite caps."
@@ -89,7 +89,7 @@ export default function Page() {
             return (
               <Reveal key={s.label} delay={i * 80} className="px-6 py-8 lg:px-10">
                 <Icon className="w-5 h-5 text-[#86b6ef] mb-3" />
-                <div className="text-3xl sm:text-4xl font-bold text-white">{s.value}</div>
+                <div className="text-3xl sm:text-4xl font-bold gradient-text-dark">{s.value}</div>
                 <div className="text-white/55 text-sm mt-1">{s.label}</div>
               </Reveal>
             );
@@ -184,7 +184,7 @@ export default function Page() {
             </Reveal>
             <Reveal delay={160}>
               <div className="rounded-lg bg-[#0a2540] p-8 text-white">
-                <div className="text-5xl font-bold text-[#86b6ef]">3.4&times;</div>
+                <div className="text-5xl font-bold gradient-text-dark">3.4&times;</div>
                 <p className="text-white/70 text-sm leading-relaxed mt-3">
                   More test runs per release on average after teams move to an Unlimited plan &mdash;
                   with no added cost.

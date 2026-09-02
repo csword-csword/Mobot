@@ -2,8 +2,11 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-[#f3f7fe] to-white border-b border-slate-200">
-      <div className="mx-auto max-w-[80rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#f3f7fe] to-white border-b border-slate-200">
+      <div className="absolute inset-0 dot-grid [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" aria-hidden="true" />
+      <div className="absolute -top-32 right-[-8rem] w-[34rem] h-[34rem] rounded-full bg-[#6d3fe0]/15 blur-3xl animate-float" aria-hidden="true" />
+      <div className="absolute -bottom-40 left-[-10rem] w-[30rem] h-[30rem] rounded-full bg-[#1d4ed8]/12 blur-3xl" aria-hidden="true" />
+      <div className="relative mx-auto max-w-[80rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
         {/* Content */}
         <div>
           <p className="hero-line hero-line-1 eyebrow text-sm mb-5">Physical Mobile Testing</p>

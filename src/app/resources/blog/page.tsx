@@ -45,7 +45,7 @@ function PostCard({ post, big }: { post: Post; big?: boolean }) {
       </span>
     </>
   );
-  const cls = 'group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-7 hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all';
+  const cls = 'group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-7 card-lift';
   return external ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
   ) : (

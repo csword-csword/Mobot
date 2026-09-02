@@ -67,6 +67,7 @@ const columns = [
 export default function Footer() {
   return (
     <footer className="bg-[#0a2540]">
+      <div className="brand-rule" aria-hidden="true" />
       <div className="mx-auto max-w-[86rem] px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">

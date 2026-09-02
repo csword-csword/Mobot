@@ -54,6 +54,14 @@ export default function PageHero({
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540] via-[#0a2540]/85 to-[#0a2540]/40" />
         </div>
       )}
+      {!bgImage && (
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className={`absolute inset-0 ${dark ? 'dot-grid-dark' : 'dot-grid'} [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]`} />
+          <div className={`absolute -top-32 right-[-6rem] w-[32rem] h-[32rem] rounded-full blur-3xl ${dark ? 'bg-[#6d3fe0]/35' : 'bg-[#6d3fe0]/14'}`} />
+          <div className={`absolute -bottom-40 left-[-8rem] w-[26rem] h-[26rem] rounded-full blur-3xl ${dark ? 'bg-[#1d4ed8]/30' : 'bg-[#1d4ed8]/10'}`} />
+        </div>
+      )}
+      <div className="absolute inset-x-0 top-0 brand-rule opacity-80" aria-hidden="true" />
       <div
         className={`relative mx-auto ${maxWidth} px-6 py-20 lg:py-28 ${
           aside ? 'grid lg:grid-cols-2 gap-14 items-center' : ''

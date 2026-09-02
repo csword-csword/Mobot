@@ -11,8 +11,9 @@ const photos = [
 
 export default function LabShowcase() {
   return (
-    <section className="py-24 px-6 bg-[#0a2540]">
-      <div className="mx-auto max-w-[86rem] grid lg:grid-cols-[1fr_1.6fr] gap-12 items-center">
+    <section className="relative overflow-hidden py-24 px-6 bg-[#0a2540]">
+      <div className="absolute -top-40 left-1/3 w-[40rem] h-[40rem] rounded-full bg-[#6d3fe0]/25 blur-3xl" aria-hidden="true" />
+      <div className="relative mx-auto max-w-[86rem] grid lg:grid-cols-[1fr_1.6fr] gap-12 items-center">
         <Reveal variant="left">
           <p className="eyebrow text-xs mb-4 !text-[#86b6ef]">Inside the lab</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">

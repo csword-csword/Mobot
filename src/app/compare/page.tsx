@@ -41,7 +41,7 @@ export default function Page() {
               <Reveal key={p.key} delay={i * 90}>
                 <Link
                   href={`/compare/${p.slug}`}
-                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-8 hover:border-[#1d4ed8]/50 hover:shadow-[0_8px_20px_rgba(29,78,216,0.12)] transition-all"
+                  className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-8 card-lift"
                 >
                   <span className="eyebrow text-xs !text-slate-400 mb-2">{p.category}</span>
                   <h2 className="text-2xl font-bold text-[#0a2540] mb-3">Mobot vs. {p.name}</h2>
@@ -61,7 +61,7 @@ export default function Page() {
         <div className="mx-auto max-w-[86rem]">
           <SectionHeading
             eyebrow="The landscape"
-            title="Five ways to test a mobile app. One touches the phone."
+            title={<>Five ways to test a mobile app. <span className="gradient-text">One touches the phone.</span></>}
             sub="Emulators are cheap and wrong. Device farms rent you a phone and drive it through software. Scripts need engineers. Offshore manual needs headcount. Mobot is a service that puts a robot on real glass."
             center
             className="mb-12"

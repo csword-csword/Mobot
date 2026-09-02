@@ -65,7 +65,7 @@ export default function StatsGrid() {
               target="_blank"
               rel="noopener noreferrer"
               className="group rounded-lg border border-slate-200 bg-white p-8
-                         hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all flex flex-col gap-3"
+                         card-lift flex flex-col gap-3"
             >
               {item.logo ? (
                 <div className="relative h-6 w-24 mb-1">
@@ -74,7 +74,7 @@ export default function StatsGrid() {
               ) : (
                 <div className="eyebrow text-xs mb-1">{item.company}</div>
               )}
-              <div className="text-5xl font-bold text-[#1d4ed8]">{item.stat}</div>
+              <div className="text-5xl font-bold gradient-text">{item.stat}</div>
               <div className="text-[#0a2540] font-bold text-lg leading-snug">{item.label}</div>
               <p className="text-slate-500 text-sm mt-1 leading-relaxed">{item.detail}</p>
               <div className="mt-auto pt-4 text-[#1d4ed8] text-sm font-semibold group-hover:translate-x-1 transition-transform">

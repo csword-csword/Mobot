@@ -90,7 +90,7 @@ export default function RoleExplorer() {
               onClick={() => setActive(i)}
               className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-md border text-sm font-semibold transition-all ${
                 isActive
-                  ? 'bg-[#0a2540] border-[#0a2540] text-white shadow-[0_8px_20px_rgba(15,23,42,0.15)]'
+                  ? 'brand-gradient border-transparent text-white shadow-[0_8px_20px_rgba(109,63,224,0.28)]'
                   : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:text-[#0a2540]'
               }`}
             >

@@ -29,9 +29,9 @@ export default function Pillars() {
             <div
               key={card.title}
               className="rounded-lg border border-slate-200 bg-white p-8 flex flex-col gap-4
-                         hover:border-slate-300 hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all"
+                         card-lift"
             >
-              <div className="w-10 h-10 rounded-md bg-[#1d4ed8] flex items-center justify-center text-white font-bold text-sm">
+              <div className={`w-10 h-10 rounded-md flex items-center justify-center text-white font-bold text-sm ${i % 2 ? "bg-[#6d3fe0]" : "bg-[#1d4ed8]"}`}>
                 {i + 1}
               </div>
               <h3 className="text-xl font-bold leading-snug text-[#0a2540]">{card.title}</h3>

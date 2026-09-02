@@ -97,7 +97,7 @@ export default function Page() {
         title={
           <>
             Automate the unautomatable,{' '}
-            <span className="text-[#1d4ed8]">end to end</span>
+            <span className="gradient-text">end to end</span>
           </>
         }
         intro="Four layers that take a mobile app from generated test script to validated release — executed by robots on real iOS and Android devices, not emulators, and verified by QA analysts before anything reaches your team."
@@ -126,7 +126,7 @@ export default function Page() {
             <div className={`mx-auto max-w-[80rem] grid lg:grid-cols-2 gap-14 items-center`}>
               <Reveal variant={flip ? 'right' : 'left'} className={flip ? 'lg:order-2' : ''}>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="w-10 h-10 rounded-md bg-[#e8f0fe] text-[#1d4ed8] flex items-center justify-center">
+                  <span className={`w-10 h-10 rounded-md flex items-center justify-center text-white ${i % 2 ? "bg-[#6d3fe0]" : "bg-[#1d4ed8]"}`}>
                     <Icon className="w-5 h-5" />
                   </span>
                   <span className="eyebrow text-xs">Layer {l.n} · {l.name}</span>

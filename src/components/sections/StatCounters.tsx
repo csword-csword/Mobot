@@ -44,7 +44,7 @@ function StatItem({ target, suffix, label, active }: { target: number; suffix: s
   const value = useCountUp(target, active);
   return (
     <div className="text-center px-4 md:first:pl-0 md:last:pr-0">
-      <span className="block text-4xl md:text-5xl font-bold text-[#1d4ed8]">
+      <span className="block text-4xl md:text-5xl font-bold gradient-text">
         {formatNumber(value)}{suffix}
       </span>
       <span className="block text-slate-500 text-xs font-bold uppercase tracking-wide mt-3">{label}</span>

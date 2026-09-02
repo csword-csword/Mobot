@@ -19,7 +19,7 @@ export default function TestimonialCards({ limit = 3, dark }: { limit?: number; 
               ))}
             </div>
             {t.metric && (
-              <div className={`text-2xl font-bold mb-3 ${dark ? 'text-white' : 'text-[#1d4ed8]'}`}>{t.metric}</div>
+              <div className={`text-2xl font-bold mb-3 ${dark ? 'gradient-text-dark' : 'gradient-text'}`}>{t.metric}</div>
             )}
             <blockquote className={`text-sm leading-relaxed flex-1 ${dark ? 'text-white/75' : 'text-slate-600'}`}>
               &ldquo;{t.quote}&rdquo;

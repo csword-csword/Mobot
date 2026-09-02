@@ -10,7 +10,7 @@ export default function ProblemSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-lg border border-slate-200 bg-white p-10">
+          <div className="rounded-lg border border-slate-200 bg-white p-10 border-t-4 border-t-red-400">
             <h3 className="text-xl font-bold text-[#0a2540] mb-3">Noisy</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               Scripted frameworks&mdash;wherever they run&mdash;produce flaky false failures from
@@ -18,7 +18,7 @@ export default function ProblemSection() {
               triaging failures that aren&apos;t bugs.
             </p>
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-10">
+          <div className="rounded-lg border border-slate-200 bg-white p-10 border-t-4 border-t-[#6d3fe0]">
             <h3 className="text-xl font-bold text-[#0a2540] mb-3">Blind</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               Emulators and simulators structurally cannot exercise push notifications, Bluetooth,

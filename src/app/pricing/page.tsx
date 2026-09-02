@@ -69,11 +69,11 @@ export default function Page() {
             <Reveal key={p.name} delay={i * 100}>
               <div
                 className={`relative h-full rounded-lg bg-white p-10 flex flex-col gap-4 ${
-                  p.featured ? 'border-2 border-[#1d4ed8] shadow-[0_10px_24px_rgba(29,78,216,0.16)]' : 'border border-slate-200'
+                  p.featured ? 'border-2 border-[#6d3fe0]/60 shadow-[0_10px_24px_rgba(109,63,224,0.18)]' : 'border border-slate-200'
                 }`}
               >
                 {p.featured && (
-                  <span className="absolute -top-3 left-8 text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-md bg-[#1d4ed8] text-white">
+                  <span className="absolute -top-3 left-8 text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-md brand-gradient text-white">
                     Flagship · Where teams land
                   </span>
                 )}

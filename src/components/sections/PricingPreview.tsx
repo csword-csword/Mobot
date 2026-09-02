@@ -25,8 +25,9 @@ export default function PricingPreview() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="relative h-full rounded-lg border-2 border-[#1d4ed8] bg-[#0a2540] p-8 text-white shadow-[0_10px_24px_rgba(29,78,216,0.22)]">
-              <span className="absolute -top-3 left-8 text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-md bg-[#1d4ed8] text-white">
+            <div className="relative h-full rounded-lg border-2 border-[#6d3fe0]/60 bg-[#0a2540] p-8 text-white shadow-[0_10px_24px_rgba(109,63,224,0.28)] overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-[#6d3fe0]/30 blur-3xl" aria-hidden="true" />
+              <span className="absolute -top-3 left-8 text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-md brand-gradient text-white">
                 Flagship
               </span>
               <span className="eyebrow text-xs !text-[#86b6ef]">Make It Your Backbone</span>

@@ -51,7 +51,7 @@ export default function PlatformStack({ withHeading = true, compact }: PlatformS
             <p className="eyebrow text-xs mb-3">The Mobot Platform</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0a2540] leading-tight">
               Automate the unautomatable,{' '}
-              <span className="text-[#1d4ed8] border-b-4 border-[#e8f0fe]">end to end</span>
+              <span className="gradient-text">end to end</span>
             </h2>
           </div>
           <p className="text-slate-600 text-sm leading-relaxed max-w-[24rem]">

@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <h1 className="font-bold tracking-tight text-[#0a2540] text-3xl sm:text-4xl lg:text-5xl leading-[1.1] mb-5">{c.title}</h1>
             {c.stat && (
               <div className="flex items-baseline gap-3 mb-5">
-                <span className="text-5xl font-bold text-[#1d4ed8]">{c.stat}</span>
+                <span className="text-5xl font-bold gradient-text">{c.stat}</span>
                 <span className="text-[#0a2540] font-bold text-lg">{c.label}</span>
               </div>
             )}

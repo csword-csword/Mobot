@@ -66,7 +66,7 @@ function Dropdown({ label, items, wide }: { label: string; items: DropdownItem[]
               <div className="flex items-center gap-2 text-[#0a2540] text-sm font-semibold">
                 {item.label}
                 {item.badge && (
-                  <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-[#e8f0fe] text-[#1d4ed8]">
+                  <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-[#efeafd] text-[#4f2bc2]">
                     {item.badge}
                   </span>
                 )}
@@ -119,7 +119,7 @@ export default function Navbar() {
           </Link>
           <Link href="/labs" className="flex items-center gap-1.5 text-slate-600 hover:text-[#0a2540] transition-colors font-medium whitespace-nowrap">
             Mobot Labs
-            <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-[#e8f0fe] text-[#1d4ed8]">
+            <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-[#efeafd] text-[#4f2bc2]">
               2027
             </span>
           </Link>

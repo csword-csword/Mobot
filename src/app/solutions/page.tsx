@@ -30,7 +30,7 @@ export default function Page() {
             <Reveal key={s.slug} delay={(i % 2) * 90}>
               <Link
                 href={`/solutions/${s.slug}`}
-                className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-8 hover:border-[#1d4ed8]/50 hover:shadow-[0_8px_20px_rgba(29,78,216,0.12)] transition-all"
+                className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-8 card-lift"
               >
                 <span className="eyebrow text-xs !text-slate-400 mb-2">{s.short}</span>
                 <h2 className="text-2xl font-bold text-[#0a2540] mb-3">{s.title}</h2>

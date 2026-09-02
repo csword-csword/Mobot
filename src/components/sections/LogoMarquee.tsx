@@ -4,7 +4,7 @@ import { customerLogos } from '@/data/content';
 export default function LogoMarquee() {
   const logos = [...customerLogos, ...customerLogos];
   return (
-    <div className="py-12 bg-[#0a2540]">
+    <div className="py-12 bg-[#0a2540] border-t-2 border-transparent [border-image:linear-gradient(90deg,#1d4ed8,#6d3fe0,#b23fb0)_1]">
       <p className="text-center text-white/50 text-xs font-bold uppercase tracking-[0.15em] mb-8">
         Trusted by Leading Mobile Teams
       </p>
