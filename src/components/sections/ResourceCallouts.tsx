@@ -10,10 +10,10 @@ import { getPost } from '@/data/posts';
  * choose what to feature; anything that fails to resolve is skipped.
  */
 const featuredSlugs = [
+  'the-real-cost-of-appium-at-scale',
   'defect-validation-signal-to-noise',
   'how-to-test-bluetooth-on-ios',
   'how-to-test-biometrics-on-ios',
-  'your-test-automation-creates-costly-test-debt',
 ];
 
 const guideSlugs = [
