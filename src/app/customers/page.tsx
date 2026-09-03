@@ -32,23 +32,23 @@ export default function Page() {
         secondary={{ label: 'Get a Sample Report', href: '/resources/defect-reports' }}
       />
 
-      <section className="py-16 px-6 border-b border-slate-200">
+      <section className="py-10 px-6 border-b border-slate-200">
         <div className="mx-auto max-w-[80rem]">
           <LogoCloud title="" />
-          <p className="mt-8 text-center text-xs text-slate-400">
+          <p className="mt-6 text-center text-xs text-slate-400">
             {customerNames.join(' · ')}
           </p>
         </div>
       </section>
 
-      <section className="py-20 px-6 section-alt border-b border-slate-200">
+      <section className="py-12 px-6 section-alt border-b border-slate-200">
         <div className="mx-auto max-w-[80rem]">
-          <SectionHeading eyebrow="Why mobile teams choose Mobot" title="Real results that speak for themselves" center className="mb-12" />
+          <SectionHeading eyebrow="Why mobile teams choose Mobot" title="Real results that speak for themselves" center className="mb-8" />
           <div className="grid md:grid-cols-3 gap-5">
             {proof.map((p, i) => (
               <Reveal key={p.label} delay={i * 90}>
-                <div className="h-full rounded-lg border border-slate-200 bg-white p-8 text-center">
-                  <div className="text-5xl font-bold gradient-text">{p.value}</div>
+                <div className="h-full rounded-lg border border-slate-200 bg-white p-6 text-center">
+                  <div className="text-4xl font-bold gradient-text">{p.value}</div>
                   <div className="font-bold text-[#0a2540] text-lg mt-2">{p.label}</div>
                   <p className="text-slate-500 text-sm mt-2 leading-relaxed">{p.sub}</p>
                 </div>
@@ -58,9 +58,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-24 px-6" id="case-studies">
+      <section className="pt-14 pb-24 px-6" id="case-studies">
         <div className="mx-auto max-w-[80rem]">
-          <SectionHeading eyebrow="Case studies" title="The numbers don't lie" center className="mb-12" />
+          <SectionHeading eyebrow="Case studies" title="The numbers don't lie" center className="mb-10" />
           <div className="grid md:grid-cols-2 gap-5">
             {allCaseStudies.map((c, i) => (
               <Reveal key={c.slug} delay={(i % 2) * 90}>
