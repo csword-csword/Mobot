@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
-import SampleDefectReport from '@/components/SampleDefectReport';
+import HeroPlatformStack from '@/components/HeroPlatformStack';
 
 const proof = [
   'Real phones, operated by robots. No simulators.',
@@ -52,9 +52,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Proof: a real verified defect report */}
+        {/* Condensed platform stack */}
         <div className="hero-line hero-line-6">
-          <SampleDefectReport />
+          <HeroPlatformStack />
         </div>
       </div>
     </section>
