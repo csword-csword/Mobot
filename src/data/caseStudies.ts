@@ -14,7 +14,9 @@ interface GeneratedCaseStudy {
   html?: string;
   date?: string;
   image?: string;
+  logo?: string;
   company?: string;
+  companyBlurb?: string;
   stat?: string;
   industry?: string;
   tags?: string[];
@@ -57,10 +59,10 @@ const extra: FullCaseStudy[] = gen
     industry: g.industry ?? '',
     stat: g.stat ?? '',
     label: g.summary ?? '',
-    detail: g.summary ?? '',
+    detail: g.companyBlurb ?? g.summary ?? '',
     bullets: g.tags ?? [],
     href: `/customers/${g.slug}`,
-    logo: g.image,
+    logo: g.logo,
     html: g.html,
     date: g.date,
     localHref: `/customers/${g.slug}`,

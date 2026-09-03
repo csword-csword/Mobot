@@ -31,16 +31,20 @@ added as new cards.
 
 Re-run the script any time a CSV changes, then commit the generated JSON.
 
-## Bringing blog images into the repo
-Post artwork is hot-linked from Webflow's CDN after import. To copy it into
-`public/images/blog/<slug>/` and rewrite the JSON to local paths, run this from
-a machine with normal internet access (the CDN is blocked from sandboxed
-sessions):
+## Bringing post/case-study artwork into the repo
+Cover images, logos, and inline images are hot-linked from Webflow's CDN
+after import. To copy them into the repo and rewrite the JSON to local paths,
+run this from a machine with normal internet access (the CDN is blocked from
+sandboxed sessions):
 
 ```
-node scripts/localize-blog-images.mjs --dry-run   # preview
-node scripts/localize-blog-images.mjs             # download + rewrite
+node scripts/localize-blog-images.mjs --dry-run   # preview, blog posts
+node scripts/localize-blog-images.mjs             # download + rewrite, blog posts
+
+node scripts/localize-blog-images.mjs --file src/data/case-studies.generated.json \
+  --out-dir public/images/customers                # same, for case studies
 ```
 
-Then commit `public/images/blog` and `src/data/posts.generated.json` together.
-Re-running is safe; anything that fails to download stays a remote URL.
+Then commit the image directory and the corresponding `*.generated.json`
+together. Re-running is safe; anything that fails to download stays a remote
+URL, so the site keeps working either way.

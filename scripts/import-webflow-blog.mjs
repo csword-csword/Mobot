@@ -108,7 +108,7 @@ const readTime = (html) => `${Math.max(1, Math.round(stripText(html).split(/\s+/
 const text = fs.readFileSync(input, 'utf8').replace(/^﻿/, '');
 const [headers, ...rows] = parseCsv(text);
 const col = {
-  title: pick(headers, ['Name', 'Title']),
+  title: pick(headers, ['Main Heading', 'Name', 'Title']),
   slug: pick(headers, ['Slug']),
   summary: pick(headers, ['Post Summary', 'Summary', 'Excerpt', 'Description', 'Meta Description']),
   html: pick(headers, ['Post Body', 'Body', 'Content', 'Rich Text', 'Article', 'Case Study Body']),
@@ -120,7 +120,9 @@ const col = {
   featured: pick(headers, ['Featured?', 'Featured']),
   draft: pick(headers, ['Draft']),
   archived: pick(headers, ['Archived']),
-  company: pick(headers, ['Company', 'Customer', 'Client', 'Company Name']),
+  company: pick(headers, ['Client name', 'Company', 'Customer', 'Client', 'Company Name']),
+  companyBlurb: pick(headers, ['Description of the company']),
+  logo: pick(headers, ['Client Logo Full', 'Client Logo Icon', 'Logo']),
   stat: pick(headers, ['Stat', 'Headline Stat', 'Metric', 'Key Result']),
   industry: pick(headers, ['Industry', 'Vertical']),
 };
@@ -152,8 +154,10 @@ const items = rows
       tags: tags.length ? tags : undefined,
       html: html || undefined,
       image: get(col.image) || undefined,
+      logo: col.logo !== undefined && col.logo !== -1 ? get(col.logo) || undefined : undefined,
       featured: col.featured !== -1 ? truthy(get(col.featured)) : undefined,
       company: get(col.company) || undefined,
+      companyBlurb: col.companyBlurb !== undefined && col.companyBlurb !== -1 ? get(col.companyBlurb) || undefined : undefined,
       stat: get(col.stat) || undefined,
       industry: get(col.industry) || undefined,
     };
