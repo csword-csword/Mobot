@@ -70,17 +70,40 @@ function parseCsv(text) {
 }
 
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+const usable = (h) => !/deprecated/i.test(h);
 const pick = (headers, candidates) => {
   for (const cand of candidates) {
-    const idx = headers.findIndex((h) => norm(h) === norm(cand));
+    const idx = headers.findIndex((h) => usable(h) && norm(h) === norm(cand));
     if (idx !== -1) return idx;
   }
   for (const cand of candidates) {
-    const idx = headers.findIndex((h) => norm(h).includes(norm(cand)));
+    const idx = headers.findIndex((h) => usable(h) && norm(h).includes(norm(cand)));
     if (idx !== -1) return idx;
   }
   return -1;
 };
+
+/** Webflow option slugs → display labels. */
+const tagLabels = { 'how-tos': 'How-to', 'how-to': 'How-to', news: 'News', 'case-studies': 'Case study' };
+const labelTag = (t) => tagLabels[t.toLowerCase()] ?? t.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
+/**
+ * Normalise Webflow rich text for the site:
+ *  - drop empty id="" attributes Webflow adds to every element
+ *  - move legacy uploads-ssl.webflow.com assets to the current CDN host
+ *  - point links back at mobot.io to this site
+ *  - lazy-load inline images
+ */
+const cleanHtml = (html) =>
+  html
+    .replace(/\s+id=""/g, '')
+    .replace(/https:\/\/uploads-ssl\.webflow\.com\//g, 'https://cdn.prod.website-files.com/')
+    .replace(/href="https?:\/\/(?:www\.)?mobot\.io\/blog\/([^"]+)"/g, 'href="/resources/blog/$1"')
+    .replace(/href="https?:\/\/(?:www\.)?mobot\.io\/?"/g, 'href="/"')
+    .replace(/href="https?:\/\/(?:www\.)?mobot\.io\//g, 'href="/')
+    .replace(/<img\b(?![^>]*\bloading=)/g, '<img loading="lazy"');
+
+const readTime = (html) => `${Math.max(1, Math.round(stripText(html).split(/\s+/).length / 220))} min`;
 
 const text = fs.readFileSync(input, 'utf8').replace(/^﻿/, '');
 const [headers, ...rows] = parseCsv(text);
@@ -89,10 +112,10 @@ const col = {
   slug: pick(headers, ['Slug']),
   summary: pick(headers, ['Post Summary', 'Summary', 'Excerpt', 'Description', 'Meta Description']),
   html: pick(headers, ['Post Body', 'Body', 'Content', 'Rich Text', 'Article', 'Case Study Body']),
-  date: pick(headers, ['Published On', 'Publish Date', 'Date', 'Created On']),
+  date: pick(headers, ['Created On', 'Publish Date', 'Date', 'Published On']),
   author: pick(headers, ['Author Name', 'Author']),
   readTime: pick(headers, ['Estimated Read Time', 'Read Time']),
-  tags: pick(headers, ['Categories', 'Category', 'Tags', 'Tag']),
+  tags: pick(headers, ['Category - Blog Type', 'Categories', 'Category', 'Tags', 'Tag']),
   image: pick(headers, ['Main Image', 'Thumbnail Image', 'Image', 'Featured Image', 'Logo']),
   featured: pick(headers, ['Featured?', 'Featured']),
   draft: pick(headers, ['Draft']),
@@ -112,12 +135,12 @@ const items = rows
     const get = (i) => (i === -1 ? '' : (r[i] ?? '').trim());
     const title = get(col.title);
     if (!title) return null;
-    const html = get(col.html);
+    const html = cleanHtml(get(col.html));
     const summary = get(col.summary) || stripText(html).slice(0, 220);
     const dateRaw = get(col.date);
     const parsed = dateRaw ? new Date(dateRaw) : null;
     const date = parsed && !Number.isNaN(parsed.getTime()) ? parsed.toISOString().slice(0, 10) : '2024-01-01';
-    const tags = get(col.tags).split(/[;,|]/).map((t) => t.trim()).filter(Boolean);
+    const tags = get(col.tags).split(/[;,|]/).map((t) => t.trim()).filter(Boolean).map(labelTag);
     return {
       slug: get(col.slug) || slugify(title),
       title,
@@ -125,7 +148,7 @@ const items = rows
       summary,
       date,
       author: get(col.author) || undefined,
-      readTime: get(col.readTime) || undefined,
+      readTime: get(col.readTime) || (html ? readTime(html) : undefined),
       tags: tags.length ? tags : undefined,
       html: html || undefined,
       image: get(col.image) || undefined,

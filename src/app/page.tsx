@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero';
 import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProblemSection from '@/components/sections/ProblemSection';
 import VideoBand from '@/components/sections/VideoBand';
+import ResourceCallouts from '@/components/sections/ResourceCallouts';
 import PlatformTeaser from '@/components/sections/PlatformTeaser';
 import Pillars from '@/components/sections/Pillars';
 import LabShowcase from '@/components/sections/LabShowcase';
@@ -38,6 +39,7 @@ export default function Home() {
       <RoleSection />
       <StatsGrid />
       <TestimonialsSection />
+      <ResourceCallouts />
       <HomeProcessStrip />
       <PricingPreview />
       <LabsBand />

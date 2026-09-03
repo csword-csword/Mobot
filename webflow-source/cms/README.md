@@ -9,7 +9,15 @@ posts and case studies on mobot.io have to be brought over separately.
 3. From the repo root: `node scripts/import-webflow-blog.mjs`
 
 Writes `src/data/posts.generated.json`, rendered by `/resources/blog` and
-`/resources/blog/[slug]` (rich-text bodies included).
+`/resources/blog/[slug]` (rich-text bodies included). The importer uses
+**Created On** as the display date (the site-wide republish stamped every post
+with the same **Published On**), maps `Category - Blog Type` to a tag
+(`how-tos` → "How-to", which drives the how-to sections on the blog, the
+homepage, and the solution pages), computes read time, rewrites links back to
+mobot.io as local links, and points legacy `uploads-ssl.webflow.com` images at
+the current Webflow CDN. Cover images are hot-linked from that CDN; copy them
+into `public/images/blog/` and update `image` if the Webflow site is ever taken
+down.
 
 ## Case studies
 1. **CMS → Case Studies → Export**, save as `case-studies.csv`.

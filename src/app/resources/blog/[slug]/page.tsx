@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import CtaBand from '@/components/ui/CtaBand';
@@ -23,7 +24,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const post = getPost(slug);
   if (!post || post.externalUrl) notFound();
 
-  const related = posts.filter((p) => p.slug !== post.slug && !p.externalUrl).slice(0, 3);
+  const sameKind = posts.filter((p) => p.slug !== post.slug && !p.externalUrl && p.tags?.[0] === post.tags?.[0]);
+  const related = [...sameKind, ...posts.filter((p) => p.slug !== post.slug && !p.externalUrl && !sameKind.includes(p))].slice(0, 3);
 
   return (
     <>
@@ -34,7 +36,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               <ArrowLeft className="w-4 h-4" /> Blog &amp; Reports
             </Link>
             <div className="flex flex-wrap items-center gap-3 mb-5">
-              <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded bg-[#e8f0fe] text-[#1d4ed8]">{kindLabel[post.kind]}</span>
+              <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded bg-[#e8f0fe] text-[#1d4ed8]">
+                {post.tags?.includes('How-to') ? 'How-to guide' : kindLabel[post.kind]}
+              </span>
               <span className="text-xs text-slate-400">
                 {formatDate(post.date)}
                 {post.readTime ? ` · ${post.readTime} read` : ''}
@@ -45,6 +49,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <p className="text-slate-600 text-lg leading-relaxed">{post.summary}</p>
           </div>
         </header>
+
+        {post.image && (
+          <div className="mx-auto max-w-[64rem] px-6 -mt-8 lg:-mt-12">
+            <div className="relative aspect-[2/1] rounded-lg overflow-hidden border border-slate-200 bg-slate-100 shadow-[0_8px_20px_rgba(15,23,42,0.10)]">
+              <Image src={post.image} alt="" fill priority sizes="(min-width: 1024px) 64rem, 100vw" className="object-cover" />
+            </div>
+          </div>
+        )}
 
         <div className="mx-auto max-w-[48rem] px-6 py-14">
           {post.html ? (

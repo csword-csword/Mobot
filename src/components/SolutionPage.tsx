@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { EyeOff, Bot, AlertOctagon, Users } from 'lucide-react';
+import { EyeOff, Bot, AlertOctagon, Users, ArrowRight } from 'lucide-react';
+import PostCard from '@/components/PostCard';
+import { getPost } from '@/data/posts';
 import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
@@ -12,6 +14,7 @@ import { solutions, type Solution } from '@/data/solutions';
 export default function SolutionPage({ solution }: { solution: Solution }) {
   const related = capabilities.filter((c) => solution.capabilities.includes(c.name));
   const others = solutions.filter((s) => s.slug !== solution.slug);
+  const guides = (solution.guides ?? []).map(getPost).filter((p) => p !== undefined);
 
   return (
     <>
@@ -90,6 +93,26 @@ export default function SolutionPage({ solution }: { solution: Solution }) {
           </Reveal>
         </div>
       </section>
+
+      {guides.length > 0 && (
+        <section className="py-20 px-6">
+          <div className="mx-auto max-w-[80rem]">
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+              <SectionHeading eyebrow="How-to guides" title="Test it yourself first" sub="Step-by-step guides from the Mobot lab for the flows on this page, with the real-device gotchas called out." />
+              <Link href="/resources/blog" className="inline-flex items-center gap-2 text-[#1d4ed8] font-semibold hover:text-[#1e40af] whitespace-nowrap">
+                All guides <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-5">
+              {guides.map((g, i) => (
+                <Reveal key={g.slug} delay={i * 80}>
+                  <PostCard post={g} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-20 px-6 section-alt border-y border-slate-200">
         <div className="mx-auto max-w-[56rem]">

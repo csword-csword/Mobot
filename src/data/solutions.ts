@@ -24,11 +24,14 @@ export interface Solution {
   /** Who this matters most for. */
   audience: string;
   faqs: { q: string; a: string }[];
+  /** Blog post slugs (see data/posts) to surface as related how-to guides. */
+  guides?: string[];
 }
 
 export const solutions: Solution[] = [
   {
     slug: 'push-notifications-deep-linking',
+    guides: ['how-to-test-2fa-on-ios', 'how-to-test-sms-messages-on-ios', 'how-to-test-multi-device-messaging-on-ios'],
     title: 'Push Notifications & Deep Linking',
     short: 'A push that never arrives, a link that opens the wrong screen',
     eyebrow: 'Solutions · Push & deep links',
@@ -65,6 +68,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: 'bluetooth-connected-devices',
+    guides: ['how-to-test-bluetooth-on-ios', 'how-to-test-medical-devices-on-ios', 'how-to-test-multiple-devices-at-once-on-ios'],
     title: 'Bluetooth & Connected Devices (IoT)',
     short: 'No emulator exists for this scenario at all',
     eyebrow: 'Solutions · Bluetooth & IoT',
@@ -101,6 +105,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: 'biometrics-payments',
+    guides: ['how-to-test-biometrics-on-ios', 'how-to-test-2fa-on-ios', 'how-to-use-charles-proxy'],
     title: 'Biometrics & Payments',
     short: 'Face ID, Touch ID, and payment flows end to end',
     eyebrow: 'Solutions · Biometrics & payments',
@@ -137,6 +142,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: 'camera-sensors-location',
+    guides: ['how-to-test-location-services-on-ios', 'how-to-test-qr-codes-on-ios', 'how-to-test-app-backgrounding-on-ios'],
     title: 'Camera, Sensors & Location',
     short: 'Barcode scans, AR, GPS, network transitions',
     eyebrow: 'Solutions · Camera, sensors & location',
@@ -173,6 +179,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: 'release-regression-testing',
+    guides: ['how-to-test-multiple-devices-at-once-on-ios', 'how-to-test-app-backgrounding-on-ios', 'how-to-use-charles-proxy'],
     title: 'Release Regression Testing',
     short: 'Full regression on real devices, overnight',
     eyebrow: 'Solutions · Release regression',
