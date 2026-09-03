@@ -6,19 +6,12 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
 import TestimonialCards from '@/components/ui/TestimonialCards';
-import { customerNames } from '@/data/content';
 import { allCaseStudies } from '@/data/caseStudies';
 
 export const metadata = {
   title: 'Customers & Case Studies',
   description: 'See how mobile teams use Mobot to deliver world-class products on time — with real results on real devices.',
 };
-
-const proof = [
-  { value: '300+', label: 'Real devices', sub: 'iOS and Android phones and tablets, current and legacy OS versions' },
-  { value: '5×', label: 'Test efficiency', sub: 'Robots do in one day what takes a human tester five' },
-  { value: '100%', label: 'Coverage', sub: 'Including the hardware-dependent scenarios other tools skip' },
-];
 
 export default function Page() {
   return (
@@ -31,26 +24,7 @@ export default function Page() {
         secondary={{ label: 'Get a Sample Report', href: '/resources/defect-reports' }}
       />
 
-      <section className="py-10 px-6 section-alt border-b border-slate-200">
-        <div className="mx-auto max-w-[80rem]">
-          <div className="grid md:grid-cols-3 gap-5">
-            {proof.map((p, i) => (
-              <Reveal key={p.label} delay={i * 90}>
-                <div className="h-full rounded-lg border border-slate-200 bg-white p-6 text-center">
-                  <div className="text-4xl font-bold gradient-text">{p.value}</div>
-                  <div className="font-bold text-[#0a2540] text-lg mt-2">{p.label}</div>
-                  <p className="text-slate-500 text-sm mt-2 leading-relaxed">{p.sub}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mt-8 text-center text-xs text-slate-400">
-            {customerNames.join(' · ')}
-          </p>
-        </div>
-      </section>
-
-      <section className="pt-10 pb-24 px-6" id="case-studies">
+      <section className="pt-12 pb-24 px-6" id="case-studies">
         <div className="mx-auto max-w-[80rem]">
           <SectionHeading eyebrow="Case studies" title="The numbers don't lie" center className="mb-10" />
           <div className="grid md:grid-cols-2 gap-5">
