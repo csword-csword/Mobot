@@ -5,7 +5,6 @@ import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
-import LogoCloud from '@/components/ui/LogoCloud';
 import TestimonialCards from '@/components/ui/TestimonialCards';
 import { customerNames } from '@/data/content';
 import { allCaseStudies } from '@/data/caseStudies';
@@ -32,18 +31,8 @@ export default function Page() {
         secondary={{ label: 'Get a Sample Report', href: '/resources/defect-reports' }}
       />
 
-      <section className="py-10 px-6 border-b border-slate-200">
+      <section className="py-10 px-6 section-alt border-b border-slate-200">
         <div className="mx-auto max-w-[80rem]">
-          <LogoCloud title="" />
-          <p className="mt-6 text-center text-xs text-slate-400">
-            {customerNames.join(' · ')}
-          </p>
-        </div>
-      </section>
-
-      <section className="py-12 px-6 section-alt border-b border-slate-200">
-        <div className="mx-auto max-w-[80rem]">
-          <SectionHeading eyebrow="Why mobile teams choose Mobot" title="Real results that speak for themselves" center className="mb-8" />
           <div className="grid md:grid-cols-3 gap-5">
             {proof.map((p, i) => (
               <Reveal key={p.label} delay={i * 90}>
@@ -55,10 +44,13 @@ export default function Page() {
               </Reveal>
             ))}
           </div>
+          <p className="mt-8 text-center text-xs text-slate-400">
+            {customerNames.join(' · ')}
+          </p>
         </div>
       </section>
 
-      <section className="pt-14 pb-24 px-6" id="case-studies">
+      <section className="pt-10 pb-24 px-6" id="case-studies">
         <div className="mx-auto max-w-[80rem]">
           <SectionHeading eyebrow="Case studies" title="The numbers don't lie" center className="mb-10" />
           <div className="grid md:grid-cols-2 gap-5">
