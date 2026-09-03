@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import AnnouncementBar from '@/components/layout/AnnouncementBar';
 
 interface DropdownItem {
   label: string;
@@ -103,7 +104,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+    <header className="fixed top-0 inset-x-0 z-50">
+      <AnnouncementBar />
+    <nav className="bg-white/95 backdrop-blur-sm border-b border-slate-200">
       <div className="mx-auto max-w-[86rem] px-6 h-[72px] flex items-center justify-between gap-6">
         <Link href="/" className="shrink-0">
           <Image src="/images/Mobot-Logo-Navy.svg" alt="Mobot" width={100} height={28} priority />
@@ -155,7 +158,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 max-h-[calc(100vh-72px)] overflow-y-auto">
+        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 max-h-[calc(100vh-116px)] overflow-y-auto">
           {mobileGroups.map((group) => (
             <div key={group.heading} className="mb-5">
               <div className="eyebrow text-xs mb-2">{group.heading}</div>
@@ -181,5 +184,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    </header>
   );
 }

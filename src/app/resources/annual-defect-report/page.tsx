@@ -6,6 +6,7 @@ import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
 import LogoCloud from '@/components/ui/LogoCloud';
 import ReportDownload from '@/components/ReportDownload';
+import { ReportLockup } from '@/components/report/ReportBrand';
 
 export const metadata = {
   title: 'Mobot Annual Defect Report',
@@ -30,6 +31,9 @@ export default function Page() {
         badge="2026 edition · preview"
         title={
           <>
+            <span className="block mb-6">
+              <ReportLockup dark />
+            </span>
             What real mobile bugs <span className="gradient-text-dark">look like</span>
           </>
         }

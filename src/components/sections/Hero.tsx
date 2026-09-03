@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import { CheckCircle2 } from 'lucide-react';
+import ReportFeature from '@/components/report/ReportFeature';
+
+const proof = [
+  'Real phones, operated by robots. No simulators.',
+  'AI-authored tests. No scripts for your team to maintain.',
+  'Every failure validated by a QA analyst before you see it.',
+];
 
 export default function Hero() {
   return (
@@ -6,61 +14,47 @@ export default function Hero() {
       <div className="absolute inset-0 dot-grid [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" aria-hidden="true" />
       <div className="absolute -top-32 right-[-8rem] w-[34rem] h-[34rem] rounded-full bg-[#6d3fe0]/15 blur-3xl animate-float" aria-hidden="true" />
       <div className="absolute -bottom-40 left-[-10rem] w-[30rem] h-[30rem] rounded-full bg-[#1d4ed8]/12 blur-3xl" aria-hidden="true" />
-      <div className="relative mx-auto max-w-[80rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
+      <div className="relative mx-auto max-w-[80rem] px-6 py-16 lg:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
         {/* Content */}
         <div>
-          <Link
-            href="/resources/annual-defect-report"
-            className="hero-line hero-line-1 group inline-flex items-center gap-2 mb-6 pl-1.5 pr-3.5 py-1.5 rounded-md border border-[#6d3fe0]/35 bg-white/80 backdrop-blur text-sm hover:border-[#6d3fe0] hover:shadow-[0_6px_18px_rgba(109,63,224,0.18)] transition-all"
-          >
-            <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded brand-gradient text-white">New</span>
-            <span className="font-semibold text-[#0a2540]">Annual Defect Report</span>
-            <span className="hidden sm:inline text-slate-500">&middot; 6,372 real bugs, 83 apps, 11 industries</span>
-            <span className="text-[#6d3fe0] font-bold group-hover:translate-x-0.5 transition-transform">Download &rarr;</span>
-          </Link>
-          <p className="hero-line hero-line-1 eyebrow text-sm mb-5">Physical Mobile Testing</p>
+          <p className="hero-line hero-line-1 eyebrow text-sm mb-5">Robotic mobile testing · human-verified</p>
           <h1 className="font-bold tracking-tight text-[#0a2540] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mb-6">
             <span className="hero-line hero-line-2 block">Real Robots.</span>
             <span className="hero-line hero-line-3 block">Real Devices.</span>
             <span className="hero-line hero-line-4 block gradient-text">Real Defects.</span>
           </h1>
-          <p className="hero-line hero-line-5 text-slate-600 text-lg leading-relaxed max-w-[36rem] mb-9">
-            Mobot catches the bugs emulators can&apos;t see&mdash;and filters out the noise scripted
-            automation creates. Every defect we report is real, verified by a QA analyst, on real
-            hardware.
+          <p className="hero-line hero-line-5 text-slate-600 text-lg leading-relaxed max-w-[34rem] mb-7">
+            Mobot runs your app on real iPhones and Androids with real robots, then validates every failure
+            before it reaches your team. Fewer scripts than Appium or Maestro. Bugs that simulators can&apos;t
+            see. A signal-to-noise ratio your engineers will trust.
           </p>
+          <ul className="hero-line hero-line-5 space-y-2 mb-9">
+            {proof.map((p) => (
+              <li key={p} className="flex items-start gap-2.5 text-[15px] text-[#0a2540]">
+                <CheckCircle2 className="w-4.5 h-4.5 text-[#1d4ed8] shrink-0 mt-[3px]" />
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
           <div className="hero-line hero-line-6 flex flex-wrap gap-4">
             <Link
-              href="/resources/defect-reports"
+              href="/schedule-demo"
               className="inline-flex items-center px-6 py-3 rounded-md bg-[#1d4ed8] text-white font-semibold hover:bg-[#1e40af] transition-colors text-sm"
             >
-              Get a Sample Report
+              Request a Demo
             </Link>
             <Link
-              href="/schedule-demo"
+              href="/resources/defect-reports/sample"
               className="inline-flex items-center px-6 py-3 rounded-md border border-slate-300 text-[#0a2540] font-semibold hover:border-slate-400 hover:bg-slate-50 transition-colors text-sm"
             >
-              Request a Demo
+              See a Verified Defect Report
             </Link>
           </div>
         </div>
 
-        {/* Product video, framed */}
-        <div className="hero-line hero-line-6 rounded-lg border border-slate-200 bg-white shadow-[0_8px_20px_rgba(15,23,42,0.10)] overflow-hidden">
-          <div className="flex items-center gap-1.5 px-4 py-3 border-b border-slate-200 bg-slate-50">
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-          </div>
-          <video
-            className="w-full aspect-video object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/videos/mobot-optimized-transcode.mp4" type="video/mp4" />
-          </video>
+        {/* Annual Defect Report feature */}
+        <div className="hero-line hero-line-6">
+          <ReportFeature />
         </div>
       </div>
     </section>

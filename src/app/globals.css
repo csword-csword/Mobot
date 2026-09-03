@@ -209,7 +209,7 @@ button[class*="bg-[#1d4ed8]"]:hover {
 
 /* ---------- Print: sample report ---------- */
 @media print {
-  nav, footer, .print\:hidden { display: none !important; }
+  header, nav, footer, .print\:hidden { display: none !important; }
   main { padding-top: 0 !important; }
   .report-view { box-shadow: none !important; border: 0 !important; }
   .reveal { opacity: 1 !important; transform: none !important; }

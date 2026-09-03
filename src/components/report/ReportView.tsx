@@ -79,7 +79,7 @@ export default function ReportView() {
             <h3 className="text-lg font-bold text-[#0a2540] uppercase tracking-wide pb-2 mb-6 border-b-2 border-[#1d4ed8]">{g.title}</h3>
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-8">
               {g.steps.map((s) => (
-                <div key={s.n} id={`step-${s.n}`} className="flex gap-4 scroll-mt-24">
+                <div key={s.n} id={`step-${s.n}`} className="flex gap-4 scroll-mt-32">
                   <StepThumb screen={s.screen} failed={s.status === 'failed'} />
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">
