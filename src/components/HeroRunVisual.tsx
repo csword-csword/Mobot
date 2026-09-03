@@ -1,5 +1,4 @@
 import { CheckCircle2, XCircle, CircleDashed, ShieldCheck } from 'lucide-react';
-import Reveal from '@/components/ui/Reveal';
 import StepThumb from '@/components/report/StepThumb';
 import type { Step } from '@/data/sampleReport';
 
@@ -12,7 +11,6 @@ const steps: { n: number; screen: Step['screen']; status: Step['status']; text: 
     text: 'Tap “Add another Facet” to add a second task.',
     note: 'App terminated and returned to the home screen.',
   },
-  { n: 34, screen: 'sheet', status: 'skipped', text: 'Verify both tasks appear under the group.' },
 ];
 
 function StatusPill({ status }: { status: Step['status'] }) {
@@ -49,17 +47,20 @@ export default function HeroRunVisual() {
             Failed
           </span>
           <span className="text-xs font-bold text-[#0a2540] truncate">Add tasks to the structure group</span>
-          <span className="ml-auto text-[10px] font-mono text-slate-400 shrink-0 hidden sm:inline">41 steps</span>
+          <span className="ml-auto text-[10px] font-mono text-slate-400 shrink-0 hidden sm:inline lg:hidden">41 steps</span>
         </div>
 
         {/* Steps */}
-        <div className="p-5 space-y-4">
+        <div className="p-5 space-y-3">
           {steps.map((s, i) => (
-            <div key={s.n} className="layer-in flex gap-3.5" style={{ animationDelay: `${300 + i * 280}ms` }}>
-              <div className="scale-[0.82] origin-top-left -mr-3">
-                <StepThumb screen={s.screen} failed={s.status === 'failed'} />
+            <div key={s.n} className="hero-line flex gap-3.5" style={{ animationDelay: `${300 + i * 280}ms` }}>
+              {/* Scaled into a fixed box so the row height follows the visual size */}
+              <div className="w-[3.9rem] h-[8.2rem] shrink-0 overflow-hidden">
+                <div className="scale-[0.72] origin-top-left">
+                  <StepThumb screen={s.screen} failed={s.status === 'failed'} />
+                </div>
               </div>
-              <div className="min-w-0 pt-0.5">
+              <div className={`min-w-0 pt-0.5 ${i === 0 ? 'lg:pr-24' : ''}`}>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[11px] font-bold text-[#1d4ed8]">STEP {s.n}</span>
                   <StatusPill status={s.status} />
@@ -73,7 +74,7 @@ export default function HeroRunVisual() {
 
         {/* Analyst verdict */}
         <div
-          className="layer-in px-5 py-3.5 border-t border-slate-200 bg-[#f8fafc] flex items-start gap-2"
+          className="hero-line px-5 py-3.5 border-t border-slate-200 bg-[#f8fafc] flex items-start gap-2"
           style={{ animationDelay: '1200ms' }}
         >
           <ShieldCheck className="w-4 h-4 text-[#1d4ed8] shrink-0 mt-0.5" />
@@ -85,21 +86,27 @@ export default function HeroRunVisual() {
       </div>
 
       {/* The robot that produced it, running */}
-      <Reveal
-        variant="scale"
-        delay={400}
-        className="mt-4 lg:mt-0 lg:absolute lg:-bottom-8 lg:-right-8 lg:w-[13.5rem] z-10"
+      <div
+        className="hero-line mt-4 lg:mt-0 lg:absolute lg:-top-10 lg:-right-10 lg:w-[11.5rem] z-10"
+        style={{ animationDelay: '1400ms' }}
       >
         <div className="rounded-lg border-2 border-white bg-[#0a2540] shadow-[0_16px_36px_rgba(15,23,42,0.28)] overflow-hidden">
-          <video className="w-full aspect-[4/3] object-cover" autoPlay muted loop playsInline>
+          <video
+            className="w-full aspect-[4/3] object-cover"
+            poster="/images/lab/DSC_3399.webp"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
             <source src="/videos/mobot-optimized-transcode.mp4" type="video/mp4" />
           </video>
           <div className="flex items-center gap-1.5 px-3 py-2 bg-[#0a2540]">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-blink shrink-0" />
-            <span className="text-[10px] font-mono text-white/70 truncate">robot cell 07 · iPhone 13</span>
+            <span className="text-[10px] font-mono text-white/70 truncate">robot cell 07</span>
           </div>
         </div>
-      </Reveal>
+      </div>
     </div>
   );
 }
