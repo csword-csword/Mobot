@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
-import HeroPlatformStack from '@/components/HeroPlatformStack';
+import HeroRunVisual from '@/components/HeroRunVisual';
 
 const proof = [
   'Real phones, operated by robots. No simulators.',
@@ -52,9 +52,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Condensed platform stack */}
+        {/* The fleet running, with the verified defect it produced */}
         <div className="hero-line hero-line-6">
-          <HeroPlatformStack />
+          <HeroRunVisual />
         </div>
       </div>
     </section>

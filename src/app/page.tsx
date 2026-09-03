@@ -2,7 +2,6 @@ import Hero from '@/components/sections/Hero';
 import HeroLatestPosts from '@/components/sections/HeroLatestPosts';
 import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProblemSection from '@/components/sections/ProblemSection';
-import VideoBand from '@/components/sections/VideoBand';
 import ResourceCallouts from '@/components/sections/ResourceCallouts';
 import PlatformTeaser from '@/components/sections/PlatformTeaser';
 import Pillars from '@/components/sections/Pillars';
@@ -33,7 +32,6 @@ export default function Home() {
       <EventBand />
       <LogoMarquee />
       <ProblemSection />
-      <VideoBand />
       <PlatformTeaser />
       <Pillars />
       <LabShowcase />
