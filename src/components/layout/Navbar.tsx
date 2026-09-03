@@ -17,6 +17,7 @@ const platform: DropdownItem[] = [
   { label: 'The Platform', href: '/platform', description: 'Four layers from generated script to validated release' },
   { label: 'How It Works', href: '/how-it-works', description: 'Robots, real devices, expert analysts — end to end' },
   { label: 'Why Real Devices', href: '/why-real-devices', description: 'Scripted automation is noisy. Simulators are blind.' },
+  { label: 'Defect Validation', href: '/platform/defect-validation', description: 'Forensics, reproduction, video, and a human verdict', badge: 'New' },
   { label: 'Device Fleet', href: '/devices', description: '300+ real iOS and Android devices' },
   { label: 'Integrations', href: '/integrations', description: 'Slack, Jira, TestRail, and your release process' },
   { label: 'Mobot Unlimited', href: '/unlimited', description: 'Unlimited testing. One flat rate.', badge: 'Flagship' },

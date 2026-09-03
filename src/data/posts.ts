@@ -36,6 +36,28 @@ export interface Post {
 
 const seedPosts: Post[] = [
   {
+    slug: 'defect-validation-signal-to-noise',
+    title: 'A Failed Test Is Not a Bug: Why Defect Validation Is the Signal-to-Noise Advantage',
+    kind: 'article',
+    date: '2026-09-03',
+    readTime: '6 min',
+    tags: ['Defect validation', 'QA process', 'Test automation'],
+    summary:
+      'Automation suites report every failed assertion and leave your engineers to work out which ones matter. Mobot validates each failure first: forensic review, reproduction in multiple environments, video of the occurrence, and a human verdict. That is the difference between a red build and a defect your team trusts.',
+    paragraphs: [
+      'Every mobile team with an automation suite knows the ritual. The nightly run goes red. Someone opens the failures, and the sorting begins: a selector that broke when a button was renamed, a wait that was too short on a slow cloud device, a session that expired, a screen that changed on purpose, and, somewhere in the pile, a bug. The suite did its job. It ran the tests. It just has no idea which failure matters, and so the job of deciding falls to the most expensive people in the building.',
+      'This is the noise problem, and it is structural. A scripted framework like Appium or Maestro can tell you that an assertion did not hold. It cannot tell you why. A simulator can produce a screenshot and a stack trace, but the phone in the simulator is a model of a phone, so even a clean reproduction there proves less than it seems to. And no script, on any device, can make the judgement that turns a failure into a ticket: is this a defect, or is it a change?',
+      'Mobot treats that judgement as part of the product. Every failure the robots surface goes through validation before anything reaches your team, and validation means four specific things.',
+      'First, we review all of the forensic data. The analyst reads the device log and the network log against the timestamp of the failure, alongside the screenshot at every step. That is how a vague "step 33 failed" becomes "the app crashed on tap after the API returned a 500," or, just as usefully, "the screen loaded late and there is no defect here."',
+      'Second, we recreate the defect in multiple environments. The failing step is re-run on the original device to rule out a one-off, on a second device or OS version to establish how widely it reproduces, and from a different app state where that matters: cold start versus backgrounded, cellular versus Wi-Fi. The report you receive says where it reproduces and where it does not, which is exactly what an engineer needs to know before opening the code.',
+      'Third, we provide video of the actual defect occurrence, recorded on the physical device as it happens, with the robot’s action in frame. There is no debate about what the tester saw or whether the screenshot was taken too early. Your engineer watches the tap and watches the app respond.',
+      'Fourth, and most importantly, a human is in the loop. A Mobot QA analyst reads the evidence and makes the call: real defect, flaky run, or intended change. Only confirmed defects are pushed to Slack or Jira, each with the analyst’s note explaining what they found. Intended changes are agreed with you once and never re-reported. Nothing is hidden; every run and every decision stays visible in the platform. But your backlog only ever receives the signal.',
+      'The result is a superior signal-to-noise ratio, and it changes behaviour on your side. When every red result is a verified defect, engineers stop deferring triage, because there is no triage. They fix. The suite goes back to doing the one thing it was supposed to do, which is change what the team does next.',
+      'Real devices are what make the validation credible. Reproducing a crash on a simulator proves the simulator crashes. Reproducing it on an iPhone running a developer beta and then on a Pixel on a carrier network proves your users will hit it. Because Mobot’s robots operate physical hardware, every log, every screenshot, and every second of video comes from the phones your customers actually hold, and the analyst’s verdict is about that phone, not a model of one.',
+    ],
+    cta: { label: 'See how defect validation works', href: '/platform/defect-validation' },
+  },
+  {
     slug: 'annual-defect-report',
     title: 'Mobot Annual Defect Report: What Real Mobile Bugs Look Like',
     kind: 'report',

@@ -65,6 +65,12 @@ const rows: Row[] = [
     mobot: g('Yes — end-to-end, verified'),
   },
   {
+    label: 'Defect validation',
+    hint: 'Who decides a failure is a real bug?',
+    cells: [b('Nobody — every failure is yours to triage'), b('Nobody — you triage'), b('Red build, no verdict'), m('Tester’s word, no forensics')],
+    mobot: g('Forensics reviewed, reproduced, on video, analyst-confirmed'),
+  },
+  {
     label: 'Artifacts & ticketing',
     cells: [m('Logs'), m('Varies'), m('Varies'), m('Tickets, no evidence')],
     mobot: g('Video, logs, repro + Slack/Jira'),

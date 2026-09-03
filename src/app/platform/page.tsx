@@ -178,8 +178,11 @@ export default function Page() {
               );
             })}
           </div>
-          <div className="text-center mt-10">
-            <Link href="/resources/defect-reports" className="text-[#1d4ed8] font-semibold hover:text-[#1e40af] transition-colors">
+          <div className="text-center mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <Link href="/platform/defect-validation" className="text-[#1d4ed8] font-semibold hover:text-[#1e40af] transition-colors">
+              How defect validation works →
+            </Link>
+            <Link href="/resources/defect-reports/sample" className="text-[#1d4ed8] font-semibold hover:text-[#1e40af] transition-colors">
               See a sample verified defect report →
             </Link>
           </div>

@@ -54,7 +54,14 @@ export default function Page() {
           <SectionHeading
             eyebrow="Anatomy of a report"
             title="Forensic detail your team can hand straight to an engineer"
-            sub="No retriage required. Everything needed to reproduce, assign, and fix is in the report the moment it lands in Slack, Jira, or TestRail."
+            sub={
+              <>
+                No retriage required. Everything needed to reproduce, assign, and fix is in the report the moment it lands in Slack, Jira, or TestRail.{' '}
+                <Link href="/platform/defect-validation" className="text-[#1d4ed8] font-semibold hover:text-[#1e40af]">
+                  How we validate every defect →
+                </Link>
+              </>
+            }
             center
             className="mb-12"
           />
