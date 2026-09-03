@@ -44,6 +44,7 @@ const columns = [
   {
     heading: 'Resources',
     links: [
+      { label: 'Annual Defect Report', href: '/resources/annual-defect-report' },
       { label: 'Sample Defect Report', href: '/resources/defect-reports' },
       { label: 'Customers & Case Studies', href: '/customers' },
       { label: 'Blog & Reports', href: '/resources/blog' },

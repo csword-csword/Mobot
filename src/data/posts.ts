@@ -36,6 +36,23 @@ export interface Post {
 
 const seedPosts: Post[] = [
   {
+    slug: 'annual-defect-report',
+    title: 'Mobot Annual Defect Report: What Real Mobile Bugs Look Like',
+    kind: 'report',
+    date: '2026-09-01',
+    readTime: '15 min',
+    tags: ['Research', 'Defect data', 'Industry benchmarks'],
+    featured: true,
+    summary:
+      'A year of Mobot testing produced 6,372 unique defects across 83 mobile apps in 11 industries. Five bug categories account for 57% of everything found — and every vertical has a signature bug that runs 1.4× to 3.8× above the cross-industry baseline.',
+    paragraphs: [
+      'Most industry reports survey teams about the bugs they think they have. This one counts the bugs Mobot’s robots actually found on real iOS and Android hardware between Q3 2025 and Q2 2026 — 6,372 unique defects across 83 apps in 11 industries, each reviewed by a QA analyst before it was counted.',
+      'Across every industry, five categories dominated: broken navigation, missing or blank content, login and authentication failures, payment issues, and crashes. Together they account for 57% of every defect surfaced. But the average hides where the real risk lives: a fintech team and a travel team are fighting different bugs, and each is over-exposed in a way general-purpose QA tools tend to miss.',
+      'Every one of the 11 verticals studied surfaced at least one meaningfully over-indexed bug category, from Social/Dating notifications at 3.8× the baseline to Travel/Outdoor location bugs at 3.7×. The full report breaks down category share by industry, deviation from the testing baseline, signature bugs sorted by uplift multiple, and whether defect classes favor one platform.',
+    ],
+    cta: { label: 'Download the full report', href: '/resources/annual-defect-report' },
+  },
+  {
     slug: 'your-test-automation-creates-costly-test-debt',
     title: 'Your Test Automation Creates Costly Test Debt',
     kind: 'guide',

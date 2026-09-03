@@ -2,17 +2,17 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-// PLACEHOLDER FIGURES — the first three are illustrative fleet-wide totals and must be
-// replaced with actual data before launch. "300+ devices" is sourced from the current site.
+// Figures from the Mobot Annual Defect Report (Q3 2025 – Q2 2026) and the current site.
 const stats = [
-  { target: 250000, suffix: '+', label: 'Verified defects reported', sub: 'Every one reviewed by a QA analyst' },
-  { target: 12, suffix: 'M+', label: 'Physical test actions executed', sub: 'Real taps, swipes, and gestures on real glass' },
-  { target: 120, suffix: '+', label: 'Robots in the fleet', sub: 'Running 5×24 across onshore and offshore ops' },
+  { target: 5.8, suffix: 'M+', label: 'Physical QA actions executed', sub: 'Real taps, swipes, and gestures in a 12-month window', decimals: 1 },
+  { target: 145000, suffix: '+', label: 'Automated test runs', sub: 'Across 83 mobile apps in 11 industries' },
+  { target: 6372, suffix: '', label: 'Unique defects found and verified', sub: 'Every one reviewed by a QA analyst' },
   { target: 300, suffix: '+', label: 'Real iOS & Android devices', sub: 'Current and legacy OS versions, New York lab' },
 ];
 
-function formatNumber(n: number) {
-  return n >= 1000 ? n.toLocaleString('en-US') : String(n);
+function formatNumber(n: number, decimals = 0) {
+  if (decimals) return n.toFixed(decimals);
+  return n >= 1000 ? Math.round(n).toLocaleString('en-US') : String(Math.round(n));
 }
 
 function useCountUp(target: number, active: boolean) {
@@ -31,7 +31,7 @@ function useCountUp(target: number, active: boolean) {
         return;
       }
       const p = Math.min((now - start) / duration, 1);
-      setValue(Math.round(target * ease(p)));
+      setValue(target * ease(p));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -41,12 +41,12 @@ function useCountUp(target: number, active: boolean) {
   return value;
 }
 
-function StatItem({ target, suffix, label, sub, active }: { target: number; suffix: string; label: string; sub: string; active: boolean }) {
+function StatItem({ target, suffix, label, sub, decimals = 0, active }: { target: number; suffix: string; label: string; sub: string; decimals?: number; active: boolean }) {
   const value = useCountUp(target, active);
   return (
     <div className="text-center px-4 md:first:pl-0 md:last:pr-0">
       <span className="block text-5xl md:text-6xl font-bold gradient-text tabular-nums leading-none">
-        {formatNumber(value)}{suffix}
+        {formatNumber(value, decimals)}{suffix}
       </span>
       <span className="block text-[#0a2540] text-sm font-bold mt-4 leading-snug">{label}</span>
       <span className="block text-slate-500 text-xs mt-1.5">{sub}</span>

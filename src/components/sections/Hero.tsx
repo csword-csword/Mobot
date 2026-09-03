@@ -9,6 +9,15 @@ export default function Hero() {
       <div className="relative mx-auto max-w-[80rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
         {/* Content */}
         <div>
+          <Link
+            href="/resources/annual-defect-report"
+            className="hero-line hero-line-1 group inline-flex items-center gap-2 mb-6 pl-1.5 pr-3.5 py-1.5 rounded-md border border-[#6d3fe0]/35 bg-white/80 backdrop-blur text-sm hover:border-[#6d3fe0] hover:shadow-[0_6px_18px_rgba(109,63,224,0.18)] transition-all"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded brand-gradient text-white">New</span>
+            <span className="font-semibold text-[#0a2540]">Annual Defect Report</span>
+            <span className="hidden sm:inline text-slate-500">&middot; 6,372 real bugs, 83 apps, 11 industries</span>
+            <span className="text-[#6d3fe0] font-bold group-hover:translate-x-0.5 transition-transform">Download &rarr;</span>
+          </Link>
           <p className="hero-line hero-line-1 eyebrow text-sm mb-5">Physical Mobile Testing</p>
           <h1 className="font-bold tracking-tight text-[#0a2540] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mb-6">
             <span className="hero-line hero-line-2 block">Real Robots.</span>

@@ -39,6 +39,7 @@ const compare: DropdownItem[] = [
 ];
 
 const resources: DropdownItem[] = [
+  { label: 'Annual Defect Report', href: '/resources/annual-defect-report', description: '6,372 real bugs across 83 apps and 11 industries', badge: 'New' },
   { label: 'Sample Defect Report', href: '/resources/defect-reports', description: 'See a verified, forensic defect report' },
   { label: 'Customers & Case Studies', href: '/customers', description: 'Outcomes from real Mobot customers' },
   { label: 'Blog & Reports', href: '/resources/blog', description: 'Test debt, deep linking, and the state of mobile QA' },
