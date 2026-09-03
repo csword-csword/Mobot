@@ -1,4 +1,5 @@
-import { Video, FileText, Smartphone, UserCheck, GitCompare, ListChecks } from 'lucide-react';
+import Link from 'next/link';
+import { Video, FileText, Smartphone, UserCheck, GitCompare, ListChecks, ArrowRight } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
@@ -26,13 +27,25 @@ export default function Page() {
         eyebrow="Resources"
         title="See what a verified defect report looks like"
         intro="Every defect Mobot reports is triaged and verified by a QA analyst before it reaches your team, with video, logs, and reproduction steps attached — so a red result is never something your engineers have to chase down first."
-        primary={{ label: 'Request the Sample Report', href: '/schedule-demo' }}
+        primary={{ label: 'View the sample report', href: '/resources/defect-reports/sample' }}
+        secondary={{ label: 'Get a report on your app', href: '/schedule-demo' }}
       />
 
       <section className="py-20 px-6">
         <div className="mx-auto max-w-[64rem]">
           <SampleDefectReport />
-          <p className="text-center text-xs text-slate-400 mt-4">Illustrative report. Request the sample to see a complete report on a real app.</p>
+          <p className="text-center text-xs text-slate-400 mt-4">Condensed illustration of a report card.</p>
+          <div className="mt-8 text-center">
+            <Link
+              href="/resources/defect-reports/sample"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#1d4ed8] text-white font-semibold hover:bg-[#1e40af] transition-colors"
+            >
+              Open the full sample report <ArrowRight className="w-4 h-4" />
+            </Link>
+            <p className="text-sm text-slate-500 mt-3">
+              A complete, sanitized report from a real run: 41 steps, a verified P0 crash, device and OS details, and 90-day analytics. Printable to PDF.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -62,7 +75,7 @@ export default function Page() {
         </div>
       </section>
 
-      <CtaBand title="Get a report on your own app" body="Tell us about your build. We'll run it on real devices and send back a verified defect report you can review with your team." primaryLabel="Request the Sample Report" />
+      <CtaBand title="Get a report on your own app" body="Tell us about your build. We'll run it on real devices and send back a verified defect report you can review with your team." primaryLabel="Get a report on your app" />
     </>
   );
 }
