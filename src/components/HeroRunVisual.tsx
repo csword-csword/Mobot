@@ -60,7 +60,7 @@ export default function HeroRunVisual() {
                   <StepThumb screen={s.screen} failed={s.status === 'failed'} />
                 </div>
               </div>
-              <div className={`min-w-0 pt-0.5 ${i === 0 ? 'lg:pr-24' : ''}`}>
+              <div className={`min-w-0 pt-0.5 ${i === 0 ? 'lg:pr-44' : ''}`}>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[11px] font-bold text-[#1d4ed8]">STEP {s.n}</span>
                   <StatusPill status={s.status} />
@@ -87,7 +87,7 @@ export default function HeroRunVisual() {
 
       {/* The robot that produced it, running */}
       <div
-        className="hero-line mt-4 lg:mt-0 lg:absolute lg:-top-10 lg:-right-10 lg:w-[11.5rem] z-10"
+        className="hero-line mt-4 lg:mt-0 lg:absolute lg:-top-14 lg:-right-3 lg:w-[13rem] xl:-right-12 xl:w-[15rem] z-10"
         style={{ animationDelay: '1400ms' }}
       >
         <div className="rounded-lg border-2 border-white bg-[#0a2540] shadow-[0_16px_36px_rgba(15,23,42,0.28)] overflow-hidden">
