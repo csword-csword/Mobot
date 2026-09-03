@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero';
+import HeroLatestPosts from '@/components/sections/HeroLatestPosts';
 import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProblemSection from '@/components/sections/ProblemSection';
 import VideoBand from '@/components/sections/VideoBand';
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <HeroLatestPosts />
       <StatCounters />
       <EventBand />
       <LogoMarquee />

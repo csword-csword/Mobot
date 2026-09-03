@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
-import ReportFeature from '@/components/report/ReportFeature';
+import SampleDefectReport from '@/components/SampleDefectReport';
 
 const proof = [
   'Real phones, operated by robots. No simulators.',
@@ -52,9 +52,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Annual Defect Report feature */}
+        {/* Proof: a real verified defect report */}
         <div className="hero-line hero-line-6">
-          <ReportFeature />
+          <SampleDefectReport />
         </div>
       </div>
     </section>
