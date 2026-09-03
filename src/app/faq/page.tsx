@@ -41,7 +41,7 @@ export default function Page() {
           </nav>
           <div className="space-y-14">
             {faqGroups.map((g) => (
-              <div key={g.id} id={g.id} className="scroll-mt-28">
+              <div key={g.id} id={g.id} className="scroll-mt-32">
                 <h2 className="text-2xl font-bold text-[#0a2540] mb-5">{g.heading}</h2>
                 <FaqAccordion items={g.items} defaultOpen={null} />
               </div>
