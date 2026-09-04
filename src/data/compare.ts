@@ -25,7 +25,7 @@ export const competitorMeta: Record<CompetitorKey, { name: string; sub: string; 
   mobot: { name: 'Mobot', sub: 'robotic · real devices · expert-verified' },
   appium: { name: 'Appium', sub: 'open-source scripted framework', slug: 'mobot-vs-appium' },
   maestro: { name: 'Maestro', sub: 'YAML-based scripted framework', slug: 'mobot-vs-maestro' },
-  qawolf: { name: 'QA Wolf', sub: 'software-based managed QA service', slug: 'mobot-vs-qa-wolf' },
+  qawolf: { name: 'QA Wolf', sub: 'managed QA · real iOS devices, emulated Android', slug: 'mobot-vs-qa-wolf' },
 };
 
 export const matrixGroups: MatrixGroup[] = [
@@ -39,8 +39,13 @@ export const matrixGroups: MatrixGroup[] = [
       },
       {
         label: 'Real iOS & Android hardware, not emulators',
-        note: 'Device clouds run real phones, but drive them through software.',
+        note: 'QA Wolf runs a real iPhone/iPad farm but emulates Android; real Android devices are listed as coming soon.',
         values: { mobot: 'yes', appium: 'partial', maestro: 'partial', qawolf: 'partial' },
+      },
+      {
+        label: 'Tests the exact binary you ship',
+        note: 'QA Wolf re-signs every IPA with a custom provisioning profile to gain system-level control.',
+        values: { mobot: 'yes', appium: 'partial', maestro: 'partial', qawolf: 'no' },
       },
       {
         label: 'Push delivery through real APNs/FCM to the device',
@@ -48,6 +53,7 @@ export const matrixGroups: MatrixGroup[] = [
       },
       {
         label: 'Bluetooth pairing with real peripherals & wearables',
+        note: 'The phone’s own radio is one thing; pairing with a watch, card reader, or medical device is another.',
         values: { mobot: 'yes', appium: 'no', maestro: 'no', qawolf: 'no' },
       },
       {
@@ -57,6 +63,7 @@ export const matrixGroups: MatrixGroup[] = [
       },
       {
         label: 'Camera, QR & barcode with a real lens',
+        note: 'Injecting mock video into the camera feed proves the handler works, not the capture path.',
         values: { mobot: 'yes', appium: 'no', maestro: 'no', qawolf: 'no' },
       },
       {
@@ -83,7 +90,8 @@ export const matrixGroups: MatrixGroup[] = [
       },
       {
         label: 'Zero script maintenance on your engineers',
-        values: { mobot: 'yes', appium: 'no', maestro: 'no', qawolf: 'partial' },
+        note: 'A managed service absorbs the maintenance; computer vision removes the selector that causes it.',
+        values: { mobot: 'yes', appium: 'no', maestro: 'no', qawolf: 'yes' },
       },
       {
         label: 'Every failure verified by a human before you see it',
@@ -264,59 +272,72 @@ export const competitorProfiles: CompetitorProfile[] = [
     key: 'qawolf',
     name: 'QA Wolf',
     slug: 'mobot-vs-qa-wolf',
-    category: 'Software-based managed QA service',
-    what: 'QA Wolf is a managed QA service whose engineers write and maintain automated test scripts that run in software — on browsers, and for mobile, on emulators, simulators, or cloud devices.',
-    headline: 'QA Wolf manages your scripts. Mobot removes the simulator underneath them.',
+    category: 'Managed QA service · real iOS devices, emulated Android',
+    what: 'QA Wolf is a managed QA service that builds and maintains your suite for you. Web tests run in Playwright; mobile tests are built in Appium and run on QA Wolf’s own rack-mounted iPhones and iPads for iOS, and on GPU-accelerated emulators for Android.',
+    headline: 'QA Wolf modifies your build to test it. Mobot tests the build you ship.',
     intro:
-      'Managed script-writing solves the staffing problem: someone else authors and maintains the suite. It doesn’t solve the physical problem. Scripts written for you still run through software on simulated or software-driven devices, so the defects that live in push delivery, Bluetooth, biometrics, and the camera are still invisible. Mobot is managed too — and the tests run on robots and real phones.',
+      'QA Wolf is a serious operation, and the honest comparison is narrower than most vendor pages would have you believe. They run real iPhones. They reproduce failures with humans. Where they differ is what happens underneath: Android runs on emulators, and to control an iOS device they re-sign your IPA with their own provisioning profile so they can replace camera input and mock sensor data. Mobot points a robot at an unmodified production build on real hardware, for both platforms.',
     strengths: [
-      'Test authoring and maintenance handled by their engineers, not yours',
-      'Strong fit for web applications and browser-based flows',
-      'Human triage of failures before results are reported',
-      'Parallel execution for fast turnaround on stable, in-app suites',
+      'Real iPhones and iPads in a device farm they own and operate',
+      'A published zero-flake guarantee — failures are reproduced by humans before anything is reported',
+      'A coverage guarantee: 80%+ automated coverage, stated in weeks to four months',
+      'Tests are yours in open-source Playwright and Appium, with no vendor lock-in',
+      'Strong web coverage, fully parallel infrastructure, and deep public customer proof',
     ],
     limitations: [
       {
-        title: 'Managed scripts are still scripts on simulators',
-        body: 'Whoever writes the automation, it executes by injecting events into an emulator, simulator, or software-driven cloud device. The physical layer — the digitizer, radios, secure enclave, camera, and carrier network — is never touched.',
+        title: 'Android is emulated, not real hardware',
+        body: 'QA Wolf states plainly that Android runs on emulators — “each running on their own virtual machine” — with real Android devices listed as coming soon. On Android, that puts every hardware-dependent scenario out of reach: OEM firmware quirks, real radios, thermal behaviour, and anything a Samsung or Pixel does that an emulator does not.',
       },
       {
-        title: 'The maintenance cost is hidden, not gone',
-        body: 'Scripts still break with every UI change; the repair cycle just happens on someone else’s calendar. At AI-driven release velocity that cycle is continuous, and it is priced into the service.',
+        title: 'Your iOS binary is modified before it is tested',
+        body: 'To gain control of the device, QA Wolf re-signs every IPA with a custom provisioning profile, which lets them replace camera input, override network hardware calls, and mock sensor data. That buys determinism, and it is a legitimate engineering trade. It also means the artifact under test is not the artifact you ship, and the sensor path is simulated rather than exercised.',
       },
       {
-        title: 'Built web-first',
-        body: 'Browser automation is a mature, software-only problem. Mobile is different: the scenarios that reach production broken depend on hardware that a web-first stack has no way to exercise.',
+        title: 'Mocked input proves the handler, not the hardware',
+        body: 'Injecting a video file into the camera feed proves your code handles a frame. It does not prove the lens focuses on a customer’s document, that the scanner reads a crumpled barcode, or that Face ID clears against the real secure enclave. For flows where the hardware is the product, the mock is the part that has to be true.',
+      },
+      {
+        title: 'Mobile is Appium underneath',
+        body: 'Their mobile suites are built in Appium on top of XCUITest, so the tests are locator-based. The maintenance burden is absorbed by their team rather than yours, which is a real benefit — but the mechanism that creates it is still there. Computer vision removes it instead.',
+      },
+      {
+        title: 'External peripherals and carrier networks are not claimed',
+        body: 'Their pages cover the phone’s own sensors and radios. We found no claim about pairing with external Bluetooth peripherals — a watch, a card reader, a medical device — or about testing over a real carrier network rather than Wi-Fi. If your app is only half the product, that gap matters.',
       },
     ],
     pillars: [
       {
-        title: 'Better: physical testing, expert-verified',
-        body: 'Mobot pairs the managed model with a robot fleet on 300+ real devices. Every failure is verified by a QA analyst — and every test exercises the real hardware path, not a software stand-in.',
+        title: 'Better: real hardware on both platforms',
+        body: 'Mobot runs 300+ real iOS and Android devices — no emulated platform, no re-signed binary, no mocked sensors. A robot taps the glass of a phone running the build you are about to release, and the camera, radios, and secure enclave are the real ones.',
       },
       {
-        title: 'Cheaper: one program, no simulator tax',
-        body: 'You are not paying for scripts to be repaired after every release or for a device cloud to run them on. Mobot Unlimited is one flat annual rate for all-you-can-test coverage across the full fleet.',
+        title: 'Cheaper: no locator to maintain, by anyone',
+        body: 'A managed service absorbs script maintenance into its price. Computer vision removes the selector that generates the work, so the cost is not being paid on either side of the contract — and Mobot Unlimited is one flat annual rate across the fleet.',
       },
       {
-        title: 'Faster: computer vision, not selectors',
-        body: 'Robots read the screen visually, so coverage doesn’t wait on locator repair. AI-assisted authoring generates flows from your build; new coverage ships in hours and keeps passing through refactors.',
+        title: 'Faster: coverage that survives your refactors',
+        body: 'AI-assisted authoring proposes coverage from your build, and because nothing is anchored to a resource ID or XPath, a redesign does not send anyone back into the suite to repair it.',
       },
     ],
     together:
-      'If your surface is mostly web, a browser-focused managed service may be the right tool there. For mobile — and for any flow that touches hardware — Mobot is the managed program built for the device in your user’s hand.',
+      'These are not mutually exclusive. If you have a large web surface, QA Wolf covers it in Playwright and does that well. Where Mobot fits is the mobile side, and specifically the flows that depend on the device being real: Android hardware, external peripherals, the camera path, biometrics, and delivery over a real network.',
     faqs: [
       {
-        q: 'Isn’t “managed” the same thing?',
-        a: 'Both models take authoring and maintenance off your team. The difference is what runs underneath: software-driven emulators and cloud devices versus robots physically operating real phones. Only the second can test push delivery, Bluetooth, biometrics, camera, and network behavior.',
+        q: 'QA Wolf runs real iPhones too. What is actually different?',
+        a: 'Two things. Their Android testing runs on emulators, with real Android devices listed as coming soon — so on Android there is no physical hardware at all. And on iOS they re-sign your IPA with their own provisioning profile in order to replace camera input and mock sensor data. Mobot runs an unmodified build on real hardware for both platforms, with a robot physically operating the device.',
       },
       {
-        q: 'Does Mobot verify results with humans too?',
-        a: 'Yes. Every failure is triaged by a QA analyst before it reaches you, with video, device logs, network logs, and reproduction steps attached.',
+        q: 'They also have humans verifying failures. Isn’t that the same as your defect validation?',
+        a: 'The intent is the same and we would not claim otherwise — they publish a zero-flake guarantee and state that failures are reproduced by humans. The difference is what the analyst can verify. When a run happens on real hardware with real inputs, reproduction covers the physical path too, which is exactly where the defect often is.',
+      },
+      {
+        q: 'Is mocking sensor data actually a problem?',
+        a: 'Not always — it is a reasonable trade for determinism, and for most in-app logic it is fine. It becomes a problem when the hardware is the thing you need to trust: a document scan through a real lens, a payment terminal pairing over real Bluetooth, biometric auth against the secure enclave. A mocked input cannot fail the way the real one does.',
       },
       {
         q: 'Can Mobot test our web app?',
-        a: 'Mobot is purpose-built for mobile apps on physical devices. Mobile web flows that run inside a real phone’s browser are in scope; desktop browser testing is not.',
+        a: 'No. Mobot is purpose-built for mobile apps on physical devices. Mobile web flows running inside a real phone’s browser are in scope; desktop browser testing is not, and a web-focused service is the better tool there.',
       },
     ],
   },
