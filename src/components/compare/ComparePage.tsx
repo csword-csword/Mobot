@@ -10,6 +10,7 @@ import FeatureMatrix from '@/components/compare/FeatureMatrix';
 import TestDebtChart from '@/components/compare/TestDebtChart';
 import ScriptCostCalculator from '@/components/compare/ScriptCostCalculator';
 import CvAuthoringVisual from '@/components/compare/CvAuthoringVisual';
+import MethodologyCompare from '@/components/compare/MethodologyCompare';
 import type { CompetitorProfile } from '@/data/compare';
 
 const pillarIcons = [Trophy, Wallet, Zap];
@@ -68,7 +69,9 @@ export default function ComparePage({ profile }: { profile: CompetitorProfile })
           <div>
             <Reveal>
               <p className="eyebrow text-xs mb-3">Where it stops</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0a2540] mb-6">The ceiling every scripted approach shares</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0a2540] mb-6">
+                {profile.limitationsHeading ?? 'The ceiling every scripted approach shares'}
+              </h2>
             </Reveal>
             <div className="grid gap-4">
               {profile.limitations.map((l, i) => (
@@ -118,6 +121,26 @@ export default function ComparePage({ profile }: { profile: CompetitorProfile })
         </div>
       </section>
 
+      {/* Methodology — only where both sides claim the same capability */}
+      {profile.methodology && (
+        <section className="py-24 px-6 section-alt border-y border-slate-200">
+          <div className="mx-auto max-w-[86rem]">
+            <SectionHeading
+              eyebrow="How the tests actually run"
+              title={profile.methodology.heading}
+              sub={profile.methodology.sub}
+              center
+              className="mb-12"
+            />
+            <MethodologyCompare competitor={profile.name} rows={profile.methodology.rows} />
+            <p className="mt-6 text-center text-xs text-slate-400 max-w-[46rem] mx-auto">
+              {profile.name} descriptions are drawn from their public product pages. If anything here is out of
+              date, <Link href="/contact" className="text-[#1d4ed8] font-semibold">tell us</Link> and we will correct it.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Matrix */}
       <section className="py-20 px-6 section-alt border-y border-slate-200">
         <div className="mx-auto max-w-[80rem]">
@@ -140,22 +163,24 @@ export default function ComparePage({ profile }: { profile: CompetitorProfile })
         </div>
       </section>
 
-      {/* Cheaper */}
-      <section className="py-24 px-6 section-alt border-y border-slate-200">
-        <div className="mx-auto max-w-[86rem]">
-          <SectionHeading
-            eyebrow="Cheaper"
-            title="Free to download. Expensive to keep green."
-            sub="At AI-assisted release cadence, the cost of a scripted suite is dominated by maintenance — engineering hours spent repairing tests that found no defect. Model it with your own numbers."
-            center
-            className="mb-12"
-          />
-          <TestDebtChart />
-          <div className="mt-8">
-            <ScriptCostCalculator />
+      {/* Cheaper — script economics only apply when your own team maintains the suite */}
+      {profile.showScriptEconomics !== false && (
+        <section className="py-24 px-6 section-alt border-y border-slate-200">
+          <div className="mx-auto max-w-[86rem]">
+            <SectionHeading
+              eyebrow="Cheaper"
+              title="Free to download. Expensive to keep green."
+              sub="At AI-assisted release cadence, the cost of a scripted suite is dominated by maintenance — engineering hours spent repairing tests that found no defect. Model it with your own numbers."
+              center
+              className="mb-12"
+            />
+            <TestDebtChart />
+            <div className="mt-8">
+              <ScriptCostCalculator />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Together */}
       <section className="py-24 px-6">

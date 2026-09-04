@@ -27,10 +27,38 @@ export default function Page() {
         center
         eyebrow="Compare"
         title="How Mobot Stacks Up"
-        intro="There's no shortage of ways to test a mobile app. Most of them drive the app through software on a simulated or software-driven device. Here's an honest look at where each approach stops — and where Mobot starts."
+        intro="Plenty of tools will run your mobile app. The question worth asking is what they run it on, and how much of the device is real when they do — because that is where the differences actually live. Here is an honest read on each approach, including the parts where they beat us."
         primary={{ label: 'Request a Demo', href: '/schedule-demo' }}
         secondary={{ label: 'Why Real Devices', href: '/why-real-devices' }}
       />
+
+      {/* The question that separates them */}
+      <section className="py-20 px-6 border-b border-slate-200">
+        <div className="mx-auto max-w-[80rem]">
+          <SectionHeading
+            eyebrow="How to read this"
+            title="Four questions that separate mobile testing tools"
+            sub="Most comparison tables argue about features. These are the questions that determine which defects a tool can find at all."
+            className="mb-10"
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { q: 'Is it a real phone?', d: 'Emulators and simulators are models of a device. Some vendors run real hardware for one platform and emulate the other.' },
+              { q: 'Is it your real build?', d: 'Some approaches re-sign or instrument your binary to control it. What ships is then not quite what was tested.' },
+              { q: 'Are the inputs real?', d: 'A mocked camera feed proves your handler works. A real lens proves the capture does.' },
+              { q: 'Who decides a failure is a bug?', d: 'A red build is not a defect until someone reproduces it. If that someone is your engineer, that is a cost.' },
+            ].map((c, i) => (
+              <Reveal key={c.q} delay={i * 80}>
+                <div className="h-full rounded-lg border border-slate-200 bg-white p-6">
+                  <div className="text-[11px] font-bold text-[#1d4ed8] mb-2">0{i + 1}</div>
+                  <h3 className="font-bold text-[#0a2540] mb-2 leading-snug">{c.q}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{c.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Competitor cards */}
       <section className="py-20 px-6">
@@ -62,7 +90,7 @@ export default function Page() {
           <SectionHeading
             eyebrow="The landscape"
             title={<>Five ways to test a mobile app. <span className="gradient-text">One touches the phone.</span></>}
-            sub="Emulators are cheap and wrong. Device farms rent you a phone and drive it through software. Scripts need engineers. Offshore manual needs headcount. Mobot is a service that puts a robot on real glass."
+            sub="Emulators are cheap and blind to hardware. Device farms rent you a real phone but drive it through software. Scripted frameworks need engineers to keep them alive. Offshore manual needs headcount and can't run overnight. Mobot is a managed service that puts a robot on real glass."
             center
             className="mb-12"
           />
@@ -76,7 +104,7 @@ export default function Page() {
           <SectionHeading
             eyebrow="Feature by feature"
             title="Mobot vs. Appium, Maestro, and QA Wolf"
-            sub="Credit where it's due: scripts are fast per run and device clouds are broad. Then look at the physical layer."
+            sub="Credit where it's due: scripts run fast, device clouds are broad, and a managed service takes real work off your plate. Then look at the physical layer."
             center
             className="mb-12"
           />
@@ -122,8 +150,9 @@ export default function Page() {
           <p className="text-slate-600 leading-relaxed">
             <span className="font-semibold text-[#0a2540]">{legacy.join(' · ')}</span>
             <br />
-            Device clouds, no-code recorders, and crowdtesting share the same physical-layer gap: the
-            app is driven through software, or by a person who can&apos;t run it 300 times overnight.{' '}
+            Device clouds, no-code recorders, managed QA services, and crowdtesting land in different
+            places on the four questions above — but they share a physical-layer gap: the app is driven
+            through software, or by a person who can&apos;t run it 300 times overnight.{' '}
             <Link href="/schedule-demo" className="text-[#1d4ed8] font-semibold">Ask us for a side-by-side on your stack →</Link>
           </p>
         </div>

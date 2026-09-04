@@ -126,11 +126,30 @@ export const matrixGroups: MatrixGroup[] = [
   },
 ];
 
+/** One line of a head-to-head methodology comparison. */
+export interface MethodologyRow {
+  label: string;
+  theirs: string;
+  ours: string;
+}
+
 export interface CompetitorProfile {
   key: CompetitorKey;
   name: string;
   slug: string;
   category: string;
+  /** Heading over the limitations column — the framing differs for DIY vs managed. */
+  limitationsHeading?: string;
+  /**
+   * Bespoke methodology table. Used where the real difference is *how* the test
+   * is executed rather than who writes the script.
+   */
+  methodology?: { heading: string; sub: string; rows: MethodologyRow[] };
+  /**
+   * Script economics (test-debt chart + cost calculator) only make sense when
+   * the reader's own engineers maintain the suite. Managed services opt out.
+   */
+  showScriptEconomics?: boolean;
   /** One-line description of what the competitor is. */
   what: string;
   /** Hero headline. */
@@ -273,6 +292,44 @@ export const competitorProfiles: CompetitorProfile[] = [
     name: 'QA Wolf',
     slug: 'mobot-vs-qa-wolf',
     category: 'Managed QA service · real iOS devices, emulated Android',
+    limitationsHeading: 'Where the methodology sets the ceiling',
+    showScriptEconomics: false,
+    methodology: {
+      heading: 'Both say “real devices.” The methodologies are not the same.',
+      sub: 'This is the comparison that matters, and it is drawn from what each of us publishes about how the tests actually run.',
+      rows: [
+        {
+          label: 'Android',
+          theirs: 'GPU-accelerated emulators, each on its own virtual machine. Real Android devices are listed as coming soon.',
+          ours: 'Real Android handsets — Samsung, Pixel, and the rest of the fleet — operated by robots.',
+        },
+        {
+          label: 'iOS',
+          theirs: 'Real iPhones and iPads, rack-mounted and driven over the network by control agents in Kubernetes pods.',
+          ours: 'Real iPhones and iPads on a stage, driven by a mechanical stylus that touches the glass.',
+        },
+        {
+          label: 'The binary under test',
+          theirs: 'Every IPA is re-signed with a custom provisioning profile to gain system-level control.',
+          ours: 'The build you are about to ship, unmodified and unsigned by us.',
+        },
+        {
+          label: 'Camera & sensors',
+          theirs: 'Camera input replaced and sensor data mocked; media files injected into the camera and microphone.',
+          ours: 'A real lens pointed at a real screen, and the device’s own sensors reporting real conditions.',
+        },
+        {
+          label: 'Touch input',
+          theirs: 'Events delivered through the automation layer by a software agent.',
+          ours: 'A physical tap on the digitizer, the same event your user generates.',
+        },
+        {
+          label: 'External peripherals',
+          theirs: 'Not claimed. Their pages cover the phone’s own radios and sensors.',
+          ours: 'Real pairing over real RF with watches, card readers, medical devices, and IoT hardware.',
+        },
+      ],
+    },
     what: 'QA Wolf is a managed QA service that builds and maintains your suite for you. Web tests run in Playwright; mobile tests are built in Appium and run on QA Wolf’s own rack-mounted iPhones and iPads for iOS, and on GPU-accelerated emulators for Android.',
     headline: 'QA Wolf modifies your build to test it. Mobot tests the build you ship.',
     intro:
