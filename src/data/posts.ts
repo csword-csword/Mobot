@@ -40,7 +40,7 @@ const seedPosts: Post[] = [
     title: 'The Real Cost of Appium at Scale (and the Four Things That Actually Fix It)',
     kind: 'guide',
     date: '2026-09-05',
-    readTime: '9 min',
+    readTime: '11 min',
     tags: ['Test automation', 'Test debt', 'Appium'],
     featured: true,
     summary:
@@ -64,6 +64,17 @@ const seedPosts: Post[] = [
 
       <h3>4. The coverage that never gets written</h3>
       <p>This is the cost category that never shows up in a maintenance audit, because it's an absence, not a logged event. When most of a QA team's time goes to keeping existing tests alive, the capacity left for writing new coverage shrinks — and teams quietly stop automating the parts of the app they know should be tested, because there's no time left. It never appears as a line item. It's still a real cost, and it's usually the largest one.</p>
+
+      <h2>What the data actually says — and what it doesn't</h2>
+      <p>A figure circulating widely in 2026 claims teams running 200-plus Appium tests spend 60–70% of QA engineering time fixing broken selectors. It gets repeated as though it were a research finding. It isn't: it originates in the marketing content of a vendor selling an Appium alternative, and no underlying study, survey, or methodology is published anywhere behind it. We're not going to cite it, and we'd encourage you to check the provenance of any number a testing vendor quotes you — including ours.</p>
+      <p>Here is what is actually documented, by parties with no stake in this argument:</p>
+      <ul>
+        <li><strong>Flakiness is rising as mobile pipelines get more complex.</strong> Bitrise's <a href="https://bitrise.io/blog/post/bitrise-mobile-insights-report-defines-new-benchmarks-for-app-velocity-and-performance" target="_blank" rel="noopener noreferrer">Mobile Insights 2025 report</a>, drawn from more than 10 million CI builds between January 2022 and June 2025, found the share of teams experiencing any test flakiness grew from 10% to 26% — a 160% increase in three years — while mobile CI pipelines became 23% more complex over the same period.</li>
+        <li><strong>It is a structural problem, not a skill problem.</strong> Google reported in <a href="https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html" target="_blank" rel="noopener noreferrer">Flaky Tests at Google and How We Mitigate Them</a> that roughly 1.5% of their 4.2 million tests showed flaky behaviour in a given week, and that they spent between 2% and 16% of their compute re-running them. If the problem were solvable by discipline alone, Google would have solved it.</li>
+        <li><strong>The time cost is measurable.</strong> The <a href="https://www.testmuai.com/future-of-quality-assurance-survey/" target="_blank" rel="noopener noreferrer">Future of Quality Assurance survey</a> of more than 1,600 QA professionals found respondents spending 7.8% of their time fixing flaky tests and a further 10.4% setting up and maintaining test environments — close to a full day per working week between them.</li>
+        <li><strong>Telling real failures from false alerts is its own problem.</strong> A study of <a href="https://arxiv.org/pdf/2111.03382" target="_blank" rel="noopener noreferrer">Chromium's continuous integration</a> examined exactly this: separating legitimate failures from false alerts at scale. That is the signal-to-noise question, and it is hard enough to be worth a paper.</li>
+      </ul>
+      <p>None of these are about Appium specifically, and we'd rather say so than imply otherwise. What they establish is the shape of the problem: the maintenance and triage burden of UI test suites is real, growing, well documented, and not something a team out-disciplines.</p>
 
       <h2>When the cost curve stays flat</h2>
       <p>It would be inaccurate to frame this as Appium being broadly wrong for mobile QA. The cost above bends under a specific set of conditions — outside them, Appium remains a reasonable choice.</p>
@@ -105,6 +116,17 @@ const seedPosts: Post[] = [
       <p>When the suite is small, the UI is stable release to release, dedicated automation headcount already exists regardless of tooling choice, or the team needs a level of custom integration control that a managed platform doesn't offer. The cost curve genuinely stays flat under those conditions.</p>
       <h3>What's the single biggest hidden cost teams miss?</h3>
       <p>The coverage that never gets written. It never shows up in a maintenance-hours audit, because it's an absence rather than a logged event — but it's a real cost, and it's usually the one worth pricing first.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://bitrise.io/blog/post/bitrise-mobile-insights-report-defines-new-benchmarks-for-app-velocity-and-performance" target="_blank" rel="noopener noreferrer">Bitrise, Mobile Insights 2025</a> — 10M+ mobile CI builds, January 2022 to June 2025. Flakiness prevalence and pipeline complexity trends.</li>
+        <li><a href="https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html" target="_blank" rel="noopener noreferrer">Google Testing Blog, Flaky Tests at Google and How We Mitigate Them</a> — flaky test share and compute spent on reruns.</li>
+        <li><a href="https://www.testmuai.com/future-of-quality-assurance-survey/" target="_blank" rel="noopener noreferrer">Future of Quality Assurance survey</a> — 1,600+ QA professionals on where testing time goes.</li>
+        <li><a href="https://arxiv.org/pdf/2111.03382" target="_blank" rel="noopener noreferrer">Discerning Legitimate Failures From False Alerts: A Study of Chromium's Continuous Integration</a> — separating real failures from noise at scale.</li>
+        <li><a href="https://arxiv.org/pdf/2112.04919" target="_blank" rel="noopener noreferrer">A Qualitative Study on the Sources, Impacts, and Mitigation Strategies of Flaky Tests</a> — where flakiness comes from and what teams do about it.</li>
+        <li><a href="https://slack.engineering/handling-flaky-tests-at-scale-auto-detection-suppression/" target="_blank" rel="noopener noreferrer">Slack Engineering, Handling Flaky Tests at Scale</a> — one engineering organisation's account of the problem.</li>
+      </ul>
+      <p>Figures are as reported by each source, linked so you can check them yourself. Mobot's own numbers in this piece come from the <a href="/customers/homebase-mobile-qa-automation-with-mobot">Homebase case study</a>.</p>
     `,
     cta: { label: 'See the Mobot vs. Appium comparison', href: '/compare/mobot-vs-appium' },
   },
