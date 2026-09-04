@@ -3,12 +3,12 @@ import StepThumb from '@/components/report/StepThumb';
 import type { Step } from '@/data/sampleReport';
 
 const steps: { n: number; screen: Step['screen']; status: Step['status']; text: string; note?: string }[] = [
-  { n: 32, screen: 'tasks', status: 'passed', text: 'Enter the task name and tap Save.' },
+  { n: 32, screen: 'form', status: 'passed', text: 'Enter $250.00 and select the linked savings account.' },
   {
     n: 33,
     screen: 'crash',
     status: 'failed',
-    text: 'Tap “Add another Facet” to add a second task.',
+    text: 'Tap “Confirm transfer” to submit the payment.',
     note: 'App terminated and returned to the home screen.',
   },
 ];
@@ -40,7 +40,7 @@ export default function HeroRunVisual() {
       {/* Frame header — constant across the sequence */}
       <div className="flex items-center gap-3 px-4 sm:px-5 py-3 border-b border-slate-200 bg-slate-50">
         <div>
-          <div className="text-xs font-bold text-[#0a2540] leading-tight">Acme Home Services</div>
+          <div className="text-xs font-bold text-[#0a2540] leading-tight">Northwind Financial</div>
           <div className="text-[10px] font-mono text-slate-400 leading-tight mt-0.5">Test run 132 · Sep 2, 2026</div>
         </div>
         <div className="ml-auto relative h-5 min-w-[6.5rem]">
@@ -77,7 +77,7 @@ export default function HeroRunVisual() {
               </span>
               <div>
                 <div className="text-sm font-bold text-[#0a2540] leading-tight">Defect detected</div>
-                <div className="text-[11px] text-slate-500 leading-tight mt-0.5">Step 33 · app terminated</div>
+                <div className="text-[11px] text-slate-500 leading-tight mt-0.5">Step 33 · crash on confirm transfer</div>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function HeroRunVisual() {
         <div className="run-seq-report absolute inset-0 bg-white flex flex-col">
           <div className="px-5 pt-4 pb-2 flex items-center gap-2 border-b border-slate-100">
             <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-red-50 text-red-700">Failed</span>
-            <span className="text-xs font-bold text-[#0a2540] truncate">Add tasks to the structure group</span>
+            <span className="text-xs font-bold text-[#0a2540] truncate">Transfer funds between linked accounts</span>
             <span className="ml-auto text-[10px] font-mono text-slate-400 shrink-0 hidden sm:inline">41 steps</span>
           </div>
 
