@@ -3,24 +3,45 @@
 import { useState } from 'react';
 import { ArrowUpRight, Lock } from 'lucide-react';
 
-/**
- * Lightweight gate for the Annual Defect Report: captures a work email, then
- * reveals the report link. Swap the submit handler for your form provider
- * (HubSpot, etc.) when ready — the URL below is the report itself.
- */
-export const REPORT_URL = '/reports/mobot-annual-defect-report.html';
+/** Gated report URL — served only after /api/report/unlock sets the access cookie. */
+export const REPORT_URL = '/api/report/file';
 
+/**
+ * Lightweight gate for the Annual Defect Report: captures a work email via
+ * POST /api/report/unlock (sets httpOnly cookie), then reveals the Open link.
+ * HubSpot form submission is still TODO on the unlock route.
+ */
 export default function ReportDownload({ compact }: { compact?: boolean }) {
   const [email, setEmail] = useState('');
   const [unlocked, setUnlocked] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return;
+    setPending(true);
+    setError(null);
     try {
-      localStorage.setItem('mobot_report_email', email);
-    } catch {}
-    setUnlocked(true);
+      const res = await fetch('/api/report/unlock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = (await res.json().catch(() => null)) as { ok?: boolean; url?: string } | null;
+      if (!res.ok || !data?.ok) {
+        setError('Could not unlock the report. Try again with a work email.');
+        return;
+      }
+      try {
+        localStorage.setItem('mobot_report_email', email);
+      } catch {}
+      setUnlocked(true);
+    } catch {
+      setError('Could not unlock the report. Check your connection and try again.');
+    } finally {
+      setPending(false);
+    }
   }
 
   if (unlocked) {
@@ -52,12 +73,18 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
+          disabled={pending}
           className="flex-1 rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
         />
-        <button type="submit" className="px-5 py-2.5 rounded-md bg-[#1d4ed8] text-white font-semibold text-sm hover:bg-[#1e40af] transition-colors whitespace-nowrap">
-          Download the report
+        <button
+          type="submit"
+          disabled={pending}
+          className="px-5 py-2.5 rounded-md bg-[#1d4ed8] text-white font-semibold text-sm hover:bg-[#1e40af] transition-colors whitespace-nowrap disabled:opacity-60"
+        >
+          {pending ? 'Unlocking…' : 'Download the report'}
         </button>
       </div>
+      {error && <p className="mt-2 text-[11px] text-red-600">{error}</p>}
       <p className="mt-2 text-[11px] text-slate-400 inline-flex items-center gap-1">
         <Lock className="w-3 h-3" /> Work email. No spam, one follow-up at most.
       </p>

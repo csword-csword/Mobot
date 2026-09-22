@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "uploads-ssl.webflow.com" },
     ],
   },
+  // Ensure gated report HTML is available to the /api/report/file route at runtime.
+  outputFileTracingIncludes: {
+    "/api/report/file": ["./content/reports/**/*"],
+  },
   async redirects() {
     return [
       { source: "/resources/case-studies", destination: "/customers", permanent: true },
