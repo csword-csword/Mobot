@@ -46,7 +46,7 @@ export default function FooterCTA() {
                 engineering hours back with Mobot.
               </p>
               <Link
-                href="/resources/case-studies"
+                href="/customers"
                 className="mt-auto text-[#1d4ed8] text-sm font-semibold hover:text-[#1e40af] transition-colors"
               >
                 Explore Case Studies →

@@ -95,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Increase in QA Efficiency',
     detail: 'Citizen eliminated thousands of manual testing hours and lifted its App Store rating from 3.9 to 4.8.',
     bullets: ['10M+ active users', 'Automated 600 test cases weekly', 'App Store rating 3.9 → 4.8'],
-    href: 'https://www.mobot.io/case-studies/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
+    href: '/customers/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
     logo: '/images/citizen-logo.svg',
   },
   {
@@ -105,7 +105,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Hours of Manual Testing Eliminated Weekly',
     detail: 'The largest US neobank used Mobot to eliminate manual testing and expand device coverage by 2100%.',
     bullets: ['20M+ users', 'Increased device coverage by 2100%', 'Streamlined test processes'],
-    href: 'https://www.mobot.io/case-studies/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
+    href: '/customers/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
   },
   {
     company: 'Rappi',
@@ -114,7 +114,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'in Recovered Revenue',
     detail: 'Rappi scaled martech QA with computer vision and robots, preventing losses from failed marketing flows.',
     bullets: ['35M+ monthly active users', 'Prevented losses from failed marketing flows', 'Optimized marketing processes'],
-    href: 'https://www.mobot.io/case-studies/how-rappi-scaled-martech-qa-with-computer-vision-and-robots',
+    href: '/customers/how-rappi-scaled-martech-qa-with-computer-vision-and-robots',
     logo: '/images/Rappi-Logo.svg',
   },
   {
@@ -124,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Deep Link Issues Resolved',
     detail: 'A top-10 social platform bolstered user activations with continuous deep link monitoring on real devices.',
     bullets: ['300M+ monthly active users', '10,000+ links tested to date', '50+ unique channels tested weekly'],
-    href: 'https://www.mobot.io/case-studies/how-a-top-10-social-network-bolstered-user-activations-with-deep-link-monitoring',
+    href: '/customers/how-a-top-10-social-network-bolstered-user-activations-with-deep-link-monitoring',
   },
   {
     company: 'Sandboxx',
@@ -133,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'App Store Rating Increase',
     detail: 'Sandboxx maintains a 99.9% crash-free rate with Mobot in the release pipeline.',
     bullets: ['3M+ global users', '99.9% crash-free rate on iOS', 'Improved app experience'],
-    href: 'https://www.mobot.io/case-studies/how-sandboxx-maintains-a-99-9-crash-free-rate-with-mobot',
+    href: '/customers/how-sandboxx-maintains-a-99-9-crash-free-rate-with-mobot',
     logo: '/images/Sandboxx.svg',
   },
   {
@@ -143,7 +143,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Regression Results, Down From 5–10 Days',
     detail: 'Homebase automated over 100 complex end-to-end tests per platform in under 4 months, replacing a regression suite that only ran quarterly.',
     bullets: ['150,000+ small businesses served', 'Full iOS & Android coverage every release', '100+ end-to-end tests automated in <4 months'],
-    href: 'https://www.mobot.io/case-studies/homebase-mobile-qa-automation-with-mobot',
+    href: '/customers/homebase-mobile-qa-automation-with-mobot',
     logo: 'https://cdn.prod.website-files.com/60e6a9c4d7f861626db7f1a6/693224cf1d5febb9c83cddfe_svgexport-2.svg',
   },
   {
@@ -153,7 +153,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Parties Planned',
     detail: 'Batch partnered with Mobot to eliminate manual testing across thousands of mobile test cases as its group trip-planning app scaled.',
     bullets: ['500,000+ parties planned to date', 'Thousands of test cases automated', '4.8★ rating, 16K+ App Store reviews'],
-    href: 'https://www.mobot.io/case-studies/batch-partners-with-mobot-to-eliminate-manual-testing-across-thousands-of-mobile-test-cases',
+    href: '/customers/batch-partners-with-mobot-to-eliminate-manual-testing-across-thousands-of-mobile-test-cases',
     logo: '/images/batch-logo.svg',
   },
   {
@@ -163,7 +163,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Hours of Test Maintenance Saved Weekly',
     detail: 'After open-source automation proved too fragile and slow to maintain, this real estate platform moved regression testing to Mobot ahead of a bi-weekly release cadence.',
     bullets: ['Bi-weekly release cadence supported', 'Replaced fragile open-source automation', 'Reliable, scalable regression coverage'],
-    href: 'https://www.mobot.io/case-studies/real-estate-platform-test-automation',
+    href: '/customers/real-estate-platform-test-automation',
   },
   {
     company: 'Leading Mobile Rewards App',
@@ -172,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
     label: 'Registered Users, Deep Links Verified',
     detail: 'A digital marketplace connecting shoppers with local retailers used Mobot to document deep link failures across email and push, replacing guesswork with evidence for engineering and marketing.',
     bullets: ['30M+ registered users', 'Deep link bugs documented across email & push', 'Shared evidence for marketing and engineering'],
-    href: 'https://www.mobot.io/case-studies/mobile-rewards-app-deep-link-testing-with-mobot',
+    href: '/customers/mobile-rewards-app-deep-link-testing-with-mobot',
   },
 ];
 

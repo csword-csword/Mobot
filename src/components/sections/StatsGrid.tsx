@@ -7,7 +7,7 @@ const stats = [
     company: 'Citizen',
     logo: '/images/citizen-logo.svg',
     detail: '10M+ Active Users · Automated 600 test cases weekly · App store rating 3.9→4.8',
-    href: 'https://www.mobot.io/case-studies/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
+    href: '/customers/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
   },
   {
     stat: '20h+',
@@ -15,7 +15,7 @@ const stats = [
     company: '#1 US Neobank',
     logo: null,
     detail: '20M+ Users · Increased device coverage by 2100% · Streamlined test processes',
-    href: 'https://www.mobot.io/case-studies/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
+    href: '/customers/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
   },
   {
     stat: '$150k',
@@ -23,7 +23,7 @@ const stats = [
     company: 'Rappi',
     logo: '/images/Rappi-Logo.svg',
     detail: '35M+ Monthly Active Users · Prevented losses from failed marketing flows',
-    href: 'https://www.mobot.io/case-studies/how-rappi-scaled-martech-qa-with-computer-vision-and-robots',
+    href: '/customers/how-rappi-scaled-martech-qa-with-computer-vision-and-robots',
   },
   {
     stat: '600+',
@@ -31,7 +31,7 @@ const stats = [
     company: 'Top 10 Social Platform',
     logo: null,
     detail: '300M+ Monthly Active Users · 10,000+ links tested · 50+ unique channels weekly',
-    href: 'https://www.mobot.io/case-studies/how-a-top-10-social-network-bolstered-user-activations-with-deep-link-monitoring',
+    href: '/customers/how-a-top-10-social-network-bolstered-user-activations-with-deep-link-monitoring',
   },
   {
     stat: '4.2→4.8',
@@ -39,7 +39,7 @@ const stats = [
     company: 'Sandboxx',
     logo: '/images/Sandboxx.svg',
     detail: '3M+ Global Users · Improved app experience · Enhanced user retention',
-    href: 'https://www.mobot.io/case-studies/how-sandboxx-maintains-a-99-9-crash-free-rate-with-mobot',
+    href: '/customers/how-sandboxx-maintains-a-99-9-crash-free-rate-with-mobot',
   },
 ];
 
@@ -62,8 +62,6 @@ export default function StatsGrid() {
             <a
               key={item.stat}
               href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group rounded-lg border border-slate-200 bg-white p-8
                          card-lift flex flex-col gap-3"
             >
