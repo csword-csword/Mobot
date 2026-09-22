@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-const STORAGE_KEY = 'mobot_cookie_consent'; // 'accepted' | 'rejected'
+const STORAGE_KEY = 'mobot_cookie_consent'; // 'accepted' | 'rejected' — fallback path only
 
 type ConsentChoice = 'accepted' | 'rejected';
 
@@ -16,8 +16,10 @@ declare global {
   }
 }
 
-function isMobotProductionHost(hostname: string) {
-  return hostname === 'mobot.io' || hostname === 'www.mobot.io';
+function hsBannerEl() {
+  return document.querySelector(
+    '#hs-banner-parent, #hs-eu-cookie-confirmation, .hs-cookie-notification-position-bottom, [id^="hs-banner"], #hs-web-interactives-top-anchor',
+  );
 }
 
 function pushHubSpotConsent(accepted: boolean) {
@@ -40,31 +42,20 @@ function pushHubSpotConsent(accepted: boolean) {
 }
 
 /**
- * Consent UX:
- * - On www.mobot.io / mobot.io: HubSpot’s published banner is primary; we only
- *   expose Cookie Settings → showBanner (and a tiny fallback if HS never mounts).
- * - On preview (*.vercel.app) / localhost: HubSpot usually won’t show a banner
- *   until the hostname is allowlisted — we disable HS banner UI and show this
- *   first-party banner, which still drives HubSpot via setHubSpotConsent.
+ * HubSpot-only consent (match live remediations).
+ * First-party Accept/Reject appears ONLY if HubSpot’s banner never mounts
+ * (e.g. hostname not allowlisted). Never show both at once.
  */
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
-  const [mode, setMode] = useState<'fallback' | 'hubspot-primary'>('hubspot-primary');
 
   const openSettings = useCallback(() => {
-    const hostname = window.location.hostname;
-    if (isMobotProductionHost(hostname) && mode === 'hubspot-primary') {
-      const _hsp = (window._hsp = window._hsp || []);
-      _hsp.push(['showBanner']);
-      // If HubSpot doesn’t surface anything, show our panel after a beat.
-      window.setTimeout(() => {
-        const hsBanner = document.querySelector('#hs-banner-parent, #hs-eu-cookie-confirmation, .hs-cookie-notification-position-bottom');
-        if (!hsBanner) setVisible(true);
-      }, 800);
-      return;
-    }
-    setVisible(true);
-  }, [mode]);
+    const _hsp = (window._hsp = window._hsp || []);
+    _hsp.push(['showBanner']);
+    window.setTimeout(() => {
+      if (!hsBannerEl()) setVisible(true);
+    }, 900);
+  }, []);
 
   useEffect(() => {
     window.__mobotOpenCookieSettings = openSettings;
@@ -74,18 +65,8 @@ export default function CookieConsent() {
   }, [openSettings]);
 
   useEffect(() => {
-    const hostname = window.location.hostname;
-    const production = isMobotProductionHost(hostname);
-
-    if (production) {
-      setMode('hubspot-primary');
-      // HubSpot owns first paint; nothing to show unless Cookie Settings is used.
-      return;
-    }
-
-    // Preview / non-production hosts
-    setMode('fallback');
-    window.disableHubSpotCookieBanner = true;
+    // Never disable HubSpot’s banner — Demand allowlists preview hosts so HS can show.
+    window.disableHubSpotCookieBanner = false;
 
     let stored: string | null = null;
     try {
@@ -94,22 +75,46 @@ export default function CookieConsent() {
       stored = null;
     }
 
+    // If visitor already used our fallback panel, honor that without re-showing.
     if (stored === 'accepted' || stored === 'rejected') {
       pushHubSpotConsent(stored === 'accepted');
       setVisible(false);
       return;
     }
 
-    // Default = rejected until opt-in (matches HubSpot require-opt-in policy)
-    pushHubSpotConsent(false);
-    setVisible(true);
+    let cancelled = false;
+    let tries = 0;
+    const maxTries = 16; // ~8s
+
+    const tick = () => {
+      if (cancelled) return;
+      if (hsBannerEl()) {
+        // HubSpot owns consent UI — do not show first-party.
+        setVisible(false);
+        return;
+      }
+      tries += 1;
+      if (tries >= maxTries) {
+        // HubSpot banner never appeared — fallback only.
+        setVisible(true);
+        return;
+      }
+      window.setTimeout(tick, 500);
+    };
+
+    // Start after a short delay so hs-scripts can inject the banner.
+    window.setTimeout(tick, 400);
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   function choose(choice: ConsentChoice) {
     try {
       localStorage.setItem(STORAGE_KEY, choice);
     } catch {
-      /* ignore quota / private mode */
+      /* ignore */
     }
     pushHubSpotConsent(choice === 'accepted');
     setVisible(false);
@@ -154,7 +159,6 @@ export default function CookieConsent() {
   );
 }
 
-/** Footer / inline control — resurfaces HubSpot or first-party preferences. */
 export function CookieSettingsButton({ className }: { className?: string }) {
   return (
     <button

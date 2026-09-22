@@ -1,21 +1,15 @@
 import Script from 'next/script';
 
 /**
- * Runs before HubSpot tracking:
- * - On non-mobot.io hosts, disable HubSpot’s own banner UI (first-party
- *   CookieConsent drives setHubSpotConsent instead).
- * - Prep _hsp / _hsq queues.
+ * Prep HubSpot queues before tracking loads.
+ * Do NOT set disableHubSpotCookieBanner — HubSpot’s published banner is primary
+ * (matches live). First-party panel is fallback only if HS banner never mounts.
  */
 export default function HubSpotBoot() {
   const code = `
 (function () {
   window._hsp = window._hsp || [];
   window._hsq = window._hsq || [];
-  var h = location.hostname;
-  var prod = h === 'mobot.io' || h === 'www.mobot.io';
-  if (!prod) {
-    window.disableHubSpotCookieBanner = true;
-  }
 })();`;
 
   return (
