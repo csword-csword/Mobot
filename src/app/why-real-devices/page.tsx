@@ -35,7 +35,7 @@ export default function Page() {
         <div className="mx-auto max-w-[56rem] px-6 py-20 lg:py-28">
           <p className="eyebrow text-sm mb-5">Why Real Devices</p>
           <h1 className="font-bold tracking-tight text-[#0a2540] text-4xl sm:text-5xl leading-[1.1] mb-6">
-            Scripted Automation Is Noisy. Simulators Are Blind.
+            Scripted Automation Is Flaky. Simulators Are Blind.
           </h1>
           <p className="text-slate-600 text-lg leading-relaxed max-w-[42rem]">
             These are two different problems with two different causes &mdash; and a testing
@@ -47,7 +47,7 @@ export default function Page() {
       <section className="py-20 px-6">
         <div className="mx-auto max-w-[56rem] grid md:grid-cols-2 gap-8">
           <div className="rounded-lg border border-slate-200 bg-white p-8">
-            <h2 className="text-xl font-bold text-[#0a2540] mb-3">Noisy</h2>
+            <h2 className="text-xl font-bold text-[#0a2540] mb-3">Flaky</h2>
             <p className="text-slate-600 text-sm leading-relaxed">
               Scripted frameworks &mdash; wherever they run &mdash; produce flaky false failures from
               timing issues, brittle selectors, and environment drift. Teams burn engineering hours

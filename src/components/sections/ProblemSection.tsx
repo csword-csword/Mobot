@@ -5,13 +5,13 @@ export default function ProblemSection() {
         <div className="text-center mb-14">
           <p className="eyebrow text-xs mb-5">The Problem</p>
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight max-w-[42rem] mx-auto text-[#0a2540]">
-            Scripted Automation Is Noisy. Simulators Are Blind.
+            Scripted Automation Is Flaky. Simulators Are Blind.
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-lg border border-slate-200 bg-white p-10 border-t-4 border-t-red-400">
-            <h3 className="text-xl font-bold text-[#0a2540] mb-3">Noisy</h3>
+            <h3 className="text-xl font-bold text-[#0a2540] mb-3">Flaky</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               Scripted frameworks&mdash;wherever they run&mdash;produce flaky false failures from
               timing issues, brittle selectors, and environment drift. Teams burn engineering hours
