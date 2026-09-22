@@ -11,28 +11,24 @@ export interface Logo {
   invertOnDark?: boolean;
 }
 
+/** Homepage / LogoCloud logos — active clients only (sheet 1tfjux5RS2yZLlZ-tGoW9d4rXPyvb9WO4c6BlLC5RY28).
+ * Never include Chime (customer-facing naming lock) even if active.
+ * Excludes churned/non-active names that previously appeared in the marquee.
+ */
 export const customerLogos: Logo[] = [
   { src: '/images/citizen-logo_1.avif', alt: 'Citizen' },
   { src: '/images/Rappi-Logo.svg', alt: 'Rappi' },
   { src: '/images/persona-logo_1.avif', alt: 'Persona' },
   { src: '/images/Sandboxx.svg', alt: 'Sandboxx' },
-  { src: '/images/step-logo_1.avif', alt: 'Step' },
   { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
-  { src: '/images/batch-logo.svg', alt: 'Batch' },
   { src: '/images/on-x-logo_1.avif', alt: 'onX' },
   { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
-  { src: '/images/myswim-logo_1.avif', alt: 'MySwimPro' },
-  { src: '/images/bereal-logo_1.avif', alt: 'BeReal' },
-  { src: '/images/branch_metrics_logo-1-1.avif', alt: 'Branch' },
-  { src: '/images/5f7a403a81d0107bce83a4c0_Centaur-Logo-p-500.avif', alt: 'Centaur Labs' },
-  { src: '/images/1200px-Stubhub.svg_1.avif', alt: 'StubHub' },
 ];
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Citizen', 'Rappi', 'Persona', 'Sandboxx', 'Step', 'KOHO', 'Batch', 'AllTrails', 'Branch',
-  'Centaur Labs', 'onX', 'SonderMind', 'TheGrint', 'OwnersBox', 'Upside', 'MySwimPro', 'Jolt',
-  'BeReal', 'StubHub',
+  'Citizen', 'Rappi', 'Persona', 'Sandboxx', 'KOHO', 'onX', 'Jolt', 'AllTrails', 'SonderMind',
+  'OwnersBox', 'Homebase', 'DoorDash', 'Fanatics', 'Mapbox', 'Phantom',
 ];
 
 export interface Testimonial {
