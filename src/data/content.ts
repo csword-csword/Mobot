@@ -12,10 +12,11 @@ export interface Logo {
 }
 
 /** Homepage / LogoCloud logos — active clients only (sheet 1tfjux5RS2yZLlZ-tGoW9d4rXPyvb9WO4c6BlLC5RY28).
- * Never include Chime (customer-facing naming lock) even if active.
+ * Chime logo allowed in logo marquee only (Charles, Sep 22 2026). Keep prose/case studies anonymized as #1 US Neobank.
  * Excludes churned/non-active names that previously appeared in the marquee.
  */
 export const customerLogos: Logo[] = [
+  { src: '/images/chime-logo.svg', alt: 'Chime' },
   { src: '/images/citizen-logo_1.avif', alt: 'Citizen' },
   { src: '/images/Rappi-Logo.svg', alt: 'Rappi' },
   { src: '/images/persona-logo_1.avif', alt: 'Persona' },
@@ -27,7 +28,7 @@ export const customerLogos: Logo[] = [
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Citizen', 'Rappi', 'Persona', 'Sandboxx', 'KOHO', 'onX', 'Jolt', 'AllTrails', 'SonderMind',
+  'Chime', 'Citizen', 'Rappi', 'Persona', 'Sandboxx', 'KOHO', 'onX', 'Jolt', 'AllTrails', 'SonderMind',
   'OwnersBox', 'Homebase', 'DoorDash', 'Fanatics', 'Mapbox', 'Phantom',
 ];
 

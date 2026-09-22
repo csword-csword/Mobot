@@ -59,7 +59,7 @@ const programs = [
   },
 ];
 
-const trusted = ['Rappi', 'Citizen', 'Persona', 'Sandboxx', 'KOHO', 'onX'];
+const trusted = ['Chime', 'Rappi', 'Citizen', 'Persona', 'Sandboxx', 'KOHO'];
 
 export default function Page() {
   return (
