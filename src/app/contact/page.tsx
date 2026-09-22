@@ -12,7 +12,7 @@ const reasons = [
   { icon: Calendar, t: 'Request a demo', d: 'See the robots test your app and review a verified defect report.', href: '/schedule-demo', label: 'Book a demo' },
   { icon: FileText, t: 'Get a sample report', d: 'A forensic defect report — video, logs, reproduction steps.', href: '/resources/defect-reports', label: 'See the sample' },
   { icon: Briefcase, t: 'Mobot Unlimited', d: 'Request an invitation to the limited Unlimited cohort.', href: '/unlimited', label: 'Request an invite' },
-  { icon: Newspaper, t: 'Press & partnerships', d: 'Media inquiries, speaking, and partner programs.', href: 'mailto:sales@teammobot.com', label: 'Email us' },
+  { icon: Newspaper, t: 'Press & partnerships', d: 'Media inquiries, speaking, and partner programs.', href: '/press', label: 'Press room' },
 ];
 
 export default function Page() {

@@ -46,6 +46,21 @@ const nextConfig: NextConfig = {
       // Cutover: DROP playground — redirect only (Charles Sep 22 2026)
       { source: "/playground", destination: "/platform", permanent: true },
       { source: "/playground/:path*", destination: "/platform", permanent: true },
+      // Cutover leftovers (Charles Sep 22 2026): KEEP press; DROP persona/TCO/test-flows/device-library CMS + misc
+      { source: "/for-engineers", destination: "/platform", permanent: true },
+      { source: "/for-marketers", destination: "/solutions/push-notifications-deep-linking", permanent: true },
+      { source: "/tco-calculator", destination: "/compare", permanent: true },
+      { source: "/first-test-free", destination: "/schedule-demo", permanent: true },
+      { source: "/request-a-test", destination: "/schedule-demo", permanent: true },
+      { source: "/request-a-test-test-types", destination: "/schedule-demo", permanent: true },
+      { source: "/device-library", destination: "/devices", permanent: true },
+      { source: "/mobot-device-library-master", destination: "/devices", permanent: true },
+      { source: "/mobot-device-library-master/:path*", destination: "/devices", permanent: true },
+      { source: "/adoptarobot", destination: "/", permanent: true },
+      { source: "/adoptarobot/:path*", destination: "/", permanent: true },
+      { source: "/yc-startup-support", destination: "/", permanent: true },
+      { source: "/mobot-referral-program", destination: "/", permanent: true },
+      { source: "/outcomes", destination: "/customers", permanent: true },
     ];
   },
 };

@@ -57,6 +57,7 @@ const columns = [
     heading: 'Company',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Press', href: '/press' },
       { label: 'Careers', href: 'https://boards.greenhouse.io/teammobot', external: true },
       { label: 'Security & Compliance', href: '/security' },
       { label: 'Contact', href: '/contact' },

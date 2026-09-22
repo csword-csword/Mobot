@@ -95,6 +95,7 @@ const mobileGroups: { heading: string; items: { label: string; href: string }[] 
       { label: 'Pricing', href: '/pricing' },
       { label: 'Mobot Labs', href: '/labs' },
       { label: 'About', href: '/about' },
+      { label: 'Press', href: '/press' },
       { label: 'Contact', href: '/contact' },
     ],
   },
