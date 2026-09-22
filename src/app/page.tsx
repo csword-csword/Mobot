@@ -16,6 +16,8 @@ import HomeProcessStrip from '@/components/sections/HomeProcessStrip';
 import PricingPreview from '@/components/sections/PricingPreview';
 import LabsBand from '@/components/sections/LabsBand';
 import FooterCTA from '@/components/sections/FooterCTA';
+import ReportFeature from '@/components/report/ReportFeature';
+import Reveal from '@/components/ui/Reveal';
 
 export const metadata = {
   title: 'Real Robots. Real Devices. Real Defects.',
@@ -29,6 +31,13 @@ export default function Home() {
       <Hero />
       <HeroCustomerProof />
       <StatCounters />
+      <section className="py-16 px-6 bg-[#0a2540] border-y border-white/10" aria-label="Annual Defect Report">
+        <div className="mx-auto max-w-[80rem]">
+          <Reveal>
+            <ReportFeature />
+          </Reveal>
+        </div>
+      </section>
       <EventBand />
       <LogoMarquee />
       <ProblemSection />
