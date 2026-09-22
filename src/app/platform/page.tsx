@@ -24,11 +24,11 @@ const layerDetails = [
     icon: Sparkles,
     name: 'Test Authoring',
     title: 'Coverage that writes itself — and holds up',
-    body: 'AI explores your app build and generates test scripts across the user journeys that matter: onboarding, login, payments, notifications, and the hardware-dependent flows that never make it into a scripted suite. Each script is validated and optimized for coverage and stability before it reaches the fleet.',
+    body: 'AI explores your app build and generates test scripts across the cases that matter: onboarding, login, payments, notifications, and the hardware-dependent flows that never make it into a scripted suite. Each script is validated and optimized for coverage and stability before it reaches the fleet.',
     points: [
       'Auto-generated scripts from your build — no code, no YAML, no recorder',
       'Validation pass catches ambiguous steps before a robot ever runs them',
-      'Coverage optimization prioritizes the journeys that reach production broken',
+      'Coverage optimization prioritizes the suites that reach production broken',
     ],
     visual: 'cv',
   },

@@ -22,6 +22,7 @@ const platform: DropdownItem[] = [
   { label: 'Device Fleet', href: '/devices', description: '300+ real iOS and Android devices' },
   { label: 'Integrations', href: '/integrations', description: 'Slack, Jira, TestRail, and your release process' },
   { label: 'Mobot Unlimited', href: '/unlimited', description: 'Unlimited testing. One flat rate.', badge: 'Flagship' },
+  { label: 'Mobot Labs', href: '/labs', description: 'Early access begins 2027 — own your robotic lab' },
 ];
 
 const solutions: DropdownItem[] = [
@@ -121,12 +122,6 @@ export default function Navbar() {
           </Link>
           <Link href="/pricing" className="text-slate-600 hover:text-[#0a2540] transition-colors font-medium">
             Pricing
-          </Link>
-          <Link href="/labs" className="flex items-center gap-1.5 text-slate-600 hover:text-[#0a2540] transition-colors font-medium whitespace-nowrap">
-            Mobot Labs
-            <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-[#efeafd] text-[#4f2bc2]">
-              2027
-            </span>
           </Link>
           <Dropdown label="Resources" items={resources} />
         </div>

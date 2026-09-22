@@ -5,7 +5,7 @@ export const platformLayers = [
     n: '04',
     name: 'Test Authoring',
     sub: 'Script generation & optimization',
-    body: 'AI explores your app builds and auto-generates test scripts across critical user journeys, then validates and optimizes each script for coverage and stability before it reaches the fleet.',
+    body: 'AI explores your app builds and auto-generates test scripts across critical test cases, then validates and optimizes each script for coverage and stability before it reaches the fleet.',
     tags: ['Auto-generated scripts', 'Script validation', 'Coverage optimization'],
     accent: 'from-[#d55181] to-[#9085e9]',
   },

@@ -207,7 +207,7 @@ export const competitorProfiles: CompetitorProfile[] = [
       },
       {
         title: 'Faster: computer-vision authoring',
-        body: 'AI explores your build and generates test flows across critical journeys; the robot executes them by recognizing on-screen UI the way a person does. New coverage lands in hours, not sprints, and survives the refactor that would have broken a selector.',
+        body: 'AI explores your build and generates test flows across critical test cases; the robot executes them by recognizing on-screen UI the way a person does. New coverage lands in hours, not sprints, and survives the refactor that would have broken a selector.',
       },
     ],
     together:
@@ -219,7 +219,7 @@ export const competitorProfiles: CompetitorProfile[] = [
       },
       {
         q: 'Can Mobot run on our existing test cases?',
-        a: 'Yes. Hand us test plans, a recorded walkthrough, or nothing at all — AI-assisted authoring explores the build and proposes coverage across critical journeys, which your Mobot contact validates with you.',
+        a: 'Yes. Hand us test plans, a recorded walkthrough, or nothing at all — AI-assisted authoring explores the build and proposes coverage across critical test cases, which your Mobot contact validates with you.',
       },
       {
         q: 'How does Mobot fit into CI/CD?',
@@ -267,7 +267,7 @@ export const competitorProfiles: CompetitorProfile[] = [
       },
       {
         title: 'Faster: from build to coverage in hours',
-        body: 'AI explores your build and proposes flows across critical journeys; computer vision drives them on the robot. No flow files to write, no waits to tune, no runner to babysit.',
+        body: 'AI explores your build and proposes flows across critical test cases; computer vision drives them on the robot. No flow files to write, no waits to tune, no runner to babysit.',
       },
     ],
     together:

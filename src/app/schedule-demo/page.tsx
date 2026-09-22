@@ -1,4 +1,15 @@
+import Link from 'next/link';
+
 export const metadata = { title: 'Request a Demo' };
+
+const BIGGEST_GAP_OPTIONS = [
+  'Payments / biometrics',
+  'Push notifications / deep links',
+  'Camera / deposit / sensors',
+  'Release regression / device matrix',
+  'Android quality / Play gaps',
+  'Other',
+];
 
 export default function Page() {
   return (
@@ -7,17 +18,17 @@ export default function Page() {
         <div>
           <p className="eyebrow text-sm mb-5">Get Started</p>
           <h1 className="font-bold tracking-tight text-[#0a2540] text-4xl sm:text-5xl leading-[1.1] mb-6">
-            See a Real Defect Report
+            Request a demo
           </h1>
           <p className="text-slate-600 text-lg leading-relaxed mb-6">
-            Tell us about your app and we&apos;ll show you what Mobot&apos;s robots and QA analysts
-            catch on real devices &mdash; including a sample forensic defect report for your review.
+            See Mobot test your app on real devices — and leave with a clear view of Credits vs
+            Unlimited, plus how verified defect reports land in your queue.
           </p>
           <ul className="space-y-3">
             {[
-              'A verified defect report, built from real devices',
-              'A walkthrough of Mobot Managed and how testing runs end-to-end',
-              'Pricing structure for Credits and Unlimited plans',
+              'A walkthrough of robots + analyst verification on real iOS and Android devices',
+              'What a forensic defect report looks like (video, logs, repro steps)',
+              'Pricing path for Credits and Mobot Unlimited',
             ].map((item) => (
               <li key={item} className="flex gap-3 text-slate-700 text-base leading-relaxed">
                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#1d4ed8] shrink-0" />
@@ -32,6 +43,8 @@ export default function Page() {
             <label className="block text-sm font-semibold text-[#0a2540] mb-1.5">Work email</label>
             <input
               type="email"
+              name="email"
+              required
               placeholder="you@company.com"
               className="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
             />
@@ -40,14 +53,37 @@ export default function Page() {
             <label className="block text-sm font-semibold text-[#0a2540] mb-1.5">Company</label>
             <input
               type="text"
+              name="company"
+              required
               placeholder="Acme Mobile"
               className="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-[#0a2540] mb-1.5">What are you testing?</label>
+            <label className="block text-sm font-semibold text-[#0a2540] mb-1.5">Biggest gap</label>
+            <select
+              name="biggest_gap"
+              required
+              defaultValue=""
+              className="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8] bg-white"
+            >
+              <option value="" disabled>
+                Select the biggest gap
+              </option>
+              {BIGGEST_GAP_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-[#0a2540] mb-1.5">
+              What are you testing? <span className="font-normal text-slate-400">(optional)</span>
+            </label>
             <textarea
-              placeholder="Tell us about your app and where hardware-dependent bugs are hitting you hardest."
+              name="what_testing"
+              placeholder="e.g. Android login + transfer confirm on Pixel 8"
               rows={3}
               className="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
             />
@@ -58,6 +94,12 @@ export default function Page() {
           >
             Request a Demo
           </button>
+          <p className="text-xs text-slate-400 text-center">
+            Prefer to browse a sample first?{' '}
+            <Link href="/resources/defect-reports/sample" className="text-[#1d4ed8] hover:underline">
+              See a verified defect report
+            </Link>
+          </p>
           <p className="text-xs text-slate-400 text-center">
             Or email us directly at sales@teammobot.com
           </p>

@@ -20,7 +20,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: 'How does Mobot work?',
-        a: 'Mobot uses robots and computer vision to automate physical app testing on a fleet of 300+ real devices. AI-assisted authoring turns your critical user journeys into robot test scripts, the fleet executes them in parallel, and a QA analyst reviews every failure so what lands in your backlog is a real, reproducible defect with video, logs, and reproduction steps.',
+        a: 'Mobot uses robots and computer vision to automate physical app testing on a fleet of 300+ real devices. AI-assisted authoring turns your critical test cases into robot test scripts, the fleet executes them in parallel, and a QA analyst reviews every failure so what lands in your backlog is a real, reproducible defect with video, logs, and reproduction steps.',
       },
       {
         q: 'How is Mobot different from Appium, Maestro, or a managed QA service?',
