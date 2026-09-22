@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CookieSettingsButton } from '@/components/analytics/CookieConsent';
 import Image from 'next/image';
 
 function LinkedinIcon({ className }: { className?: string }) {
@@ -141,6 +142,7 @@ export default function Footer() {
               <Link href="/privacy-policy" className="hover:text-white/70 transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-white/70 transition-colors">Terms</Link>
               <Link href="/cookie-policy" className="hover:text-white/70 transition-colors">Cookies</Link>
+              <CookieSettingsButton className="hover:text-white/70 transition-colors text-left" />
             </div>
           </div>
         </div>

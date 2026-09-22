@@ -2,9 +2,10 @@ import Script from 'next/script';
 import { HUBSPOT_PORTAL_ID } from '@/lib/hubspot';
 
 /**
- * Loads HubSpot tracking (js.hs-scripts.com). With HubSpot Data Privacy
- * (cookies enabled, require opt-in, published for mobot.io), HubSpot shows its
- * own bottom consent banner — do not add a second site cookie banner.
+ * HubSpot tracking (js.hs-scripts.com).
+ * On mobot.io: HubSpot Data Privacy banner (require opt-in) handles consent.
+ * On preview hosts: HubSpotBoot disables HS banner UI; CookieConsent drives
+ * setHubSpotConsent / doNotTrack instead (same HubSpot consent API).
  */
 export default function HubSpotTracking() {
   const portalId = HUBSPOT_PORTAL_ID;
