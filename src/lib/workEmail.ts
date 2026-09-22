@@ -1,44 +1,26 @@
 /**
  * Business / work-email gate for all site forms that collect email.
- * Aligns with HubSpot “block free email domains” style lists Demand uses.
- * Domains are lowercase; compare against the email’s domain only.
+ *
+ * Source of truth (Demand, Sep 22 2026): HubSpot Submissions Settings free-email
+ * blocklist + “Block free email domains” master toggle. Domains below are the
+ * exact list saved in HubSpot — keep 1:1. HubSpot’s master toggle may still
+ * block additional free providers on native HubSpot forms that we cannot see.
  */
 export const FREE_EMAIL_DOMAINS = new Set([
   'gmail.com',
   'googlemail.com',
   'yahoo.com',
-  'yahoo.co.uk',
-  'yahoo.co.in',
-  'ymail.com',
   'hotmail.com',
-  'hotmail.co.uk',
   'outlook.com',
   'live.com',
   'msn.com',
+  'aol.com',
   'icloud.com',
   'me.com',
-  'mac.com',
-  'aol.com',
   'protonmail.com',
-  'proton.me',
-  'pm.me',
-  'mail.com',
   'gmx.com',
-  'gmx.net',
-  'zoho.com',
+  'mail.com',
   'yandex.com',
-  'yandex.ru',
-  'qq.com',
-  '163.com',
-  '126.com',
-  'hey.com',
-  'fastmail.com',
-  'tutanota.com',
-  'tutamail.com',
-  'mailinator.com',
-  'guerrillamail.com',
-  'tempmail.com',
-  '10minutemail.com',
 ]);
 
 export const WORK_EMAIL_ERROR =
@@ -60,7 +42,6 @@ export function isWorkEmail(email: string): boolean {
   const domain = emailDomain(trimmed);
   if (!domain) return false;
   if (FREE_EMAIL_DOMAINS.has(domain)) return false;
-  // Block obvious free-mail subdomains (e.g. something.gmail.com) — rare but cheap.
   for (const free of FREE_EMAIL_DOMAINS) {
     if (domain.endsWith(`.${free}`)) return false;
   }
