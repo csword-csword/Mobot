@@ -333,7 +333,7 @@ export const competitorProfiles: CompetitorProfile[] = [
     what: 'QA Wolf is a managed QA service that builds and maintains your suite for you. Web tests run in Playwright; mobile tests are built in Appium and run on QA Wolf’s own rack-mounted iPhones and iPads for iOS, and on GPU-accelerated emulators for Android.',
     headline: 'QA Wolf modifies your build to test it. Mobot tests the build you ship.',
     intro:
-      'QA Wolf is a serious operation, and the honest comparison is narrower than most vendor pages would have you believe. They run real iPhones. They reproduce failures with humans. Where they differ is what happens underneath: Android runs on emulators, and to control an iOS device they re-sign your IPA with their own provisioning profile so they can replace camera input and mock sensor data. Mobot points a robot at an unmodified production build on real hardware, for both platforms.',
+      'QA Wolf is a serious operation, and the honest comparison is narrower than most vendor pages would have you believe. They run real iPhones. They reproduce failures with humans. That still does not solve the underlying problem: Android runs on emulators, and to control an iOS device they re-sign your IPA with their own provisioning profile so they can replace camera input and mock sensor data. Mobot points a robot at an unmodified production build on real hardware, for both platforms.',
     strengths: [
       'Real iPhones and iPads in a device farm they own and operate',
       'A published zero-flake guarantee — failures are reproduced by humans before anything is reported',
