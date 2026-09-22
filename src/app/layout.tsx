@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import HubSpotTracking from "@/components/analytics/HubSpotTracking";
 
 export const metadata: Metadata = {
   title: { default: "Mobot", template: "%s | Mobot" },
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 pt-[116px]">{children}</main>
         <Footer />
+        <HubSpotTracking />
       </body>
     </html>
   );

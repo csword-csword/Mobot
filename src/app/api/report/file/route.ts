@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import path from 'path';
+import { REPORT_ACCESS_COOKIE } from '@/lib/hubspot';
 
-const COOKIE_NAME = 'mobot_report_access';
 const REPORT_RELATIVE = path.join('content', 'reports', 'mobot-annual-defect-report.html');
 const FILENAME = 'mobot-annual-defect-report.html';
 
 export async function GET(request: NextRequest) {
-  const access = request.cookies.get(COOKIE_NAME)?.value;
+  const access = request.cookies.get(REPORT_ACCESS_COOKIE)?.value;
   if (access !== '1') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

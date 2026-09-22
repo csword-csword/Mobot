@@ -3,16 +3,17 @@
 import { useState } from 'react';
 import { ArrowUpRight, Lock } from 'lucide-react';
 
-/** Gated report URL — served only after /api/report/unlock sets the access cookie. */
+/** Gated report URL — served only after HubSpot form submit + unlock cookie. */
 export const REPORT_URL = '/api/report/file';
 
 /**
- * Lightweight gate for the Annual Defect Report: captures a work email via
- * POST /api/report/unlock (sets httpOnly cookie), then reveals the Open link.
- * HubSpot form submission is still TODO on the unlock route.
+ * Gate for the Annual Defect Report: email (required) + company (optional) →
+ * POST /api/report/unlock (HubSpot Forms API, then httpOnly access cookie).
+ * Marketing cookies stay under HubSpot’s own opt-in banner — no second banner here.
  */
 export default function ReportDownload({ compact }: { compact?: boolean }) {
   const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
   const [unlocked, setUnlocked] = useState(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -26,16 +27,18 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
       const res = await fetch('/api/report/unlock', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          company: company.trim() || undefined,
+          pageUri: typeof window !== 'undefined' ? window.location.href : undefined,
+          pageName: 'Annual Defect Report',
+        }),
       });
       const data = (await res.json().catch(() => null)) as { ok?: boolean; url?: string } | null;
       if (!res.ok || !data?.ok) {
         setError('Could not unlock the report. Try again with a work email.');
         return;
       }
-      try {
-        localStorage.setItem('mobot_report_email', email);
-      } catch {}
       setUnlocked(true);
     } catch {
       setError('Could not unlock the report. Check your connection and try again.');
@@ -65,7 +68,7 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
       <label htmlFor="report-email" className="block text-sm font-bold text-[#0a2540] mb-2">
         Get the full report
       </label>
-      <div className="flex flex-col sm:flex-row gap-2">
+      <div className="flex flex-col gap-2">
         <input
           id="report-email"
           type="email"
@@ -74,7 +77,16 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
           disabled={pending}
-          className="flex-1 rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
+          className="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
+        />
+        <input
+          id="report-company"
+          type="text"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          placeholder="Company (optional)"
+          disabled={pending}
+          className="w-full rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8]"
         />
         <button
           type="submit"
