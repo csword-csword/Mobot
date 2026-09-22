@@ -175,7 +175,7 @@ export const competitorProfiles: CompetitorProfile[] = [
     what: 'Appium is an open-source framework for writing mobile UI automation scripts in code, executed against emulators, simulators, or cloud devices through the WebDriver protocol.',
     headline: 'Appium automates your app in software. Mobot tests it in the real world.',
     intro:
-      'Appium is the workhorse of mobile UI scripting — and every Appium suite hits the same ceiling: injected touch events, no push delivery, no Bluetooth, no biometrics, and a script that breaks every time the UI moves. Mobot covers the layer Appium can’t reach, without adding a single script to your backlog.',
+      'Appium is the workhorse of mobile UI scripting — and every Appium suite hits the same ceiling: injected touch events, and push, Bluetooth, and biometrics that are at best highly mocked rather than exercised on real hardware, plus a script that breaks every time the UI moves. Mobot covers the layer Appium can’t reach, without adding a single script to your backlog.',
     strengths: [
       'Free, open source, and supported by a large community',
       'Fast per-run execution inside CI for stable, in-app flows',
@@ -235,7 +235,7 @@ export const competitorProfiles: CompetitorProfile[] = [
     what: 'Maestro is a mobile UI testing framework where flows are written as YAML and executed on simulators, emulators, or connected devices, with a hosted cloud option for running flows at scale.',
     headline: 'Maestro made scripts simpler. Mobot made them unnecessary.',
     intro:
-      'Maestro’s YAML flows are easier to write than Appium code, and they still describe a simulated user on a simulated device. Simpler scripts are still scripts — they still break, still need an engineer, and still can’t receive a push notification or pair a watch. Mobot replaces the script with a robot and the simulator with a phone.',
+      'Maestro’s YAML flows are easier to write than Appium code, and they still describe a simulated user on a simulated device. Simpler scripts are still scripts — they still break, still need an engineer, and still can’t receive a push notification or pair a watch. Mobot replaces the script with a robot and the simulator with a phone — AI proposes the coverage, computer vision drives the robot on real glass, and analysts verify every failure before you see it.',
     strengths: [
       'Readable YAML flows that are quick to write for in-app paths',
       'More tolerant of minor UI changes than selector-heavy frameworks',
