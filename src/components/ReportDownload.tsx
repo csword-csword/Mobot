@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowUpRight, Lock } from 'lucide-react';
+import { isWorkEmail, WORK_EMAIL_ERROR } from '@/lib/workEmail';
 
 /** Gated report URL — served only after HubSpot form submit + unlock cookie. */
 export const REPORT_URL = '/api/report/file';
@@ -20,7 +21,10 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return;
+    if (!isWorkEmail(email)) {
+      setError(WORK_EMAIL_ERROR);
+      return;
+    }
     setPending(true);
     setError(null);
     try {
@@ -36,7 +40,11 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
       });
       const data = (await res.json().catch(() => null)) as { ok?: boolean; url?: string } | null;
       if (!res.ok || !data?.ok) {
-        setError('Could not unlock the report. Try again with a work email.');
+        setError(
+          res.status === 400
+            ? WORK_EMAIL_ERROR
+            : 'Could not unlock the report. Try again with a work email.',
+        );
         return;
       }
       setUnlocked(true);

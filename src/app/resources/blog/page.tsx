@@ -4,6 +4,7 @@ import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
 import PostCard from '@/components/PostCard';
 import { posts } from '@/data/posts';
+import NewsletterForm from '@/components/forms/NewsletterForm';
 
 export const metadata = {
   title: 'Blog & Reports',
@@ -97,10 +98,8 @@ export default function Page() {
         <div className="mx-auto max-w-[48rem] text-center">
           <h2 className="text-2xl font-bold text-[#0a2540] mb-2">Get the latest on mobile app testing</h2>
           <p className="text-slate-600 mb-6">The 3-minute newsletter keeping 1,000+ mobile experts in the loop.</p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-[28rem] mx-auto">
-            <input type="email" placeholder="you@company.com" className="flex-1 rounded-md border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:border-[#1d4ed8] bg-white" aria-label="Work email" />
-            <button type="submit" className="px-6 py-2.5 rounded-md bg-[#1d4ed8] text-white font-semibold text-sm hover:bg-[#1e40af] transition-colors">Subscribe</button>
-          </form>
+          <NewsletterForm />
+          <p className="text-xs text-slate-400 mt-3">Work email required — no Gmail, Yahoo, or other personal addresses.</p>
         </div>
       </section>
 

@@ -3,8 +3,7 @@ import {
   REPORT_ACCESS_COOKIE,
   submitReportDownloadForm,
 } from '@/lib/hubspot';
-
-const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+import { isWorkEmail, WORK_EMAIL_ERROR } from '@/lib/workEmail';
 const MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
 /**
@@ -27,8 +26,8 @@ export async function POST(request: NextRequest) {
   const pageUri = typeof obj.pageUri === 'string' ? obj.pageUri : undefined;
   const pageName = typeof obj.pageName === 'string' ? obj.pageName : undefined;
 
-  if (!EMAIL_RE.test(email)) {
-    return NextResponse.json({ ok: false, error: 'Valid work email required' }, { status: 400 });
+  if (!isWorkEmail(email)) {
+    return NextResponse.json({ ok: false, error: WORK_EMAIL_ERROR }, { status: 400 });
   }
 
   const hutk = request.cookies.get('hubspotutk')?.value;
