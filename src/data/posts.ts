@@ -337,6 +337,24 @@ const seedPosts: Post[] = [
     ],
     cta: { label: 'Request the sample report', href: '/resources/defect-reports' },
   },
+
+  {
+    slug: '2025-mobile-pass-fail-feature-report',
+    title: 'The 2025 Mobile Pass/Fail Feature Report',
+    kind: 'report',
+    date: '2025-01-15',
+    readTime: '10 min',
+    tags: ['Research', 'Feature quality', 'Industry benchmarks'],
+    featured: true,
+    summary:
+      'Which mobile features pass and fail most often on real devices — a data report from Mobot’s physical-robot testing across the feature classes that emulators and scripted suites systematically miss.',
+    paragraphs: [
+      'Not every failure shows up in a unit test or an emulator pass. Camera, payments, biometrics, push, deep links, Bluetooth, and backgrounding fail in ways that only appear on real hardware — and those are exactly the features users notice when they break.',
+      'This report scores pass/fail patterns across those feature classes from Mobot’s real-device runs, so product and QA leaders can see where coverage gaps translate into escaped defects.',
+      'Annual Defect Report remains the primary gated research asset on the new site. Request this report for the feature-level companion view.',
+    ],
+    cta: { label: 'Request the report', href: '/contact' },
+  },
   {
     slug: 'state-of-mobile-app-testing',
     title: 'The State of Mobile App Testing',
@@ -344,6 +362,7 @@ const seedPosts: Post[] = [
     date: '2024-05-07',
     readTime: '9 min',
     tags: ['Research', 'Mobile QA'],
+    featured: true,
     summary:
       'How mobile teams actually test today — where emulators, scripted frameworks, device farms, and manual testing fit, where each one stops, and what the teams with the best app-store ratings do differently.',
     paragraphs: [
