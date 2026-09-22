@@ -5,26 +5,31 @@ import FlakinessAtScaleChart from '@/components/FlakinessAtScaleChart';
 
 export const metadata = { title: 'Why Real Devices' };
 
-const audiences = [
+const verticals = [
   {
-    who: 'VP Eng / CTO',
-    pain: 'Escaped defects damaging brand; engineering time wasted on QA triage',
-    message: 'High-signal QA that gives engineering time back.',
+    who: 'Fintech apps',
+    pain: 'Login, transfers, card controls, and biometric auth that pass in a simulator and fail on the handset your customer actually holds',
+    message: 'Real secure enclave, real radios, real device firmware — verified before release.',
   },
   {
-    who: 'QA / Release Leads',
-    pain: 'Flaky tests, device matrix gaps, release-day fire drills',
-    message: 'The defects you can\'t catch, verified so you never chase noise.',
+    who: 'Physical healthcare devices',
+    pain: 'Apps paired to meters, monitors, and wearables where the Bluetooth path is the product',
+    message: 'Real pairing over real RF with the peripheral in the loop.',
   },
   {
-    who: 'Product Leaders',
-    pain: 'Feature launches breaking on real devices; 1-star reviews',
-    message: 'Ship hardware-dependent features with confidence.',
+    who: 'IoT & connected devices',
+    pain: 'No emulator covers the gadget your user is pairing with',
+    message: 'Robots on real phones against the physical device your customer owns.',
   },
   {
-    who: 'IoT / Connected-Device Companies',
-    pain: 'No emulator exists for their scenario at all',
-    message: 'The only way to test your app against the physical world.',
+    who: 'Marketing & loyalty apps',
+    pain: 'Offers, wallets, and in-store flows that break on camera, QR, and location — the bugs that show up as 1-star reviews',
+    message: 'Real lens, real location, real push delivery on the devices shoppers use.',
+  },
+  {
+    who: 'Marketplaces',
+    pain: 'Multi-sided flows — courier, merchant, customer — where push, maps, and payments collide on real hardware',
+    message: 'End-to-end coverage on real devices for the path that revenue depends on.',
   },
 ];
 
@@ -101,18 +106,22 @@ export default function Page() {
 
       <section className="py-20 px-6">
         <div className="mx-auto max-w-[56rem]">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#0a2540] mb-8 text-center">Built for Every Mobile Team</h2>
+          <p className="eyebrow text-xs mb-3 text-center">Solutions by vertical</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0a2540] mb-3 text-center">Where the bugs actually show up</h2>
+          <p className="text-slate-600 text-center text-sm leading-relaxed max-w-[40rem] mx-auto mb-10">
+            Same robots and real devices — different failure modes by industry. Here&apos;s where teams feel it first.
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-slate-200">
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wide text-slate-400">Audience</th>
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wide text-slate-400">Their Pain</th>
-                  <th className="py-3 text-xs font-bold uppercase tracking-wide text-slate-400">What Mobot Delivers</th>
+                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wide text-slate-400">Vertical</th>
+                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wide text-slate-400">Where it breaks</th>
+                  <th className="py-3 text-xs font-bold uppercase tracking-wide text-slate-400">What Mobot covers</th>
                 </tr>
               </thead>
               <tbody>
-                {audiences.map((a) => (
+                {verticals.map((a) => (
                   <tr key={a.who} className="border-b border-slate-100">
                     <td className="py-4 pr-4 font-bold text-[#0a2540] align-top whitespace-nowrap">{a.who}</td>
                     <td className="py-4 pr-4 text-slate-500 text-sm align-top">{a.pain}</td>
