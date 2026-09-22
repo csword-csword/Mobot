@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import HubSpotTracking from "@/components/analytics/HubSpotTracking";
 import HubSpotBoot from "@/components/analytics/HubSpotBoot";
 import CookieConsent from "@/components/analytics/CookieConsent";
+import GoogleAnalyticsConsent from "@/components/analytics/GoogleAnalyticsConsent";
 
 export const metadata: Metadata = {
   title: { default: "Mobot", template: "%s | Mobot" },
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-white text-[#0f172a]">
         <HubSpotBoot />
+        <GoogleAnalyticsConsent />
         <Navbar />
         <main className="flex-1 pt-[116px]">{children}</main>
         <Footer />

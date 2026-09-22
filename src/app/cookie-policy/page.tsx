@@ -9,9 +9,10 @@ export default function Page() {
       title="Cookie Policy"
       intro="How mobot.io uses cookies. Marketing and analytics cookies are opt-in. A separate functional cookie unlocks the Annual Defect Report after you submit the download form."
       body={[
-        'Marketing and analytics (opt-in): Mobot uses HubSpot for site analytics and marketing. On www.mobot.io, HubSpot’s published consent banner (Data Privacy: cookies enabled, require opt-in) is the primary control. Decline or ignore and those tracking cookies stay off. Use Cookie Settings in the footer anytime to change your choice.',
-        'Preview / staging hosts: HubSpot’s banner only auto-appears on domains allowlisted in HubSpot Privacy & Consent. On Vercel preview URLs we show Mobot’s first-party cookie panel instead, which still tells HubSpot your choice through HubSpot’s consent API (setHubSpotConsent / doNotTrack). Same Accept / Reject behavior — not a conflicting second policy.',
-        'Functional — Annual Defect Report unlock: Cookie name mobot_report_access (httpOnly, about 7 days). Set only after you submit a valid email to the Annual Defect Report download form (synced to HubSpot). Not used for advertising. Clearing cookies or waiting for expiry removes access; submit the form again to re-unlock.',
+        'Marketing and analytics (opt-in): Mobot uses HubSpot (portal 21630472) for consent and marketing cookies, and Google Analytics 4 (G-HF9WN9YYQV) for site analytics. Google Consent Mode defaults to denied. GA4 loads only after hard evidence of opt-in (HubSpot Accept / hubspotutk present, and not declined). Decline keeps analytics and ad storage denied.',
+        'On www.mobot.io, HubSpot’s published require-opt-in banner is the primary control. Use Cookie Settings in the footer anytime to change your choice.',
+        'Preview / staging hosts: If HubSpot’s banner is not allowlisted for that hostname, Mobot’s first-party Accept / Reject panel drives the same HubSpot consent API (setHubSpotConsent / doNotTrack). Same policy — not a conflicting second banner on production.',
+        'Functional — Annual Defect Report unlock: Cookie name mobot_report_access (httpOnly, about 7 days). Set only after you submit a valid email to the Annual Defect Report HubSpot form. It is not marketing consent and is not used for advertising or analytics. Clearing cookies or waiting for expiry removes access; submit the form again to re-unlock.',
         'More detail is in our Privacy Policy. Questions: sales@teammobot.com.',
       ]}
       ctaLabel="Request a Demo"
