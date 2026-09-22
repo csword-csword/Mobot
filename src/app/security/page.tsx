@@ -1,4 +1,4 @@
-import { ShieldCheck, Lock, Network, FileLock2, Eye, Building2 } from 'lucide-react';
+import { Lock, Network, FileLock2, Eye, Building2 } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
@@ -10,7 +10,6 @@ export const metadata = {
 };
 
 const controls = [
-  { icon: ShieldCheck, t: 'SOC 2 Type II', d: 'Details and reports available under NDA for enterprise procurement. Request security documentation and we’ll walk your team through it.' },
   { icon: Lock, t: 'Build handling', d: 'Apps are installed through standard distribution channels on test devices. Access to every build submitted for testing is governed by defined access controls.' },
   { icon: Network, t: 'Network isolation', d: 'Test devices reach your APIs through secured, internal Mobot networks — never the open internet from an unmanaged device.' },
   { icon: FileLock2, t: 'Artifacts secured end to end', d: 'Reports, screenshots, video, and logs are secured from capture through delivery to the Mobot platform and your integrations.' },
