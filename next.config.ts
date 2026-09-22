@@ -25,6 +25,13 @@ const nextConfig: NextConfig = {
       { source: "/mobot-live-signup", destination: "/schedule-demo", permanent: true },
       { source: "/mobot-live-thank-you", destination: "/schedule-demo", permanent: true },
       { source: "/thank-you-mobot-live", destination: "/schedule-demo", permanent: true },
+      // Cutover: drop legacy compare LPs — keep preview Appium/Maestro/QA Wolf only (Charles Sep 22 2026)
+      { source: "/compare/mobot-vs-kobiton", destination: "/compare", permanent: true },
+      { source: "/compare/mobot-vs-sauce-labs", destination: "/compare", permanent: true },
+      { source: "/compare/mobot-vs-waldo", destination: "/compare", permanent: true },
+      { source: "/compare/mobot-vs-rainforest-qa", destination: "/compare", permanent: true },
+      { source: "/compare/mobot-vs-testilio", destination: "/compare", permanent: true },
+      { source: "/compare/mobot-vs-testlio", destination: "/compare", permanent: true },
     ];
   },
 };
