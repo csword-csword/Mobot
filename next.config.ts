@@ -1,4 +1,13 @@
 import type { NextConfig } from "next";
+import generatedBlogPosts from "./src/data/posts.generated.json";
+
+const blogSlugRedirects = (generatedBlogPosts as { slug?: string }[])
+  .filter((p) => p?.slug)
+  .map((p) => ({
+    source: `/blog/${p.slug}`,
+    destination: `/resources/blog/${p.slug}`,
+    permanent: true as const,
+  }));
 
 const nextConfig: NextConfig = {
   images: {
@@ -14,6 +23,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Live Webflow /blog → Next /resources/blog (full CMS import Sep 22 2026)
+      { source: "/blog", destination: "/resources/blog", permanent: true },
+      ...blogSlugRedirects,
+      // Missing live slugs (not in export) → hub, not a soft 404
+      { source: "/blog/:path*", destination: "/resources/blog", permanent: true },
       { source: "/resources/case-studies", destination: "/customers", permanent: true },
       { source: "/why-mobot", destination: "/why-real-devices", permanent: true },
       { source: "/compare/mobot-vs-scripted-automation", destination: "/compare", permanent: false },
