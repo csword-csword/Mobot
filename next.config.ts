@@ -43,6 +43,9 @@ const nextConfig: NextConfig = {
       { source: "/youre-not-crazy-the-deep-links-are-broken", destination: "/resources/blog/how-to-fix-broken-deep-links-and-push-notifications", permanent: true },
       { source: "/blog-ctas-test/:path*", destination: "/resources/blog", permanent: true },
       { source: "/ctas-in-text/:path*", destination: "/resources/blog", permanent: true },
+      // Cutover: DROP playground — redirect only (Charles Sep 22 2026)
+      { source: "/playground", destination: "/platform", permanent: true },
+      { source: "/playground/:path*", destination: "/platform", permanent: true },
     ];
   },
 };
