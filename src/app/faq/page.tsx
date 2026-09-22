@@ -17,7 +17,7 @@ export default function Page() {
         eyebrow="FAQ"
         title="Everything teams ask before they start"
         intro="How the robots work, what they can test, and how Credits and Unlimited are priced. Don't see your question? Ask us directly."
-        primary={{ label: 'Talk to Us', href: '/contact' }}
+        primary={{ label: 'Request a Demo', href: '/schedule-demo' }}
       />
 
       <section className="py-20 px-6">
@@ -50,7 +50,7 @@ export default function Page() {
         </div>
       </section>
 
-      <CtaBand title="Still have questions?" body="Talk to the team. We'll walk through your app, your devices, and what a verified defect report looks like on your build." primaryLabel="Contact Us" primaryHref="/contact" />
+      <CtaBand title="Still have questions?" body="Talk to the team. We'll walk through your app, your devices, and what a verified defect report looks like on your build." primaryLabel="Request a Demo" primaryHref="/schedule-demo" />
     </>
   );
 }
