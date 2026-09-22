@@ -80,7 +80,7 @@ export default function StatCounters() {
     <section className="relative py-16 px-6 border-b border-slate-200 bg-white" aria-label="Mobot by the numbers">
       <div className="mx-auto max-w-[86rem]">
         <p className="text-center text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-10">
-          Validated at enterprise scale &mdash; not a science project
+          Proven with enterprise teams on real release cycles
         </p>
         <div
           ref={ref}
