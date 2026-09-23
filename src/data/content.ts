@@ -21,7 +21,6 @@ export const customerLogos: Logo[] = [
   { src: '/images/chime-logo.svg', alt: 'Chime' },
   { src: '/images/homebase-logo.svg', alt: 'Homebase' },
   { src: '/images/fanatics-logo.svg', alt: 'Fanatics' },
-  { src: '/images/nhl-logo.svg', alt: 'NHL' },
   { src: '/images/macys-logo.svg', alt: "Macy's" },
   { src: '/images/phantom-logo.svg', alt: 'Phantom' },
   { src: '/images/suno-logo.svg', alt: 'Suno' },
@@ -34,7 +33,7 @@ export const customerLogos: Logo[] = [
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Chime', 'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno',
+  'Chime', 'Homebase', 'Fanatics', "Macy's", 'Phantom', 'Suno',
   'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
   'DoorDash', 'Mapbox',
 ];
