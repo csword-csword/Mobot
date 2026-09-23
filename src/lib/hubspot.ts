@@ -13,7 +13,9 @@ export const HUBSPOT_REPORT_FORM_ID =
 
 /** Optional until Demand supplies GUIDs — leave unset to fail closed (no silent drop). */
 export const HUBSPOT_DEMO_FORM_ID = process.env.HUBSPOT_DEMO_FORM_ID?.trim() || '';
-export const HUBSPOT_CONTACT_FORM_ID = process.env.HUBSPOT_CONTACT_FORM_ID?.trim() || '';
+export const HUBSPOT_CONTACT_FORM_ID =
+  process.env.HUBSPOT_CONTACT_FORM_ID?.trim() ||
+  'a8e1fba1-b7b8-439a-ae6c-6e7598561c7b';
 export const HUBSPOT_NEWSLETTER_FORM_ID =
   process.env.HUBSPOT_NEWSLETTER_FORM_ID?.trim() ||
   '10805bde-c9a5-4259-8a44-2f87bfff9f77';
