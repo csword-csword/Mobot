@@ -21,7 +21,7 @@ export const customerLogos: Logo[] = [
   // Shared by LogoMarquee (home/platform) + LogoCloud (about/compare/ADR).
   // Churned OUT — never re-add: Batch, Step, Citizen, OwnersBox.
   // why-logo.avif was mislabeled OwnersBox art — removed Sep 23 2026 (Charles).
-  { src: '/images/chime-logo.svg', alt: 'Chime' },
+  { src: '/images/chime-logo.png', alt: 'Chime' },
   { src: '/images/homebase-logo.svg', alt: 'Homebase' },
   { src: '/images/fanatics-logo.svg', alt: 'Fanatics' },
   { src: '/images/nhl-logo.png', alt: 'NHL', asIsOnDark: true },
@@ -114,7 +114,7 @@ export const caseStudies: CaseStudy[] = [
     detail: 'Chime used Mobot to eliminate manual testing and expand device coverage by 2100%.',
     bullets: ['20M+ users', 'Increased device coverage by 2100%', 'Streamlined test processes'],
     href: '/customers/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
-    logo: '/images/chime-logo.svg',
+    logo: '/images/chime-logo.png',
   },
   {
     company: 'Rappi',
