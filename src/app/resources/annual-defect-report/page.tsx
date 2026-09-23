@@ -4,7 +4,7 @@ import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
-import LogoCloud from '@/components/ui/LogoCloud';
+import LogoMarquee from '@/components/sections/LogoMarquee';
 import ReportDownload from '@/components/ReportDownload';
 import { ReportLockup } from '@/components/report/ReportBrand';
 
@@ -109,10 +109,11 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-16 px-6">
+      <LogoMarquee />
+      <section className="pb-16 px-6">
         <div className="mx-auto max-w-[80rem]">
-          <LogoCloud title="Data drawn from testing for teams like" />
-          <p className="text-center mt-8 text-sm text-slate-500">
+          <p className="text-center text-sm text-slate-500">
+            Data drawn from testing for teams like those above.{' '}
             Want your own app benchmarked against the report?{' '}
             <Link href="/schedule-demo" className="text-[#1d4ed8] font-semibold">Request a demo →</Link>
           </p>

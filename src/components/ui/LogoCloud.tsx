@@ -15,14 +15,15 @@ export default function LogoCloud({ title = 'Trusted by mobile teams', limit, cl
       {title && (
         <p className="text-center text-slate-400 text-xs font-bold uppercase tracking-[0.15em] mb-8">{title}</p>
       )}
-      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-8 items-center">
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
         {logos.map((logo) => (
-          <div key={logo.alt} className="relative h-9 w-full">
+          <div key={logo.alt} className="relative h-8 w-[120px] shrink-0">
             <Image
               src={logo.src}
               alt={logo.alt}
               fill
-              className="object-contain grayscale opacity-55 hover:opacity-90 hover:grayscale-0 transition-all"
+              sizes="120px"
+              className="object-contain object-center grayscale opacity-55 hover:opacity-90 hover:grayscale-0 transition-all"
             />
           </div>
         ))}
