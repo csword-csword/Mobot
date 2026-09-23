@@ -1,11 +1,16 @@
 import ScheduleDemoForm from '@/components/forms/ScheduleDemoForm';
+import HubSpotMeetingsEmbed from '@/components/forms/HubSpotMeetingsEmbed';
 
 export const metadata = { title: 'Request a Demo' };
 
+/**
+ * Primary path: HubSpot Meetings embed (same scheduler as pre-cutover Webflow).
+ * Secondary: first-party intake form → HubSpot Forms API when GUID is configured.
+ */
 export default function Page() {
   return (
     <section className="bg-gradient-to-b from-[#f3f7fe] to-white border-b border-slate-200">
-      <div className="mx-auto max-w-[64rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-start">
+      <div className="mx-auto max-w-[72rem] px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-start">
         <div>
           <p className="eyebrow text-sm mb-5">Get Started</p>
           <h1 className="font-bold tracking-tight text-[#0a2540] text-4xl sm:text-5xl leading-[1.1] mb-6">
@@ -28,11 +33,21 @@ export default function Page() {
             ))}
           </ul>
           <p className="mt-8 text-xs text-slate-500 leading-relaxed">
-            Work email required. Personal addresses (Gmail, Yahoo, Outlook.com, etc.) are not accepted.
+            Prefer email?{' '}
+            <a href="mailto:sales@teammobot.com" className="text-[#1d4ed8] font-semibold hover:underline">
+              sales@teammobot.com
+            </a>
+            . Work email required on the form below.
           </p>
         </div>
 
-        <ScheduleDemoForm />
+        <div className="flex flex-col gap-8">
+          <HubSpotMeetingsEmbed />
+          <div>
+            <h2 className="font-bold text-[#0a2540] text-lg mb-3">Or leave details and we&apos;ll follow up</h2>
+            <ScheduleDemoForm />
+          </div>
+        </div>
       </div>
     </section>
   );

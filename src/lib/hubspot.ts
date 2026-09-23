@@ -1,5 +1,5 @@
 /**
- * HubSpot portal + Annual Defect Report form (Charles / Demand, Sep 22 2026).
+ * HubSpot portal + form submits (Charles / Demand, Sep 2026).
  * Portal/form IDs are public identifiers (safe in env or defaults). Region: US / na1.
  */
 export const HUBSPOT_PORTAL_ID =
@@ -11,6 +11,12 @@ export const HUBSPOT_REPORT_FORM_ID =
   process.env.HUBSPOT_REPORT_FORM_ID?.trim() ||
   '3b8355f3-7dc7-471f-98c6-5bd384fa8f48';
 
+/** Optional until Demand supplies GUIDs — leave unset to fail closed (no silent drop). */
+export const HUBSPOT_DEMO_FORM_ID = process.env.HUBSPOT_DEMO_FORM_ID?.trim() || '';
+export const HUBSPOT_CONTACT_FORM_ID = process.env.HUBSPOT_CONTACT_FORM_ID?.trim() || '';
+export const HUBSPOT_NEWSLETTER_FORM_ID =
+  process.env.HUBSPOT_NEWSLETTER_FORM_ID?.trim() || '';
+
 /** US portal → api.hsforms.com; set HUBSPOT_FORMS_REGION=eu for EU. */
 export const HUBSPOT_FORMS_HOST =
   (process.env.HUBSPOT_FORMS_REGION || 'us').toLowerCase() === 'eu'
@@ -19,49 +25,41 @@ export const HUBSPOT_FORMS_HOST =
 
 export const REPORT_ACCESS_COOKIE = 'mobot_report_access';
 
-export type HubSpotSubmitInput = {
-  email: string;
-  company?: string;
-  pageUri?: string;
-  pageName?: string;
-  hutk?: string;
-};
+export type HubSpotField = { name: string; value: string };
 
 export type HubSpotSubmitResult =
   | { ok: true }
   | { ok: false; status: number; detail: string };
 
-/**
- * Submit to HubSpot Forms API v3. Unlock cookie must only be set after ok: true.
- */
-export async function submitReportDownloadForm(
-  input: HubSpotSubmitInput,
-): Promise<HubSpotSubmitResult> {
+export async function submitHubSpotForm(opts: {
+  formId: string;
+  fields: HubSpotField[];
+  pageUri?: string;
+  pageName?: string;
+  hutk?: string;
+}): Promise<HubSpotSubmitResult> {
   const portalId = HUBSPOT_PORTAL_ID;
-  const formId = HUBSPOT_REPORT_FORM_ID;
+  const formId = opts.formId?.trim();
   if (!portalId || !formId) {
     return {
       ok: false,
-      status: 500,
-      detail: 'HubSpot portal/form IDs are not configured',
+      status: 503,
+      detail: 'HubSpot form ID is not configured',
     };
   }
 
-  const fields: { objectTypeId: string; name: string; value: string }[] = [
-    { objectTypeId: '0-1', name: 'email', value: input.email },
-  ];
-  if (input.company?.trim()) {
-    fields.push({
+  const fields = opts.fields
+    .filter((f) => f.name && f.value.trim() !== '')
+    .map((f) => ({
       objectTypeId: '0-1',
-      name: 'company',
-      value: input.company.trim(),
-    });
-  }
+      name: f.name,
+      value: f.value.trim(),
+    }));
 
   const context: Record<string, string> = {};
-  if (input.pageUri) context.pageUri = input.pageUri;
-  if (input.pageName) context.pageName = input.pageName;
-  if (input.hutk) context.hutk = input.hutk;
+  if (opts.pageUri) context.pageUri = opts.pageUri;
+  if (opts.pageName) context.pageName = opts.pageName;
+  if (opts.hutk) context.hutk = opts.hutk;
 
   const url = `${HUBSPOT_FORMS_HOST}/submissions/v3/integration/submit/${portalId}/${formId}`;
 
@@ -74,7 +72,6 @@ export async function submitReportDownloadForm(
         fields,
         ...(Object.keys(context).length ? { context } : {}),
       }),
-      // HubSpot Forms API is public; no private app token required for this endpoint.
       cache: 'no-store',
     });
   } catch (err) {
@@ -93,4 +90,31 @@ export async function submitReportDownloadForm(
     status: res.status,
     detail: text.slice(0, 500) || res.statusText || 'HubSpot rejected submission',
   };
+}
+
+export type HubSpotSubmitInput = {
+  email: string;
+  company?: string;
+  pageUri?: string;
+  pageName?: string;
+  hutk?: string;
+};
+
+/**
+ * Submit to HubSpot Forms API v3. Unlock cookie must only be set after ok: true.
+ */
+export async function submitReportDownloadForm(
+  input: HubSpotSubmitInput,
+): Promise<HubSpotSubmitResult> {
+  const fields: HubSpotField[] = [{ name: 'email', value: input.email }];
+  if (input.company?.trim()) {
+    fields.push({ name: 'company', value: input.company.trim() });
+  }
+  return submitHubSpotForm({
+    formId: HUBSPOT_REPORT_FORM_ID,
+    fields,
+    pageUri: input.pageUri,
+    pageName: input.pageName,
+    hutk: input.hutk,
+  });
 }
