@@ -12,8 +12,8 @@ const stats = [
   {
     stat: '20h+',
     label: 'Hours of Manual Testing Eliminated Weekly',
-    company: '#1 US Neobank',
-    logo: null,
+    company: 'Chime',
+    logo: '/images/chime-logo.svg',
     detail: '20M+ Users · Increased device coverage by 2100% · Streamlined test processes',
     href: '/customers/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
   },

@@ -11,8 +11,10 @@ export const HUBSPOT_REPORT_FORM_ID =
   process.env.HUBSPOT_REPORT_FORM_ID?.trim() ||
   '3b8355f3-7dc7-471f-98c6-5bd384fa8f48';
 
-/** Optional until Demand supplies GUIDs — leave unset to fail closed (no silent drop). */
-export const HUBSPOT_DEMO_FORM_ID = process.env.HUBSPOT_DEMO_FORM_ID?.trim() || '';
+/** Demo / schedule form — Demand GUID Sep 23 2026 (Website Schedule Demo). */
+export const HUBSPOT_DEMO_FORM_ID =
+  process.env.HUBSPOT_DEMO_FORM_ID?.trim() ||
+  'a0c38f8f-89b7-43f1-9ff1-8eb37ef7a8d2';
 export const HUBSPOT_CONTACT_FORM_ID =
   process.env.HUBSPOT_CONTACT_FORM_ID?.trim() ||
   'a8e1fba1-b7b8-439a-ae6c-6e7598561c7b';

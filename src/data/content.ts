@@ -13,11 +13,12 @@ export interface Logo {
 
 /** Homepage / LogoCloud logos — match live mobot.io home marquee (Charles, Sep 23 2026: /platform same as home).
  * Shared by LogoMarquee (home) and LogoCloud (/platform, ADR, etc.).
- * Chime scrubbed from logo clouds (HARD LOCK). Prose/case studies stay anonymized as #1 US Neobank.
+ * Chime allowed on success story + logo strips only (Charles Sep 23 2026). Other marketing stays “#1 US Neobank”.
  */
 export const customerLogos: Logo[] = [
-  // Churned scrubbed Sep 23 2026: Batch, Step, Citizen, OwnersBox (+ Chime hard lock).
-  // Added Sep 23 2026 (Charles): NHL, Macy's, Homebase, Phantom, Suno, Fanatics.
+  // Churned scrubbed: Batch, Step, Citizen, OwnersBox. Chime restored to strips Sep 23 2026.
+  // Also: NHL, Macy's, Homebase, Phantom, Suno, Fanatics.
+  { src: '/images/chime-logo.svg', alt: 'Chime' },
   { src: '/images/homebase-logo.svg', alt: 'Homebase' },
   { src: '/images/fanatics-logo.svg', alt: 'Fanatics' },
   { src: '/images/nhl-logo.svg', alt: 'NHL' },
@@ -33,7 +34,7 @@ export const customerLogos: Logo[] = [
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno',
+  'Chime', 'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno',
   'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
   'DoorDash', 'Mapbox',
 ];
@@ -104,13 +105,14 @@ export const caseStudies: CaseStudy[] = [
     href: '/customers/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
   },
   {
-    company: '#1 US Neobank',
+    company: 'Chime',
     industry: 'Fintech · 20M+ users',
     stat: '20h+',
     label: 'Hours of Manual Testing Eliminated Weekly',
-    detail: 'The largest US neobank used Mobot to eliminate manual testing and expand device coverage by 2100%.',
+    detail: 'Chime used Mobot to eliminate manual testing and expand device coverage by 2100%.',
     bullets: ['20M+ users', 'Increased device coverage by 2100%', 'Streamlined test processes'],
     href: '/customers/how-the-1-neobank-used-mobot-to-eliminate-manual-testing',
+    logo: '/images/chime-logo.svg',
   },
   {
     company: 'Rappi',
