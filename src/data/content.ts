@@ -11,24 +11,24 @@ export interface Logo {
   invertOnDark?: boolean;
 }
 
-/** Homepage / LogoCloud logos — active clients only (sheet 1tfjux5RS2yZLlZ-tGoW9d4rXPyvb9WO4c6BlLC5RY28).
- * Chime logo allowed in logo marquee only (Charles, Sep 22 2026). Keep prose/case studies anonymized as #1 US Neobank.
- * Excludes churned/non-active names that previously appeared in the marquee.
+/** Homepage / LogoCloud logos — match live mobot.io home marquee (Charles, Sep 23 2026: /platform same as home).
+ * Shared by LogoMarquee (home) and LogoCloud (/platform, ADR, etc.).
+ * Chime scrubbed from logo clouds (HARD LOCK). Prose/case studies stay anonymized as #1 US Neobank.
  */
 export const customerLogos: Logo[] = [
-  { src: '/images/chime-logo.svg', alt: 'Chime' },
-  { src: '/images/citizen-logo_1.avif', alt: 'Citizen' },
-  { src: '/images/Rappi-Logo.svg', alt: 'Rappi' },
-  { src: '/images/persona-logo_1.avif', alt: 'Persona' },
-  { src: '/images/Sandboxx.svg', alt: 'Sandboxx' },
-  { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
-  { src: '/images/on-x-logo_1.avif', alt: 'onX' },
   { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
+  { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
+  { src: '/images/batch-logo.svg', alt: 'Batch' },
+  { src: '/images/step-logo_1.avif', alt: 'Step' },
+  { src: '/images/persona-logo_1.avif', alt: 'Persona' },
+  { src: '/images/on-x-logo_1.avif', alt: 'onX' },
+  { src: '/images/citizen-logo_1.avif', alt: 'Citizen' },
+  { src: '/images/why-logo.avif', alt: 'Why' },
 ];
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Chime', 'Citizen', 'Rappi', 'Persona', 'Sandboxx', 'KOHO', 'onX', 'Jolt', 'AllTrails', 'SonderMind',
+  'Citizen', 'Batch', 'Step', 'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
   'OwnersBox', 'Homebase', 'DoorDash', 'Fanatics', 'Mapbox', 'Phantom',
 ];
 
