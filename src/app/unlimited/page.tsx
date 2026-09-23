@@ -59,7 +59,7 @@ const programs = [
   },
 ];
 
-const trusted = ['Chime', 'Homebase', 'Fanatics', 'NHL', 'OwnersBox', "Macy's", 'Phantom', 'Suno', 'Persona', 'KOHO', 'Jolt', 'onX', 'Why']; // Churned scrubbed: Batch, Step, Citizen, OwnersBox
+const trusted = ['Chime', 'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno', 'Persona', 'KOHO', 'Jolt', 'onX', 'Why']; // Churned scrubbed: Batch, Step, Citizen, OwnersBox
 
 export default function Page() {
   return (

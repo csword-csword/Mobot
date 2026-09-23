@@ -16,13 +16,12 @@ export interface Logo {
  * Chime allowed on success story + logo strips only (Charles Sep 23 2026). Other marketing stays “#1 US Neobank”.
  */
 export const customerLogos: Logo[] = [
-  // Churned scrubbed: Batch, Step, Citizen. OwnersBox restored Sep 23 2026 (Charles). Chime restored to strips Sep 23 2026.
+  // Churned scrubbed: Batch, Step, Citizen, OwnersBox. Chime restored to strips Sep 23 2026.
   // Also: NHL, Macy's, Homebase, Phantom, Suno, Fanatics.
   { src: '/images/chime-logo.svg', alt: 'Chime' },
   { src: '/images/homebase-logo.svg', alt: 'Homebase' },
   { src: '/images/fanatics-logo.svg', alt: 'Fanatics' },
   { src: '/images/nhl-logo.svg', alt: 'NHL' },
-  { src: '/images/ownersbox-logo.png', alt: 'OwnersBox' },
   { src: '/images/macys-logo.svg', alt: "Macy's" },
   { src: '/images/phantom-logo.svg', alt: 'Phantom' },
   { src: '/images/suno-logo.svg', alt: 'Suno' },
@@ -35,7 +34,7 @@ export const customerLogos: Logo[] = [
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Chime', 'Homebase', 'Fanatics', 'NHL', 'OwnersBox', "Macy's", 'Phantom', 'Suno',
+  'Chime', 'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno',
   'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
   'DoorDash', 'Mapbox',
 ];
