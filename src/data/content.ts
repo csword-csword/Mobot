@@ -16,18 +16,26 @@ export interface Logo {
  * Chime scrubbed from logo clouds (HARD LOCK). Prose/case studies stay anonymized as #1 US Neobank.
  */
 export const customerLogos: Logo[] = [
-  // Churned logos scrubbed Sep 23 2026 (Charles): Batch, Step, Citizen, OwnersBox
-  { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
-  { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
+  // Churned scrubbed Sep 23 2026: Batch, Step, Citizen, OwnersBox (+ Chime hard lock).
+  // Added Sep 23 2026 (Charles): NHL, Macy's, Homebase, Phantom, Suno, Fanatics.
+  { src: '/images/homebase-logo.svg', alt: 'Homebase' },
+  { src: '/images/fanatics-logo.svg', alt: 'Fanatics' },
+  { src: '/images/nhl-logo.svg', alt: 'NHL' },
+  { src: '/images/macys-logo.svg', alt: "Macy's" },
+  { src: '/images/phantom-logo.svg', alt: 'Phantom' },
+  { src: '/images/suno-logo.svg', alt: 'Suno' },
   { src: '/images/persona-logo_1.avif', alt: 'Persona' },
+  { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
+  { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
   { src: '/images/on-x-logo_1.avif', alt: 'onX' },
   { src: '/images/why-logo.avif', alt: 'Why' },
 ];
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
+  'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno',
   'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
-  'Homebase', 'DoorDash', 'Fanatics', 'Mapbox', 'Phantom',
+  'DoorDash', 'Mapbox',
 ];
 
 export interface Testimonial {
@@ -141,7 +149,7 @@ export const caseStudies: CaseStudy[] = [
     detail: 'Homebase automated over 100 complex end-to-end tests per platform in under 4 months, replacing a regression suite that only ran quarterly.',
     bullets: ['150,000+ small businesses served', 'Full iOS & Android coverage every release', '100+ end-to-end tests automated in <4 months'],
     href: '/customers/homebase-mobile-qa-automation-with-mobot',
-    logo: 'https://cdn.prod.website-files.com/60e6a9c4d7f861626db7f1a6/693224cf1d5febb9c83cddfe_svgexport-2.svg',
+    logo: '/images/homebase-logo.svg',
   },
   {
     company: 'Batch',

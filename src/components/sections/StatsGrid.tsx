@@ -5,7 +5,7 @@ const stats = [
     stat: '5–10d → same day',
     label: 'Full-coverage regression time',
     company: 'Homebase',
-    logo: 'https://cdn.prod.website-files.com/60e6a9c4d7f861626db7f1a6/693224cf1d5febb9c83cddfe_svgexport-2.svg',
+    logo: '/images/homebase-logo.svg',
     detail: '150k+ small businesses · 100+ E2E cases per platform · Real-device regression',
     href: '/customers/homebase-mobile-qa-automation-with-mobot',
   },

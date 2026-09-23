@@ -59,7 +59,7 @@ const programs = [
   },
 ];
 
-const trusted = ['Persona', 'KOHO', 'Jolt', 'onX', 'Why']; // Churned scrubbed Sep 23 2026: Batch, Step, Citizen, OwnersBox (+ Chime)
+const trusted = ['Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno', 'Persona', 'KOHO', 'Jolt', 'onX', 'Why']; // Churned scrubbed: Batch, Step, Citizen, OwnersBox (+ Chime)
 
 export default function Page() {
   return (

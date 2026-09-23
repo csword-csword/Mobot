@@ -15,7 +15,7 @@ export default function LogoCloud({ title = 'Trusted by mobile teams', limit, cl
       {title && (
         <p className="text-center text-slate-400 text-xs font-bold uppercase tracking-[0.15em] mb-8">{title}</p>
       )}
-      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-x-8 gap-y-8 items-center">
+      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-8 items-center">
         {logos.map((logo) => (
           <div key={logo.alt} className="relative h-7 w-full">
             <Image
