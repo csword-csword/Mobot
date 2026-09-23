@@ -59,7 +59,7 @@ const programs = [
   },
 ];
 
-const trusted = ['Chime', 'Rappi', 'Citizen', 'Persona', 'Sandboxx', 'KOHO'];
+const trusted = ['Citizen', 'Persona', 'KOHO', 'Batch', 'Jolt', 'onX']; // Chime scrubbed — homepage marquee carve-out only
 
 export default function Page() {
   return (
