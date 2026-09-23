@@ -4,7 +4,7 @@ import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/ui/CtaBand';
-import LogoCloud from '@/components/ui/LogoCloud';
+import LogoMarquee from '@/components/sections/LogoMarquee';
 import PlatformStack from '@/components/PlatformStack';
 import RobotTapGraphic from '@/components/RobotTapGraphic';
 import DeviceGrid from '@/components/DeviceGrid';
@@ -112,11 +112,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-16 px-6 section-alt border-y border-slate-200">
-        <div className="mx-auto max-w-[80rem]">
-          <LogoCloud />
-        </div>
-      </section>
+      <LogoMarquee />
 
       {layerDetails.map((l, i) => {
         const Icon = l.icon;
