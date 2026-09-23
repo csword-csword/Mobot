@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 const stats = [
   {
-    stat: '30%+',
-    label: 'Increase in QA Efficiency',
-    company: 'Citizen',
-    logo: '/images/citizen-logo.svg',
-    detail: '10M+ Active Users · Automated 600 test cases weekly · App store rating 3.9→4.8',
-    href: '/customers/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
+    stat: '5–10d → same day',
+    label: 'Full-coverage regression time',
+    company: 'Homebase',
+    logo: 'https://cdn.prod.website-files.com/60e6a9c4d7f861626db7f1a6/693224cf1d5febb9c83cddfe_svgexport-2.svg',
+    detail: '150k+ small businesses · 100+ E2E cases per platform · Real-device regression',
+    href: '/customers/homebase-mobile-qa-automation-with-mobot',
   },
   {
     stat: '20h+',

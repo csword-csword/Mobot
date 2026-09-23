@@ -59,7 +59,7 @@ const programs = [
   },
 ];
 
-const trusted = ['Citizen', 'Persona', 'KOHO', 'Batch', 'Jolt', 'onX']; // Chime scrubbed — homepage marquee carve-out only
+const trusted = ['Persona', 'KOHO', 'Jolt', 'onX', 'Why']; // Churned scrubbed Sep 23 2026: Batch, Step, Citizen, OwnersBox (+ Chime)
 
 export default function Page() {
   return (

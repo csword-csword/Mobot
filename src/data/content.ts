@@ -16,20 +16,18 @@ export interface Logo {
  * Chime scrubbed from logo clouds (HARD LOCK). Prose/case studies stay anonymized as #1 US Neobank.
  */
 export const customerLogos: Logo[] = [
+  // Churned logos scrubbed Sep 23 2026 (Charles): Batch, Step, Citizen, OwnersBox
   { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
   { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
-  { src: '/images/batch-logo.svg', alt: 'Batch' },
-  { src: '/images/step-logo_1.avif', alt: 'Step' },
   { src: '/images/persona-logo_1.avif', alt: 'Persona' },
   { src: '/images/on-x-logo_1.avif', alt: 'onX' },
-  { src: '/images/citizen-logo_1.avif', alt: 'Citizen' },
   { src: '/images/why-logo.avif', alt: 'Why' },
 ];
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Citizen', 'Batch', 'Step', 'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
-  'OwnersBox', 'Homebase', 'DoorDash', 'Fanatics', 'Mapbox', 'Phantom',
+  'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
+  'Homebase', 'DoorDash', 'Fanatics', 'Mapbox', 'Phantom',
 ];
 
 export interface Testimonial {
@@ -96,7 +94,6 @@ export const caseStudies: CaseStudy[] = [
     detail: 'Citizen eliminated thousands of manual testing hours and lifted its App Store rating from 3.9 to 4.8.',
     bullets: ['10M+ active users', 'Automated 600 test cases weekly', 'App Store rating 3.9 → 4.8'],
     href: '/customers/citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
-    logo: '/images/citizen-logo.svg',
   },
   {
     company: '#1 US Neobank',
@@ -154,7 +151,6 @@ export const caseStudies: CaseStudy[] = [
     detail: 'Batch partnered with Mobot to eliminate manual testing across thousands of mobile test cases as its group trip-planning app scaled.',
     bullets: ['500,000+ parties planned to date', 'Thousands of test cases automated', '4.8★ rating, 16K+ App Store reviews'],
     href: '/customers/batch-partners-with-mobot-to-eliminate-manual-testing-across-thousands-of-mobile-test-cases',
-    logo: '/images/batch-logo.svg',
   },
   {
     company: 'Leading Real Estate Platform',

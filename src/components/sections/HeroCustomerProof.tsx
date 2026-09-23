@@ -9,7 +9,7 @@ import { getCaseStudy } from '@/data/caseStudies';
  */
 const featuredSlugs = [
   'homebase-mobile-qa-automation-with-mobot',
-  'citizen-gets-5-star-rating-eliminates-1-000s-of-manual-testing-hours',
+  'how-sandboxx-maintains-a-99-9-crash-free-rate-with-mobot',
   'how-rappi-scaled-martech-qa-with-computer-vision-and-robots',
 ];
 
