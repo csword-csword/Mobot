@@ -14,7 +14,7 @@ export default function LogoMarquee() {
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0a2540] to-transparent z-10 pointer-events-none" />
         <div className="flex animate-marquee gap-16 items-center">
           {logos.map((logo, i) => (
-            <div key={`${logo.alt}-${i}`} className="shrink-0 relative h-8 w-[110px]">
+            <div key={`${logo.alt}-${i}`} className="shrink-0 relative h-9 w-[130px]">
               <Image
                 src={logo.src}
                 alt={logo.alt}

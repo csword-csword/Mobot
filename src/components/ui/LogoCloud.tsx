@@ -17,7 +17,7 @@ export default function LogoCloud({ title = 'Trusted by mobile teams', limit, cl
       )}
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-8 items-center">
         {logos.map((logo) => (
-          <div key={logo.alt} className="relative h-7 w-full">
+          <div key={logo.alt} className="relative h-9 w-full">
             <Image
               src={logo.src}
               alt={logo.alt}
