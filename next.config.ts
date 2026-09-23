@@ -9,6 +9,29 @@ const blogSlugRedirects = (generatedBlogPosts as { slug?: string }[])
     permanent: true as const,
   }));
 
+/**
+ * Legacy Webflow thank-you pages with no successor. Anything already given a
+ * more specific destination earlier in the redirect list is omitted here.
+ */
+const legacyThankYouRedirects = [
+  "thank-you-benchmark-report-sample",
+  "thank-you-branch-report",
+  "thank-you-bug-challenge",
+  "thank-you-current-customer",
+  "thank-you-meeting-booked",
+  "thank-you-meeting-confirmation",
+  "thank-you-meeting-request-received",
+  "thank-you-new-customer",
+  "thank-you-page",
+  "thank-you-peak-season-checklist",
+  "thank-you-test",
+  "thank-you-youre-not-crazy-the-deep-links-have-issues",
+].map((slug) => ({
+  source: `/${slug}`,
+  destination: "/schedule-demo",
+  permanent: true as const,
+}));
+
 const nextConfig: NextConfig = {
   images: {
     // Blog post artwork imported from the Webflow CMS export.
@@ -29,6 +52,32 @@ const nextConfig: NextConfig = {
       // Missing live slugs (not in export) → hub, not a soft 404
       { source: "/blog/:path*", destination: "/resources/blog", permanent: true },
       { source: "/resources/case-studies", destination: "/customers", permanent: true },
+      // Live Webflow /case-studies → Next /customers (slugs carried over 1:1)
+      { source: "/case-studies", destination: "/customers", permanent: true },
+      { source: "/case-studies/:slug", destination: "/customers/:slug", permanent: true },
+      // Remaining live top-level pages with no 1:1 successor
+      { source: "/features", destination: "/platform", permanent: true },
+      { source: "/competitor-comparison", destination: "/compare", permanent: true },
+      { source: "/schedule-a-demo", destination: "/schedule-demo", permanent: true },
+      { source: "/resources", destination: "/resources/blog", permanent: true },
+      { source: "/events", destination: "/resources/webinars-events", permanent: true },
+      { source: "/press", destination: "/about", permanent: true },
+      { source: "/customers-new", destination: "/customers", permanent: true },
+      { source: "/self-serve-upload", destination: "/schedule-demo", permanent: true },
+      { source: "/create-a-new-test", destination: "/schedule-demo", permanent: true },
+      { source: "/mobot-for-growth", destination: "/solutions/push-notifications-deep-linking", permanent: true },
+      { source: "/push-notification-validation", destination: "/solutions/push-notifications-deep-linking", permanent: true },
+      { source: "/test-a-deep-link-now", destination: "/solutions/push-notifications-deep-linking", permanent: true },
+      { source: "/deep-link-sample-benchmark-report", destination: "/resources/blog/2023-state-of-mobile-deep-linking", permanent: true },
+      { source: "/your-test-automation-creates-costly-test-debt", destination: "/resources/blog/your-test-automation-creates-costly-test-debt", permanent: true },
+      { source: "/mobot-agreement-terms-of-service", destination: "/terms", permanent: true },
+      { source: "/terms-of-service", destination: "/terms", permanent: true },
+      { source: "/star-east-2024", destination: "/resources/webinars-events", permanent: true },
+      { source: "/thank-you-starwest", destination: "/resources/webinars-events", permanent: true },
+      // Legacy funnel pages — no successor, send to the demo funnel
+      { source: "/first-free-test-thank-you", destination: "/schedule-demo", permanent: true },
+      { source: "/google-ads-pre-meeting-demo-form", destination: "/schedule-demo", permanent: true },
+      { source: "/payment-flow", destination: "/pricing", permanent: true },
       { source: "/why-mobot", destination: "/why-real-devices", permanent: true },
       { source: "/compare/mobot-vs-scripted-automation", destination: "/compare", permanent: false },
       // Cutover: drop legacy SKU LPs (Managed / Live / Insights) — Charles Sep 22 2026
@@ -75,6 +124,11 @@ const nextConfig: NextConfig = {
       { source: "/yc-startup-support", destination: "/", permanent: true },
       { source: "/mobot-referral-program", destination: "/", permanent: true },
       { source: "/outcomes", destination: "/customers", permanent: true },
+      // Remaining legacy thank-you pages from the Webflow export. Listed
+      // explicitly rather than by wildcard: a mid-segment repeat like
+      // "/thank-you-:path*" is not a valid path-to-regexp pattern, and the
+      // specific thank-you rules above must keep precedence regardless.
+      ...legacyThankYouRedirects,
     ];
   },
 };
