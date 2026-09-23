@@ -6,10 +6,18 @@ import CtaBand from '@/components/ui/CtaBand';
 
 export const metadata = {
   title: 'Press',
-  description: 'Press room for Team Mobot Inc. — news, Series A announcement, and media contact.',
+  description: 'Press room for Team Mobot Inc. — news, Annual Defect Report, Series A, and media contact.',
 };
 
 const releases = [
+  {
+    date: 'September 23, 2026',
+    title:
+      'Mobot Annual Defect Report: 6,372 Real-Device Bugs Show Most Critical Mobile Failures Are Single-Platform',
+    href: '/press/annual-defect-report-2026',
+    blurb:
+      'Across a sampling of 83 customer apps, 83% of defects appeared on only one platform Mobot tested. Full report gated on mobot.io.',
+  },
   {
     date: 'August 18, 2022',
     title: 'Mobot launches robot-powered QA-as-a-Service with $12.5M Series A',

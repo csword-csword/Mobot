@@ -15,7 +15,8 @@ export const HUBSPOT_REPORT_FORM_ID =
 export const HUBSPOT_DEMO_FORM_ID = process.env.HUBSPOT_DEMO_FORM_ID?.trim() || '';
 export const HUBSPOT_CONTACT_FORM_ID = process.env.HUBSPOT_CONTACT_FORM_ID?.trim() || '';
 export const HUBSPOT_NEWSLETTER_FORM_ID =
-  process.env.HUBSPOT_NEWSLETTER_FORM_ID?.trim() || '';
+  process.env.HUBSPOT_NEWSLETTER_FORM_ID?.trim() ||
+  '10805bde-c9a5-4259-8a44-2f87bfff9f77';
 
 /** US portal → api.hsforms.com; set HUBSPOT_FORMS_REGION=eu for EU. */
 export const HUBSPOT_FORMS_HOST =

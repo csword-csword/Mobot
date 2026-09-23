@@ -65,7 +65,7 @@ const nextConfig: NextConfig = {
       { source: "/schedule-a-demo", destination: "/schedule-demo", permanent: true },
       { source: "/resources", destination: "/resources/blog", permanent: true },
       { source: "/events", destination: "/resources/webinars-events", permanent: true },
-      { source: "/press", destination: "/about", permanent: true },
+      // /press stays Press Room (ADR release Sep 23 2026) — no longer → /about
       { source: "/customers-new", destination: "/customers", permanent: true },
       { source: "/self-serve-upload", destination: "/schedule-demo", permanent: true },
       { source: "/create-a-new-test", destination: "/schedule-demo", permanent: true },
