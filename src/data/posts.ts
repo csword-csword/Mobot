@@ -252,20 +252,35 @@ const seedPosts: Post[] = [
     cta: { label: 'See how defect validation works', href: '/platform/defect-validation' },
   },
   {
-    slug: 'annual-defect-report',
-    title: 'Mobot Annual Defect Report: What Real Mobile Bugs Look Like',
+    slug: 'mobot-annual-defect-report-2026',
+    title:
+      'Mobot Annual Defect Report: 6,372 Real-Device Bugs Show Most Critical Mobile Failures Are Single-Platform',
     kind: 'report',
-    date: '2026-09-01',
-    readTime: '15 min',
-    tags: ['Research', 'Defect data', 'Industry benchmarks'],
+    date: '2026-09-23',
+    readTime: '8 min',
+    author: 'Charles Sword',
+    tags: ['Research', 'Defect data', 'Real devices', 'Cross-platform'],
     featured: true,
     summary:
-      'A year of Mobot testing produced 6,372 unique defects across 83 mobile apps in 11 industries. Five bug categories account for 57% of everything found — and every vertical has a signature bug that runs 1.4× to 3.8× above the cross-industry baseline.',
-    paragraphs: [
-      'Most industry reports survey teams about the bugs they think they have. This one counts the bugs Mobot’s robots actually found on real iOS and Android hardware between Q3 2025 and Q2 2026 — 6,372 unique defects across 83 apps in 11 industries, each reviewed by a QA analyst before it was counted.',
-      'Across every industry, five categories dominated: broken navigation, missing or blank content, login and authentication failures, payment issues, and crashes. Together they account for 57% of every defect surfaced. But the average hides where the real risk lives: a fintech team and a travel team are fighting different bugs, and each is over-exposed in a way general-purpose QA tools tend to miss.',
-      'Every one of the 11 verticals studied surfaced at least one meaningfully over-indexed bug category, from Social/Dating notifications at 3.8× the baseline to Travel/Outdoor location bugs at 3.7×. The full report breaks down category share by industry, deviation from the testing baseline, signature bugs sorted by uplift multiple, and whether defect classes favor one platform.',
-    ],
+      'Mobot analyzed 6,372 unique defects across a sampling of 83 customer apps. Five categories drove 57% of findings, and 83% of defects appeared on only one platform — evidence emulators alone cannot replace real-device proof.',
+    html: `
+      <p>Mobot’s Annual Defect Report analyzes 6,372 unique defects surfaced over twelve months of robot-powered testing on real iOS and Android devices across a sampling of 83 of our customers’ apps in 11 industries. The dataset covers 145,000+ automated test executions and 5.8 million QA actions from July 1, 2025 through June 30, 2026.</p>
+      <p>The story is cross-platform real-device quality. Emulators remain useful in the development loop. What they cannot replace is proving the release on the same glass, permissions, and networks your customers use.</p>
+
+      <h2>What the data shows</h2>
+      <p>Five categories — broken navigation, missing or blank content, login and authentication failures, payment issues, and crashes — accounted for 57% of every defect Mobot surfaced. Four of those (navigation, missing content, login, payment) alone covered about half of all findings.</p>
+      <p>Critically, 83% of defects appeared on only one of the platforms we tested; cross-platform bugs never exceeded 28% of any category. Native iOS and Android apps are often separate codebases, so a single-platform finding does not mean the same shared code failed everywhere — it means teams that thoroughly test one OS and spot-check the other systematically under-cover real-device risk.</p>
+      <p>Of 512 P0 defects in the sampling, crashes and freezes were 46%, login/auth 18%, signup/onboarding 9%, and payment/billing 5%. About a quarter of P0s were “front-door” failures — crash on launch, login that rejects valid credentials, or onboarding that never completes — often found in the first thirty seconds of a real-device run. 85% of P0s appeared on only one of the platforms we tested (48% iOS-only, 37% Android-only, 15% on both).</p>
+      <p>In fintech (13 customers, industry-level aggregation only), 1 in every 5 defects was a payment or billing issue — 239 confirmed payment defects, 2.5× the overall rate. These sit on the critical path of checkout and remittance flows; the report does not attribute individual customer outcomes.</p>
+      <p>Observed platform skews (not a single-cause claim): notification defects skewed iOS by 13 points; camera/photo upload skewed Android by 10 points; cart/checkout by 9 points. Android Play rating and vitals remain a useful secondary consumer-app signal — one proof point, not the thesis of the report.</p>
+
+      <blockquote>
+        <p>“Emulators remain useful in the development loop. What they cannot replace is proving the release on the same glass, permissions, and networks your customers use. This year’s data makes the cost of skipping that step concrete,” said Charles Sword, CEO of Mobot.</p>
+      </blockquote>
+
+      <h2>Get the report</h2>
+      <p>Read the full <a href="/resources/annual-defect-report">Annual Defect Report</a> (gated), or <a href="/schedule-demo">schedule a demo</a>.</p>
+    `,
     cta: { label: 'Download the full report', href: '/resources/annual-defect-report' },
   },
   {

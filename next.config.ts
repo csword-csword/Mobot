@@ -48,6 +48,10 @@ const nextConfig: NextConfig = {
     return [
       // Live Webflow /blog → Next /resources/blog (full CMS import Sep 22 2026)
       { source: "/blog", destination: "/resources/blog", permanent: true },
+      // ADR blog cut (Charles OK Sep 23 2026) — seed slug + Content preferred alias
+      { source: "/blog/mobot-annual-defect-report-2026", destination: "/resources/blog/mobot-annual-defect-report-2026", permanent: true },
+      { source: "/blog/annual-defect-report", destination: "/resources/blog/mobot-annual-defect-report-2026", permanent: true },
+      { source: "/resources/blog/annual-defect-report", destination: "/resources/blog/mobot-annual-defect-report-2026", permanent: true },
       ...blogSlugRedirects,
       // Missing live slugs (not in export) → hub, not a soft 404
       { source: "/blog/:path*", destination: "/resources/blog", permanent: true },
