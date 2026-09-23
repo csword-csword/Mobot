@@ -59,7 +59,7 @@ const programs = [
   },
 ];
 
-const trusted = ['Chime', 'Homebase', 'Fanatics', "Macy's", 'Phantom', 'Suno', 'Persona', 'KOHO', 'Jolt', 'onX', 'Why']; // Churned scrubbed: Batch, Step, Citizen, OwnersBox
+const trusted = ['Chime', 'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno', 'Persona', 'KOHO', 'Jolt', 'onX']; // Churned OUT: Batch, Step, Citizen, OwnersBox (why-logo was OwnersBox — removed)
 
 export default function Page() {
   return (

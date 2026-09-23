@@ -9,6 +9,8 @@ export interface Logo {
   alt: string;
   /** Some logo files are dark-on-transparent; invert when shown on navy. */
   invertOnDark?: boolean;
+  /** Skip mono invert on navy marquee (NHL shield letters go blank otherwise). */
+  asIsOnDark?: boolean;
 }
 
 /** Homepage / LogoCloud logos — match live mobot.io home marquee (Charles, Sep 23 2026: /platform same as home).
@@ -16,11 +18,13 @@ export interface Logo {
  * Chime allowed on success story + logo strips only (Charles Sep 23 2026). Other marketing stays “#1 US Neobank”.
  */
 export const customerLogos: Logo[] = [
-  // Churned scrubbed: Batch, Step, Citizen, OwnersBox. Chime restored to strips Sep 23 2026.
-  // Also: NHL, Macy's, Homebase, Phantom, Suno, Fanatics.
+  // Shared by LogoMarquee (home/platform) + LogoCloud (about/compare/ADR).
+  // Churned OUT — never re-add: Batch, Step, Citizen, OwnersBox.
+  // why-logo.avif was mislabeled OwnersBox art — removed Sep 23 2026 (Charles).
   { src: '/images/chime-logo.svg', alt: 'Chime' },
   { src: '/images/homebase-logo.svg', alt: 'Homebase' },
   { src: '/images/fanatics-logo.svg', alt: 'Fanatics' },
+  { src: '/images/nhl-logo.png', alt: 'NHL', asIsOnDark: true },
   { src: '/images/macys-logo.svg', alt: "Macy's" },
   { src: '/images/phantom-logo.svg', alt: 'Phantom' },
   { src: '/images/suno-logo.svg', alt: 'Suno' },
@@ -28,13 +32,12 @@ export const customerLogos: Logo[] = [
   { src: '/images/koho-logo_1.avif', alt: 'KOHO' },
   { src: '/images/jolt-logo_1.avif', alt: 'Jolt' },
   { src: '/images/on-x-logo_1.avif', alt: 'onX' },
-  { src: '/images/why-logo.avif', alt: 'Why' },
 ];
 
 /** Names of customers referenced on the current site without a usable logo file. */
 export const customerNames = [
-  'Chime', 'Homebase', 'Fanatics', "Macy's", 'Phantom', 'Suno',
-  'Persona', 'KOHO', 'onX', 'Jolt', 'Why', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
+  'Chime', 'Homebase', 'Fanatics', 'NHL', "Macy's", 'Phantom', 'Suno',
+  'Persona', 'KOHO', 'onX', 'Jolt', 'Rappi', 'Sandboxx', 'AllTrails', 'SonderMind',
   'DoorDash', 'Mapbox',
 ];
 
