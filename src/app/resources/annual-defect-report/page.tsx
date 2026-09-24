@@ -27,6 +27,7 @@ export default function Page() {
       <PageHero
         dark
         bgImage="/images/lab/DSC_3353.webp"
+        mobileAsideFirst
         eyebrow="Annual Defect Report"
         badge="2026 edition · preview"
         title={

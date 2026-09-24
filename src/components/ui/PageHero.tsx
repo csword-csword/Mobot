@@ -17,6 +17,8 @@ interface PageHeroProps {
   secondary?: Cta;
   /** Optional visual rendered to the right on large screens. */
   aside?: ReactNode;
+  /** On small screens, render aside before title/intro (ADR gate). Desktop order unchanged. */
+  mobileAsideFirst?: boolean;
   /** Center the text (no aside). */
   center?: boolean;
   /** Use the navy hero treatment. */
@@ -34,6 +36,7 @@ export default function PageHero({
   primary,
   secondary,
   aside,
+  mobileAsideFirst,
   center,
   dark,
   bgImage,
@@ -67,7 +70,7 @@ export default function PageHero({
           aside ? 'grid lg:grid-cols-2 gap-14 items-center' : ''
         } ${center ? 'text-center' : ''}`}
       >
-        <div className={center ? 'mx-auto max-w-[46rem]' : 'max-w-[44rem]'}>
+        <div className={`${center ? 'mx-auto max-w-[46rem]' : 'max-w-[44rem]'} ${mobileAsideFirst ? 'order-2 lg:order-1' : ''}`}>
           <div className={`flex items-center gap-3 mb-5 ${center ? 'justify-center' : ''}`}>
             <p className={`${eyebrowClass} hero-line hero-line-1`}>{eyebrow}</p>
             {badge && (
@@ -113,7 +116,11 @@ export default function PageHero({
             </div>
           )}
         </div>
-        {aside && <div className="hero-line hero-line-5">{aside}</div>}
+        {aside && (
+          <div className={`hero-line hero-line-5 ${mobileAsideFirst ? 'order-1 lg:order-2' : ''}`}>
+            {aside}
+          </div>
+        )}
       </div>
     </section>
   );
