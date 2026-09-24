@@ -274,7 +274,7 @@ const seedPosts: Post[] = [
 
       <h3>The false confidence problem before weekly releases</h3>
       <p>The danger is treating a green emulator suite as release proof. Trust flows — login with MFA, payment confirmation, push → open → deep link, camera-based ID capture — rarely get a true end-to-end pass on virtual devices. Teams then burn the last days of the cycle on manual cases, or worse, ship and learn from Play reviews.</p>
-      <p>Emulators remain useful in the development loop. What they cannot replace is proving the release on the same glass, permissions, and networks your customers use. (See also Mobot’s <a href="/resources/blog/mobot-annual-defect-report-2026">Annual Defect Report 2026</a> and the <a href="/resources/annual-defect-report">ADR gate</a>.)</p>
+      <p>Emulators remain useful in the development loop. What they cannot replace is proving the release on the same glass, permissions, and networks your customers use. (See also Mobot’s <a href="/resources/blog/mobot-annual-defect-report-2026">Annual Defect Report 2026</a>.)</p>
 
       <h2>Gaps Apple and Android ecosystems already admit</h2>
 
