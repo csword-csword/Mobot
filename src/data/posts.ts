@@ -357,7 +357,6 @@ const seedPosts: Post[] = [
       <h2>Prove it on real devices</h2>
       <p>Watch robots run a trust-flow suite on physical devices.</p>
       <p><a href="/schedule-demo" style="display:inline-flex;padding:0.75rem 1.5rem;border-radius:0.375rem;background:#1d4ed8;color:#fff;font-weight:600;text-decoration:none;font-size:0.875rem;">Schedule a demo</a></p>
-      <p>A Free Android App Quality Audit (mapping Play review and vitals risk to the real-device cases emulators skip) is available on request / coming soon.</p>
       <p>If it only passes on an emulator, it hasn’t passed. Real device testing vs emulator is not a philosophy debate — it is which bugs reach production.</p>
 
       <blockquote>

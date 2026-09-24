@@ -104,7 +104,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </section>
       )}
 
-      <CtaBand />
+      <CtaBand
+        {...(post.slug === 'physical-robots-vs-emulators'
+          ? {
+              body: 'Watch robots run a trust-flow suite on physical devices — then book a demo.',
+              secondaryLabel: '',
+            }
+          : {})}
+      />
     </>
   );
 }
