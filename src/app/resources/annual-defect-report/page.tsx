@@ -27,8 +27,8 @@ export default function Page() {
       <PageHero
         dark
         bgImage="/images/lab/DSC_3353.webp"
+        mobileAsideFirst
         eyebrow="Annual Defect Report"
-        badge="2026 edition · preview"
         title={
           <>
             <span className="block mb-6">
@@ -97,11 +97,9 @@ export default function Page() {
               <div className="flex items-center gap-3 mb-4">
                 <FileText className="w-5 h-5 text-[#1d4ed8]" />
                 <span className="font-bold text-[#0a2540]">Mobot Annual Defect Report</span>
-                <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[#efeafd] text-[#4f2bc2]">Preview</span>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                The report is a work in progress and will be updated as the full year of data is finalized.
-                Download now and you&apos;ll receive the final edition when it ships.
+                Unlock the full report with your work email.
               </p>
               <ReportDownload compact />
             </div>

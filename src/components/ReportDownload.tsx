@@ -104,7 +104,7 @@ export default function ReportDownload({ compact }: { compact?: boolean }) {
           {pending ? 'Unlocking…' : 'Download the report'}
         </button>
       </div>
-      {error && <p className="mt-2 text-[11px] text-red-600">{error}</p>}
+      {error && <p className="mt-2 text-sm text-red-600" role="alert">{error}</p>}
       <p className="mt-2 text-[11px] text-slate-400 inline-flex items-center gap-1">
         <Lock className="w-3 h-3" /> Work email. No spam, one follow-up at most.
       </p>
